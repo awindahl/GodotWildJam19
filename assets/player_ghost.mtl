@@ -1,0 +1,29 @@
+# Created by Kenney (www.kenney.nl)
+
+newmtl metalGreen
+Kd 0.07907145 0.2551724 0.04059561
+
+newmtl metalLight
+Kd 0.3405793 0.483 0.29
+
+newmtl wood
+Kd 0.4174414 0.749 0.345
+
+newmtl tan
+Kd 1 0.9983501 0.9954545
+
+newmtl glass
+Kd 0.741 0.973 1
+
+newmtl dark
+Kd 0.224 0.235 0.275
+
+newmtl stone
+Kd 0 0 0
+
+newmtl woodDark
+Kd 0.3358966 0.62 0.235
+
+newmtl metal
+Kd 0.478 0.463 0.738
+
