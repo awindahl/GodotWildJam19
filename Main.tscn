@@ -26,11 +26,24 @@ transform = Transform( 99.8358, 0, 0, 0, -1.62921e-07, 1, 0, -99.8358, -1.62653e
 mesh = SubResource( 3 )
 material/0 = SubResource( 4 )
 
-[node name="Camera" type="Camera" parent="."]
+[node name="TopCamera" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.569294, 0.822134, 0, -0.822134, 0.569294, 0, 44.2593, 50.8029 )
 
 [node name="Land" type="Spatial" parent="."]
 
-[node name="Timer" type="Timer" parent="."]
-autostart = true
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Control"]
+margin_right = 40.0
+margin_bottom = 14.0
+text = "R - restart for new map
+ESCAPE - quit
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
