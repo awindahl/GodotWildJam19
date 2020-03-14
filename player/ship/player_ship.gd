@@ -8,7 +8,7 @@ var camera_move_time = .5
 var base_camera_flag = true
 
 func _ready():
-	$Camera.transform = $CameraSail.transform
+	pass #$Camera.transform = $CameraSail.transform
 
 
 func _physics_process(delta):
@@ -23,7 +23,7 @@ func _physics_process(delta):
 	if Input.is_action_pressed("ui_left"):
 		rotate(Vector3(0,1,0), rotate_speed*delta)
 	
-	move_and_slide(velocity)
+	#move_and_slide(velocity)
 	
 	# Camera controls
 	if Input.is_action_just_pressed("ui_select"):

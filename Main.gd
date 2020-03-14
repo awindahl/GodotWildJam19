@@ -45,9 +45,9 @@ func _input(event):
 	
 	if event.is_action_pressed("number_1"):
 		$TopCamera.current = true
-		$player_ship_1/Camera.current = false
+		$player_ship_1/CamBase/CameraCrew.current = false
 	elif event.is_action_pressed("number_2"):
 		$TopCamera.current = false
-		$player_ship_1/Camera.current = true
+		$player_ship_1/CamBase/CameraCrew.current = true
 
 
