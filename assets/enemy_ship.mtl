@@ -1,0 +1,23 @@
+# Created by Kenney (www.kenney.nl)
+
+newmtl metalGreen
+Kd 0 0 0
+
+newmtl metalLight
+Kd 0.698 0.686 0.867
+
+newmtl tan
+Kd 0.1586207 0.0459453 0
+
+newmtl wood
+Kd 0.749 0.443 0.345
+
+newmtl metalDark
+Kd 0 0 0
+
+newmtl _defaultMat
+Kd 1 0 0
+
+newmtl metal
+Kd 0.379 0.317 0.317
+
