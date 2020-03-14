@@ -1,0 +1,2 @@
+Godot - https://godotengine.org/license
+Chrisknyfe's Godot Scraps - https://github.com/Chrisknyfe/godot-scraps
