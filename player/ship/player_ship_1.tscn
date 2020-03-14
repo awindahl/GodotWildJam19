@@ -38,7 +38,7 @@ mesh = ExtResource( 3 )
 material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 2.07011, 0, 1.43736, -0.870269 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 2.07011, 0.796575, 1.30199, -1.14069 )
 shape = SubResource( 1 )
 
 [node name="CameraSail" type="Position3D" parent="."]
@@ -53,12 +53,11 @@ script = ExtResource( 2 )
 [node name="InnerGimbal" type="Spatial" parent="Controller"]
 
 [node name="Camera" type="Camera" parent="Controller/InnerGimbal"]
-transform = Transform( -1, 1.37707e-07, -2.95313e-07, 0, 0.906308, 0.422618, 3.25841e-07, 0.422618, -0.906308, 0.884, 4.312, -5.632 )
+transform = Transform( -1, 1.37706e-07, -2.95312e-07, 0, 0.906308, 0.422618, 3.25841e-07, 0.422618, -0.906308, 0.884, 4.312, -5.632 )
 current = true
 near = 0.01
 far = 255.0
 
-[node name="RayCast" type="RayCast" parent="Controller/InnerGimbal"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1.05455, 0, 3.87127, 4.78472 )
+[node name="RayCast" type="RayCast" parent="Controller/InnerGimbal/Camera"]
 enabled = true
-cast_to = Vector3( 0, 0, 0 )
+collision_mask = 262145

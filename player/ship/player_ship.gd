@@ -21,7 +21,7 @@ var direction = Vector3()
 var my_rotation = Vector2()
 var speed = Vector3()
 var movement = Vector3()
-var current_vertical_speed = Vector3()
+var rotation_speed = 2
 
 # camera stuff
 var yaw = 0
@@ -36,14 +36,13 @@ onready var sail2 = $"../Mesh/SailMid"
 onready var sail3 = $"../Mesh/SailRear"
 onready var gimbal = $InnerGimbal
 onready var camera = $InnerGimbal/Camera
-onready var camera_cast = $InnerGimbal/RayCast
+onready var camera_cast = $InnerGimbal/Camera/RayCast
 onready var my_model = $"../Mesh"
 onready var collider = $"../CollisionShape"
 
 func _ready():
 	
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	camera_cast.cast_to = gimbal.translation
 	movement_speed = normal_speed
 
 func _unhandled_input(event):
@@ -80,18 +79,15 @@ func _physics_process(delta):
 			sail1.scale.z -= 0.1
 			sail2.scale.z -= 0.1
 			sail3.scale.z -= 0.1
-#	if down:
-#		direction += aim[2]
+	if down:
+		movement /= 1.12
 #	if left:
 #		direction -= aim[0]
 #	if right:
 #		direction += aim[0]
-
-	current_vertical_speed = Vector3()
-	
-	if up or down or left or right:
+	if up:
 		is_moving = true
-		if sprint and sail1.scale.z < 6:
+		if sprint and sail1.scale.z < 6 and movement_speed > 2.5:
 			movement_speed = sprint_speed
 			sail1.scale.z += 3
 			sail2.scale.z += 3
@@ -99,7 +95,8 @@ func _physics_process(delta):
 		else:
 			movement_speed = lerp(movement_speed, normal_speed, delta)
 	else:
-		direction = Vector3()
+		movement_speed = 0
+		#direction = Vector3()
 		is_moving = false
 
 	movement.y += GRAVITY * delta * 0.3
@@ -121,25 +118,25 @@ func _physics_process(delta):
 	movement.z = hVel.z
 	
 	movement = get_parent().move_and_slide(movement)
-	
+
+	print(camera_cast.cast_to)
 	if camera_cast.is_colliding():
 		camera.global_transform.origin = camera_cast.get_collision_point()
 	else:
 		camera.translation = DEFAULT_CAMERA_POSITION
 	
 	#Player Rotation
-	var angle = atan2(movement.x, movement.z)
-	var player_rotation = get_rotation()
-	
-	player_rotation.y = angle
-	my_model.set_rotation(player_rotation)
-	collider.set_rotation(player_rotation)
+	if is_moving:
+		var angle = atan2(movement.x, movement.z)
+		var player_rotation = get_rotation()
+		
+		#player_rotation.y = angle
+		my_model.rotation = lerp(my_model.rotation, player_rotation, delta)
 	
 	#Camera Rotation
 	gimbal.rotate_x(deg2rad(my_rotation.y) * delta * mouse_sensitivity * 3)
 	gimbal.rotation_degrees.x = clamp(gimbal.rotation_degrees.x, -rotation_limit, rotation_limit)
-	sail1.rotation_degrees.y = clamp(gimbal.rotation_degrees.y, -rotation_limit, rotation_limit)
-	sail2.rotation_degrees.y = clamp(gimbal.rotation_degrees.y, -rotation_limit, rotation_limit)
-	sail3.rotation_degrees.y = clamp(gimbal.rotation_degrees.y, -rotation_limit, rotation_limit)
+	
+	camera_cast.cast_to = gimbal.translation
 	
 	my_rotation = Vector2()

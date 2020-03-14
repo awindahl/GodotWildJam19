@@ -2,7 +2,7 @@
 
 [ext_resource path="res://assets/island_base_1.obj" type="ArrayMesh" id=1]
 
-[sub_resource type="CapsuleShape" id=5]
+[sub_resource type="CapsuleShape" id=1]
 radius = 0.777807
 height = 0.331757
 
@@ -10,25 +10,27 @@ height = 0.331757
 radius = 0.672296
 height = 1.02442
 
-[sub_resource type="CapsuleShape" id=6]
+[sub_resource type="CapsuleShape" id=8]
 radius = 0.240167
 height = 0.52335
 
-[sub_resource type="CubeMesh" id=2]
+[sub_resource type="CubeMesh" id=9]
 
-[sub_resource type="SpatialMaterial" id=3]
+[sub_resource type="SpatialMaterial" id=5]
 albedo_color = Color( 0.239216, 0.690196, 0.054902, 1 )
 
-[sub_resource type="BoxShape" id=4]
+[sub_resource type="BoxShape" id=6]
 
 [node name="Spatial" type="StaticBody" groups=[
 "island",
 ]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0778383, 0 )
+collision_layer = 262145
+collision_mask = 262145
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 0.458448, 0, -0.888721, 0, 1, 0, 0.888721, 0, 0.458448, -1.45439, 0, 0.113226 )
-shape = SubResource( 5 )
+shape = SubResource( 1 )
 
 [node name="CollisionShape2" type="CollisionShape" parent="."]
 transform = Transform( 0.843326, 0, 0.537403, 0, 1, 0, -0.537403, 0, 0.843326, 0.2254, 0, 0.250998 )
@@ -36,19 +38,19 @@ shape = SubResource( 7 )
 
 [node name="CollisionShape3" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3233, 0, 1.23226 )
-shape = SubResource( 6 )
+shape = SubResource( 8 )
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
 visible = false
-mesh = SubResource( 2 )
-material/0 = SubResource( 3 )
+mesh = SubResource( 9 )
+material/0 = SubResource( 5 )
 
 [node name="DockingArea" type="Area" parent="."]
 transform = Transform( 0.326942, 0, 0, 0, 1, 0, 0, 0, 0.326942, -1.37835, -0.135368, 1.31242 )
 
 [node name="CollisionShape" type="CollisionShape" parent="DockingArea"]
 transform = Transform( 2.03683, 0, 0, 0, 1, 0, 0, 0, 2.03683, 0, 0, 0 )
-shape = SubResource( 4 )
+shape = SubResource( 6 )
 
 [node name="island_base_1" type="MeshInstance" parent="."]
 transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0 )
