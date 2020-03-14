@@ -3,7 +3,7 @@ extends Spatial
 const ACCELERATION = 0.1
 const DECELERATION = 1.0
 const GRAVITY = -1000.0
-const DEFAULT_CAMERA_POSITION = Vector3(0.8, 4.3, -5.6)
+const DEFAULT_CAMERA_POSITION = Vector3(1, 6, -6)
 
 export(float) var mouse_sensitivity = 1
 export(float) var rotation_limit = 25
@@ -44,6 +44,7 @@ func _ready():
 	
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	movement_speed = normal_speed
+	camera_cast.add_exception(get_parent())
 
 func _unhandled_input(event):
 
@@ -119,7 +120,6 @@ func _physics_process(delta):
 	
 	movement = get_parent().move_and_slide(movement)
 
-	print(camera_cast.cast_to)
 	if camera_cast.is_colliding():
 		camera.global_transform.origin = camera_cast.get_collision_point()
 	else:
@@ -136,7 +136,5 @@ func _physics_process(delta):
 	#Camera Rotation
 	gimbal.rotate_x(deg2rad(my_rotation.y) * delta * mouse_sensitivity * 3)
 	gimbal.rotation_degrees.x = clamp(gimbal.rotation_degrees.x, -rotation_limit, rotation_limit)
-	
-	camera_cast.cast_to = gimbal.translation
 	
 	my_rotation = Vector2()

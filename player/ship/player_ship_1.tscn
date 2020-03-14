@@ -51,13 +51,14 @@ transform = Transform( 0.236075, 0.410673, -0.880691, -2.02576e-08, 0.906308, 0.
 script = ExtResource( 2 )
 
 [node name="InnerGimbal" type="Spatial" parent="Controller"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 [node name="Camera" type="Camera" parent="Controller/InnerGimbal"]
-transform = Transform( -1, 1.37706e-07, -2.95312e-07, 0, 0.906308, 0.422618, 3.25841e-07, 0.422618, -0.906308, 0.884, 4.312, -5.632 )
+transform = Transform( -1, -1.67913e-07, 2.79245e-07, 0, 0.856996, 0.515322, -3.25841e-07, 0.515322, -0.856996, 1, 6, -6 )
 current = true
 near = 0.01
 far = 255.0
 
 [node name="RayCast" type="RayCast" parent="Controller/InnerGimbal/Camera"]
-enabled = true
-collision_mask = 262145
+cast_to = Vector3( 0, -0.545, -3.364 )
+collision_mask = 262144
