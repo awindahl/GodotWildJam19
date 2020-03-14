@@ -42,12 +42,3 @@ func _input(event):
 		get_tree().reload_current_scene()
 	elif event.is_action_pressed("exit"):
 		get_tree().quit()
-	
-	if event.is_action_pressed("number_1"):
-		$TopCamera.current = true
-		$player_ship_1/Camera.current = false
-	elif event.is_action_pressed("number_2"):
-		$TopCamera.current = false
-		$player_ship_1/Camera.current = true
-
-
