@@ -42,7 +42,7 @@ onready var collider = $"../CollisionShape"
 
 func _ready():
 	
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	camera_cast.cast_to = gimbal.translation
 	movement_speed = normal_speed
 

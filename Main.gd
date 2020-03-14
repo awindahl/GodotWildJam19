@@ -1,11 +1,13 @@
 extends Spatial
 
-export var map_size = Vector2(100, 100)
-export var number_of_islands = 10 # Careful with increasing this, might not find feasible solution and not start
+export var map_size = Vector2(50, 50)
+export var number_of_islands = 2 # Careful with increasing this, might not find feasible solution and not start
 
 var island_instance = preload("res://islands//Island.tscn")
 var safety_distance = 20 # Careful with increasing this, might not find feasible solution and not start
-var map_margin = safety_distance/2.0
+var map_margin = safety_distance
+
+var tile_size = 30
 
 func _ready():
 	map_size -= Vector2(map_margin, map_margin)
@@ -45,3 +47,12 @@ func _input(event):
 	elif event.is_action_released("fog_change"):
 		$Day.cycle_fog()
 
+
+
+func _on_Timer_timeout():
+	var new_time = $Sky.time_of_day+.01
+	if new_time > 1:
+		$Sky.time_of_day = 0.0
+	else:
+		$Sky.time_of_day += .01
+	$Sky.set_time_of_day($Sky.time_of_day)

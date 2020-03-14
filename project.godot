@@ -19,6 +19,10 @@ config/name="GodotWildJam19"
 run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
 
+[editor_plugins]
+
+enabled=PoolStringArray( "SIsilicon.vfx.godrays" )
+
 [input]
 
 ui_left={
@@ -82,4 +86,6 @@ fog_change={
 
 [rendering]
 
-environment/default_environment="res://default_env.tres"
+quality/godrays/sample_number=100
+quality/godrays/use_pcf5=false
+quality/godrays/dither_amount=1.0
