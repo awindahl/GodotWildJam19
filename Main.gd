@@ -43,5 +43,11 @@ func _input(event):
 	elif event.is_action_pressed("exit"):
 		get_tree().quit()
 	
+	if event.is_action_pressed("number_1"):
+		$TopCamera.current = true
+		$Ship/Camera.current = false
+	elif event.is_action_pressed("number_2"):
+		$TopCamera.current = false
+		$Ship/Camera.current = true
 
 
