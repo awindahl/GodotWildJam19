@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Main.gd" type="Script" id=1]
-[ext_resource path="res://Ship.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Island.tscn" type="PackedScene" id=3]
+[ext_resource path="res://world/World.gd" type="Script" id=1]
+[ext_resource path="res://player/ship/player_ship_1.tscn" type="PackedScene" id=2]
+[ext_resource path="res://islands/Island.tscn" type="PackedScene" id=3]
 
 [sub_resource type="QuadMesh" id=1]
 
@@ -49,5 +49,5 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Ship" parent="." instance=ExtResource( 2 )]
-transform = Transform( -0.0224526, 0, -0.0974468, 0, 0.1, 0, 0.0974468, 0, -0.0224526, -4.77082, 0, 0 )
+[node name="player_ship_1" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.948897, 0.0860285, 3.29142 )

@@ -27,16 +27,11 @@ func _physics_process(delta):
 	
 	# Camera controls
 	if Input.is_action_just_pressed("ui_select"):
-		print('select')
-		print('Global: ', $Camera.transform)
-		print('Sail: ', $CameraSail.transform)
-		print('Crew: ', $CameraCrew.transform)
 		#if $Camera.global_transform == $CameraSail.global_transform:
 		if base_camera_flag:
 			# Move camera to crew view
 			#$Camera.transform.interpolate_with($CameraCrew.transform, camera_move_time)
 			$Camera.transform = $CameraCrew.transform
 		else:
-			#$Camera.transform.interpolate_with($CameraSail.transform, camera_move_time)
 			$Camera.transform = $CameraSail.transform
 		base_camera_flag = !base_camera_flag

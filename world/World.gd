@@ -3,7 +3,7 @@ extends Spatial
 export var map_size = Vector2(100, 100)
 export var number_of_islands = 10 # Careful with increasing this, might not find feasible solution and not start
 
-var island_instance = preload("res://Island.tscn")
+var island_instance = preload("res://islands//Island.tscn")
 var safety_distance = 20 # Careful with increasing this, might not find feasible solution and not start
 var map_margin = safety_distance/2.0
 
@@ -11,7 +11,6 @@ func _ready():
 	map_size -= Vector2(map_margin, map_margin)
 	randomize()
 	create_map()
-	print('Map generated')
 
 func create_map():
 	print('Generating new map...')
@@ -30,6 +29,7 @@ func create_map():
 					safety_distance_flag = false
 					break
 		add_island(new_pos)
+	print('Map generated')
 
 func add_island(pos):
 	var new_island = island_instance.instance()
@@ -45,9 +45,9 @@ func _input(event):
 	
 	if event.is_action_pressed("number_1"):
 		$TopCamera.current = true
-		$Ship/Camera.current = false
+		$player_ship_1/Camera.current = false
 	elif event.is_action_pressed("number_2"):
 		$TopCamera.current = false
-		$Ship/Camera.current = true
+		$player_ship_1/Camera.current = true
 
 
