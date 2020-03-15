@@ -19,6 +19,11 @@ config/name="GodotWildJam19"
 run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/size/width=1280
+window/size/height=720
+
 [input]
 
 ui_left={
@@ -82,4 +87,6 @@ fog_change={
 
 [rendering]
 
+quality/filters/use_nearest_mipmap_filter=true
+quality/filters/msaa=3
 environment/default_environment="res://default_env.tres"

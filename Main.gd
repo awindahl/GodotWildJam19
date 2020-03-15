@@ -20,7 +20,7 @@ func create_map():
 		var new_pos = Vector3()
 		while !safety_distance_flag:
 			# Get random map position
-			new_pos = Vector3((randf()*map_size.x)-map_size.x/2, 0, round(randf()*map_size.y)-map_size.y/2) #round(randf()*map_size.y)) 
+			new_pos = Vector3((randf()*map_size.x)-map_size.x/2, 0, round(randf()*map_size.y)-map_size.y/2) #round(randf()*map_size.y))
 			# Is this position away from already placed islands? TEMP only for X
 			safety_distance_flag = true
 			for placed_island in get_tree().get_nodes_in_group("island"):
