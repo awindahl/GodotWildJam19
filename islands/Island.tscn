@@ -1,20 +1,21 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/island_base_1.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://environment/light/SimpleLight.tscn" type="PackedScene" id=2]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.777807
 height = 0.331757
 
-[sub_resource type="CapsuleShape" id=7]
+[sub_resource type="CapsuleShape" id=2]
 radius = 0.672296
 height = 1.02442
 
-[sub_resource type="CapsuleShape" id=8]
+[sub_resource type="CapsuleShape" id=3]
 radius = 0.240167
 height = 0.52335
 
-[sub_resource type="CubeMesh" id=9]
+[sub_resource type="CubeMesh" id=4]
 
 [sub_resource type="SpatialMaterial" id=5]
 albedo_color = Color( 0.239216, 0.690196, 0.054902, 1 )
@@ -34,15 +35,15 @@ shape = SubResource( 1 )
 
 [node name="CollisionShape2" type="CollisionShape" parent="."]
 transform = Transform( 0.843326, 0, 0.537403, 0, 1, 0, -0.537403, 0, 0.843326, 0.2254, 0, 0.250998 )
-shape = SubResource( 7 )
+shape = SubResource( 2 )
 
 [node name="CollisionShape3" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3233, 0, 1.23226 )
-shape = SubResource( 8 )
+shape = SubResource( 3 )
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
 visible = false
-mesh = SubResource( 9 )
+mesh = SubResource( 4 )
 material/0 = SubResource( 5 )
 
 [node name="DockingArea" type="Area" parent="."]
@@ -166,3 +167,9 @@ material/107 = null
 material/108 = null
 material/109 = null
 material/110 = null
+
+[node name="SimpleLight" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.547964, 1.69777, 0 )
+light_energy = 0.5
+omni_range = 4.0
+max_light = 1.0
