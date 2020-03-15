@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Storm Fill 4.ogg-c8f1ebe9310ef5dbb60e2bb92417d158.oggstr"
+
+[deps]
+
+source_file="res://assets/music/storm/Storm Fill 4.ogg"
+dest_files=[ "res://.import/Storm Fill 4.ogg-c8f1ebe9310ef5dbb60e2bb92417d158.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

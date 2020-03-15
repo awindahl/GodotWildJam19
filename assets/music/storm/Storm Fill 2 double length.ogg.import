@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Storm Fill 2 double length.ogg-b49e209b18a1a61d3ba3e18eaf335dac.oggstr"
+
+[deps]
+
+source_file="res://assets/music/storm/Storm Fill 2 double length.ogg"
+dest_files=[ "res://.import/Storm Fill 2 double length.ogg-b49e209b18a1a61d3ba3e18eaf335dac.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

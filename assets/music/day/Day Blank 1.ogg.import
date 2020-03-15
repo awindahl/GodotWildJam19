@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Day Blank 1.ogg-b4f498cc32164efb5b950d87abfdc870.oggstr"
+
+[deps]
+
+source_file="res://assets/music/day/Day Blank 1.ogg"
+dest_files=[ "res://.import/Day Blank 1.ogg-b4f498cc32164efb5b950d87abfdc870.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

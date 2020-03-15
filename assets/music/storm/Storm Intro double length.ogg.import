@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Storm Intro double length.ogg-e9caa7158f861396f86d00d95b2b3211.oggstr"
+
+[deps]
+
+source_file="res://assets/music/storm/Storm Intro double length.ogg"
+dest_files=[ "res://.import/Storm Intro double length.ogg-e9caa7158f861396f86d00d95b2b3211.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
