@@ -75,6 +75,13 @@ func _physics_process(delta):
 	var aim = camera.get_camera_transform().basis
 	var right_click = Input.is_action_pressed("right_click")
 	
+	if accept:
+		$"../Ship/ParticlesRight".emitting = true
+		$"../Ship/ParticlesLeft".emitting = true
+	elif not accept:
+		$"../Ship/ParticlesRight".emitting = false
+		$"../Ship/ParticlesLeft".emitting = false
+		
 	if sail1.scale.z > 1:
 		sail1.scale.z -= 0.1
 		sail2.scale.z -= 0.1
