@@ -1,17 +1,77 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/player_ship_1_no_sail.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://player/ship/player_ship.gd" type="Script" id=2]
 [ext_resource path="res://assets/just_sail.obj" type="ArrayMesh" id=3]
+[ext_resource path="res://assets/arrow.obj" type="ArrayMesh" id=4]
 
-[sub_resource type="BoxShape" id=1]
+[sub_resource type="SpatialMaterial" id=1]
+resource_name = "Material"
+render_priority = 2
+flags_transparent = true
+albedo_color = Color( 1, 0.913725, 0, 0.619608 )
+metallic = 0.5
+
+[sub_resource type="BoxShape" id=2]
+
+[sub_resource type="Animation" id=3]
+resource_name = "Focus"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("CinematicBoxes/ColorRect:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -93.0782 ), Vector2( 0, -1.07823 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CinematicBoxes/ColorRect2:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 603.115 ), Vector2( 0, 512.308 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Ship/AimArrowRight:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Ship/AimArrowLeft:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
 
 [node name="player_ship_1" type="KinematicBody"]
 collision_layer = 524289
 collision_mask = 524289
 collision/safe_margin = 0.1
 
-[node name="Mesh" type="MeshInstance" parent="."]
+[node name="Ship" type="MeshInstance" parent="."]
 mesh = ExtResource( 1 )
 material/0 = null
 material/1 = null
@@ -22,24 +82,46 @@ material/5 = null
 material/6 = null
 material/7 = null
 
-[node name="SailFront" type="MeshInstance" parent="Mesh"]
+[node name="SailFront" type="MeshInstance" parent="Ship"]
 transform = Transform( 1.62149, 0, 0, 0, 1.95723, 0, 0, 0, 1, 0.75, 0.73263, 0.606 )
 mesh = ExtResource( 3 )
 material/0 = null
 
-[node name="SailMid" type="MeshInstance" parent="Mesh"]
+[node name="SailMid" type="MeshInstance" parent="Ship"]
 transform = Transform( 2.3579, 0, 0, 0, 3.26622, 0, 0, 0, 1, 0.803123, 0.946893, -0.331544 )
 mesh = ExtResource( 3 )
 material/0 = null
 
-[node name="SailRear" type="MeshInstance" parent="Mesh"]
+[node name="SailRear" type="MeshInstance" parent="Ship"]
 transform = Transform( 1.5717, 0, 0, 0, 1.95723, 0, 0, 0, 1, 0.786796, 1.55102, -1.86808 )
 mesh = ExtResource( 3 )
 material/0 = null
 
+[node name="AimArrowRight" type="MeshInstance" parent="Ship"]
+transform = Transform( -4.8368e-08, 0, 1.01572, 0, 3.024, 0, -0.296881, 0, -1.65481e-07, -0.499106, 0.436021, -1.15853 )
+visible = false
+mesh = ExtResource( 4 )
+material/0 = SubResource( 1 )
+
+[node name="AimArrow2" type="MeshInstance" parent="Ship/AimArrowRight"]
+transform = Transform( 1, 0, -5.68434e-14, 0, 1, 0, 7.10543e-15, 0, 1, -2.4794, 0, -1.49012e-07 )
+mesh = ExtResource( 4 )
+material/0 = SubResource( 1 )
+
+[node name="AimArrowLeft" type="MeshInstance" parent="Ship"]
+transform = Transform( -4.8368e-08, 0, -1.01572, 0, 3.024, 0, 0.296881, 0, -1.65481e-07, 1.73537, 0.436021, -0.425164 )
+visible = false
+mesh = ExtResource( 4 )
+material/0 = SubResource( 1 )
+
+[node name="AimArrow2" type="MeshInstance" parent="Ship/AimArrowLeft"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 7.10543e-15, 0, 1, -2.4794, 0, -1.49012e-07 )
+mesh = ExtResource( 4 )
+material/0 = SubResource( 1 )
+
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 2.07011, 0.796575, 1.30199, -1.14069 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="CameraSail" type="Position3D" parent="."]
 transform = Transform( 0.996195, 0.0225576, -0.084186, 0, 0.965926, 0.258819, 0.0871557, -0.257834, 0.96225, -1.52183, 6.28291, 6.8587 )
@@ -51,10 +133,10 @@ transform = Transform( 0.236075, 0.410673, -0.880691, -2.02576e-08, 0.906308, 0.
 script = ExtResource( 2 )
 
 [node name="InnerGimbal" type="Spatial" parent="Controller"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.02049 )
 
 [node name="Camera" type="Camera" parent="Controller/InnerGimbal"]
-transform = Transform( -1, -1.67913e-07, 2.79245e-07, 0, 0.856996, 0.515322, -3.25841e-07, 0.515322, -0.856996, 1, 6, -6 )
+transform = Transform( -1, 1.71138e-07, -2.7728e-07, 0, 0.850966, 0.525219, 3.25841e-07, 0.525219, -0.850966, 1, 4.135, -4.058 )
 current = true
 near = 0.01
 far = 255.0
@@ -62,3 +144,31 @@ far = 255.0
 [node name="RayCast" type="RayCast" parent="Controller/InnerGimbal/Camera"]
 cast_to = Vector3( 0, -0.545, -3.364 )
 collision_mask = 262144
+
+[node name="CinematicBoxes" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="CinematicBoxes"]
+margin_top = -93.0782
+margin_right = 1024.0
+margin_bottom = -5.07823
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect2" type="ColorRect" parent="CinematicBoxes"]
+margin_top = 603.115
+margin_right = 1024.0
+margin_bottom = 691.115
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Focus = SubResource( 3 )
