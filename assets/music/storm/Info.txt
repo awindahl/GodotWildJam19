@@ -1,0 +1,3 @@
+Strom - 8 beats at 120bpm, meaning a new track should be played every 4 seconds. Some tracks are longer than this, marked as such in their filenames.
+Blank tracks should be played more often than fills.
+Intro track plays when the storm is entered.
