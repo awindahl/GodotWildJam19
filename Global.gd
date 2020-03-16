@@ -5,7 +5,7 @@ signal day_change
 # Adjust these  -----------
 var day_running = true # For pauses or stopping day/night cycle
 var max_real_time = 180.0 # Real world day cycle time, put 10.0 to see fast day/night transition
-var start_perc = .6  # Where to start in the day, percentage
+var start_perc = .1  # Where to start in the day, percentage
 var night_time_perc = .9  # Percentage of day to formally start NIGHT
 var day_time_perc = .4  # Percentage of day to formally start DAY
 # ---------------------
@@ -29,10 +29,8 @@ func _process(delta):
 		elif !day_time and ((time_percentage() > day_time_perc) and (time_percentage() < night_time_perc)):
 			day_time = true
 			day_update()
-	print( time_percentage())
 
 func day_update():
-	print('Change day to day? ', day_time)
 	get_tree().call_group("day_cycle_update","day_cycle_update", day_time, max(max_real_time*.05, 3))
 
 func time_percentage():

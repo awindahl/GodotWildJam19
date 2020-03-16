@@ -1,13 +1,11 @@
-
-[gd_scene load_steps=12 format=2]
-
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/player_ship_1_no_sail.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://player/ship/player_ship.gd" type="Script" id=2]
 [ext_resource path="res://assets/just_sail.obj" type="ArrayMesh" id=3]
 [ext_resource path="res://assets/arrow.obj" type="ArrayMesh" id=4]
 [ext_resource path="res://assets/smoke_08.png" type="Texture" id=5]
-
+[ext_resource path="res://environment/light/SimpleLight.tscn" type="PackedScene" id=6]
 
 [sub_resource type="SpatialMaterial" id=1]
 resource_name = "Material"
@@ -225,6 +223,10 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-
 anims/Focus = SubResource( 6 )
 
+[node name="SimpleLight" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.655018, 0.942245, -0.286305 )
+omni_range = 10.0
+omni_attenuation = 11.7126
+max_light = 1.0
