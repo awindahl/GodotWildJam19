@@ -1,0 +1,3 @@
+Night: Intro is 17.784 seconds long
+Main Loop is 87.119 seconds per loop
+(The extra length contains reverb to avoid jarring changes in sound)
