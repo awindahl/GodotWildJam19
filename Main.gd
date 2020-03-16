@@ -42,6 +42,4 @@ func _input(event):
 		get_tree().reload_current_scene()
 	elif event.is_action_pressed("exit"):
 		get_tree().quit()
-	elif event.is_action_released("fog_change"):
-		$Day.cycle_fog()
 
