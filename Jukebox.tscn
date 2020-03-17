@@ -1,0 +1,77 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Jukebox.gd" type="Script" id=1]
+[ext_resource path="res://assets/music/day/Day Fill-002.ogg" type="AudioStream" id=2]
+[ext_resource path="res://assets/music/day/Day Blank 2.ogg" type="AudioStream" id=3]
+[ext_resource path="res://assets/music/day/Day Blank 1.ogg" type="AudioStream" id=4]
+[ext_resource path="res://assets/music/day/Day Fill-001.ogg" type="AudioStream" id=5]
+[ext_resource path="res://assets/music/day/Day Intro.ogg" type="AudioStream" id=6]
+[ext_resource path="res://assets/music/day/Day Fill-005.ogg" type="AudioStream" id=7]
+[ext_resource path="res://assets/music/day/Day Fill-004.ogg" type="AudioStream" id=8]
+[ext_resource path="res://assets/music/day/Day Fill-006.ogg" type="AudioStream" id=9]
+[ext_resource path="res://assets/music/day/Day Fill-003.ogg" type="AudioStream" id=10]
+[ext_resource path="res://assets/music/day/Day Blank 3.ogg" type="AudioStream" id=11]
+[ext_resource path="res://assets/music/day/Day Finding Land.ogg" type="AudioStream" id=12]
+[ext_resource path="res://assets/music/day/Day Leaving Land.ogg" type="AudioStream" id=13]
+[ext_resource path="res://assets/music/day/Day Near Land.ogg" type="AudioStream" id=14]
+
+[node name="Jukebox" type="Node"]
+script = ExtResource( 1 )
+
+[node name="Day" type="Node" parent="."]
+
+[node name="Intro" type="AudioStreamPlayer" parent="Day"]
+stream = ExtResource( 6 )
+
+[node name="Blank" type="Node" parent="Day"]
+
+[node name="1" type="AudioStreamPlayer" parent="Day/Blank"]
+stream = ExtResource( 4 )
+
+[node name="2" type="AudioStreamPlayer" parent="Day/Blank"]
+stream = ExtResource( 3 )
+
+[node name="3" type="AudioStreamPlayer" parent="Day/Blank"]
+stream = ExtResource( 11 )
+
+[node name="Fill" type="Node" parent="Day"]
+
+[node name="1" type="AudioStreamPlayer" parent="Day/Fill"]
+stream = ExtResource( 5 )
+
+[node name="2" type="AudioStreamPlayer" parent="Day/Fill"]
+stream = ExtResource( 2 )
+
+[node name="3" type="AudioStreamPlayer" parent="Day/Fill"]
+stream = ExtResource( 10 )
+
+[node name="4" type="AudioStreamPlayer" parent="Day/Fill"]
+stream = ExtResource( 8 )
+
+[node name="5" type="AudioStreamPlayer" parent="Day/Fill"]
+stream = ExtResource( 7 )
+
+[node name="6" type="AudioStreamPlayer" parent="Day/Fill"]
+stream = ExtResource( 9 )
+
+[node name="FindingLand" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+
+[node name="LeavingLand" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+
+[node name="NearLand" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 14 )
+[connection signal="finished" from="Day/Intro" to="." method="_on_track_finished"]
+[connection signal="finished" from="Day/Blank/1" to="." method="_on_track_finished"]
+[connection signal="finished" from="Day/Blank/2" to="." method="_on_track_finished"]
+[connection signal="finished" from="Day/Blank/3" to="." method="_on_track_finished"]
+[connection signal="finished" from="Day/Fill/1" to="." method="_on_track_finished"]
+[connection signal="finished" from="Day/Fill/2" to="." method="_on_track_finished"]
+[connection signal="finished" from="Day/Fill/3" to="." method="_on_track_finished"]
+[connection signal="finished" from="Day/Fill/4" to="." method="_on_track_finished"]
+[connection signal="finished" from="Day/Fill/5" to="." method="_on_track_finished"]
+[connection signal="finished" from="Day/Fill/6" to="." method="_on_track_finished"]
+[connection signal="finished" from="FindingLand" to="." method="_on_track_finished"]
+[connection signal="finished" from="LeavingLand" to="." method="_on_track_finished"]
+[connection signal="finished" from="NearLand" to="." method="_on_track_finished"]

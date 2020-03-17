@@ -12,6 +12,9 @@ func _ready():
 	randomize()
 	create_map()
 
+func _process(delta):
+	$Control/VBoxContainer/FPS.text = str(Engine.get_frames_per_second())
+
 func create_map():
 	print('Generating new map...')
 	for i in range(number_of_islands):

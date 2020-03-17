@@ -2,18 +2,3 @@ Day - 24 beats at 155bpm, meaning a new track should be played every ~9.29 (some
 Blank tracks should be played more often than fills, and consecutive blank tracks should tend to be of the same type
 (i.e. Blank 1 is more likely to follow another Blank 1 than Blank 2 is)
 
-81c6d4
-0 030505
-0.25 a66312
-
-ALBEDO = vec3(z_dist/50.0,0.1,50.0-(z_dist/50.0));
-0.5 87c1d6
-
-distance_fade_min_distance - starts to fade
-distance_fade_max_distance - fully
-
-new sky shader (at last!) export vars to cotnrol cloud levels, day time (in seconds) and if to run cycle or stay static. change seconds in day to like 20 to see a day cycle in realtime!
-Global that: keeps track of time, calls "day_cycle_update" method on all objctes in same name group
-ligth scene: omnilight that turns on and off depending on day, just put on scene
-
-day_cycle_update

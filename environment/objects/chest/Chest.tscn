@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/treasure_chest.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://assets/open_chest.obj" type="ArrayMesh" id=2]
+
+[node name="Chest" type="Spatial"]
+
+[node name="treasure_chest_closed" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000915766, 0.00922227, 0.00243592 )
+mesh = ExtResource( 1 )
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+
+[node name="treasure_chest_open" type="MeshInstance" parent="."]
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -0.00129938, 0.00372338, 0.00331748 )
+visible = false
+mesh = ExtResource( 2 )
+material/0 = null
+material/1 = null

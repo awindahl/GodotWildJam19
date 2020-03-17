@@ -229,4 +229,3 @@ anims/Focus = SubResource( 6 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.655018, 0.942245, -0.286305 )
 omni_range = 10.0
 omni_attenuation = 11.7126
-max_light = 1.0

@@ -157,3 +157,6 @@ func _input(event):
 	if event.is_action_released("right_click"):
 		is_zoomed = false
 		$"../AnimationPlayer".play_backwards("Focus")
+
+func update_islands_in_range(amount):
+	Jukebox.update_near_island(amount)
