@@ -5,6 +5,7 @@ const DECELERATION = 1.0
 const GRAVITY = -1000.0
 const DEFAULT_CAMERA_POSITION = Vector3(1, 6, -6)
 const ZOOMED_CAMERA_POSITION = Vector3(1, 4.1, -4)
+const CANNONBALL = preload("res://player/ship/cannonball.tscn")
 
 export(float) var mouse_sensitivity = 1
 export(float) var rotation_limit = 25
@@ -23,6 +24,7 @@ var my_rotation = Vector2()
 var speed = Vector3()
 var movement = Vector3()
 var rotation_speed = 2
+var can_shoot = true
 
 # camera stuff
 var yaw = 0
@@ -43,6 +45,11 @@ onready var my_model = $"../Ship"
 onready var collider = $"../CollisionShape"
 onready var aim_assist_r = $"../Ship/AimArrowRight"
 onready var aim_assist_l = $"../Ship/AimArrowLeft"
+onready var cannon1 = $"../Ship/Cannon"
+onready var cannon2 = $"../Ship/Cannon2"
+onready var cannon3 = $"../Ship/Cannon3"
+onready var cannon4 = $"../Ship/Cannon4"
+
 
 func _ready():
 	
@@ -74,13 +81,6 @@ func _physics_process(delta):
 	var sprint = Input.is_action_just_pressed("shift")
 	var aim = camera.get_camera_transform().basis
 	var right_click = Input.is_action_pressed("right_click")
-	
-	if accept:
-		$"../Ship/ParticlesRight".emitting = true
-		$"../Ship/ParticlesLeft".emitting = true
-	elif not accept:
-		$"../Ship/ParticlesRight".emitting = false
-		$"../Ship/ParticlesLeft".emitting = false
 		
 	if sail1.scale.z > 1:
 		sail1.scale.z -= 0.1
@@ -153,7 +153,24 @@ func _input(event):
 	if event.is_action_pressed("right_click"):
 		is_zoomed = true
 		$"../AnimationPlayer".play("Focus")
-
+	
 	if event.is_action_released("right_click"):
 		is_zoomed = false
 		$"../AnimationPlayer".play_backwards("Focus")
+	
+	if event.is_action_pressed("ui_accept") and is_zoomed and can_shoot:
+		$"../AnimationPlayer".play("Shoot")
+		$"../ShootTimer".start()
+		can_shoot = false
+		var new_cannonball = CANNONBALL.instance()
+		var new_cannonball2 = CANNONBALL.instance()
+		var new_cannonball3 = CANNONBALL.instance()
+		var new_cannonball4 = CANNONBALL.instance()
+		
+		cannon1.add_child(new_cannonball)
+		cannon2.add_child(new_cannonball2)
+		cannon3.add_child(new_cannonball3)
+		cannon4.add_child(new_cannonball4)
+
+func _on_ShootTimer_timeout():
+	can_shoot = true
