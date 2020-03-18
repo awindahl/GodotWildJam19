@@ -30,7 +30,7 @@ albedo_color = Color( 1, 0.282353, 0.282353, 1 )
 extents = Vector3( 0.536096, 1, 0.613919 )
 
 [sub_resource type="CylinderShape" id=10]
-radius = 15.015
+radius = 6.99703
 
 [node name="island1" type="Spatial"]
 script = ExtResource( 1 )
