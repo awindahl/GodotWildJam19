@@ -1,7 +1,7 @@
 extends Spatial
 
 const ACCELERATION = 0.1
-const DECELERATION = 1.0
+const DECELERATION = 0.05
 const GRAVITY = -1000.0
 const DEFAULT_CAMERA_POSITION = Vector3(1, 6, -6)
 const ZOOMED_CAMERA_POSITION = Vector3(1, 4.1, -4)
@@ -85,7 +85,9 @@ func _physics_process(delta):
 	var aim = camera.get_camera_transform().basis
 	var right_click = Input.is_action_pressed("right_click")
 	var left_click = Input.is_action_just_pressed("left_click")
-
+	
+	camera.fov = clamp(movement.length() * 10, 70, 100)
+	
 	if sail1.scale.z > 1:
 		sail1.scale.z -= 0.1
 		sail2.scale.z -= 0.1
@@ -112,9 +114,7 @@ func _physics_process(delta):
 		else:
 			movement_speed = lerp(movement_speed, normal_speed, delta)
 	else:
-		
-		movement /= 1.05
-		#direction = Vector3()
+		direction = Vector3()
 		is_moving = false
 		
 	if down:
@@ -129,7 +129,7 @@ func _physics_process(delta):
 	hVel.y = 0
 	var target = direction * movement_speed
 	var acceleration
-	if direction.dot(hVel) >= 0:
+	if direction.dot(hVel) > 0:
 		acceleration = ACCELERATION
 	else:
 		acceleration = DECELERATION
