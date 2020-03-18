@@ -5,24 +5,27 @@ const DECELERATION = 1.0
 const GRAVITY = -1000.0
 const DEFAULT_CAMERA_POSITION = Vector3(1, 6, -6)
 const ZOOMED_CAMERA_POSITION = Vector3(1, 4.1, -4)
+const CANNONBALL = preload("res://player/ship/cannonball.tscn")
 
 export(float) var mouse_sensitivity = 1
 export(float) var rotation_limit = 25
 export(float) var max_zoom = 0.5
 export(float) var min_zoom = 1.5
 export(float) var zoom_speed = 2
+export(bool) var is_zoomed = false
 
 # player stuff
 var velocity = Vector3()
 var movement_speed = 0
 var normal_speed = 3
-var sprint_speed = 7
+var sprint_speed = 4
 var is_moving = false
 var direction = Vector3()
 var my_rotation = Vector2()
 var speed = Vector3()
 var movement = Vector3()
 var rotation_speed = 2
+var can_shoot = true
 
 # camera stuff
 var yaw = 0
@@ -31,7 +34,9 @@ var base_camera_flag = true
 var no_buttons = true
 var zoom_factor = 1
 var actual_zoom = 1
-var is_zoomed = false
+
+var camera_min_fov = 70
+var camera_max_fov = 90
 
 onready var sail1 = $"../Ship/SailFront"
 onready var sail2 = $"../Ship/SailMid"
@@ -43,6 +48,11 @@ onready var my_model = $"../Ship"
 onready var collider = $"../CollisionShape"
 onready var aim_assist_r = $"../Ship/AimArrowRight"
 onready var aim_assist_l = $"../Ship/AimArrowLeft"
+onready var cannon1 = $"../Ship/Cannon"
+onready var cannon2 = $"../Ship/Cannon2"
+onready var cannon3 = $"../Ship/Cannon3"
+onready var cannon4 = $"../Ship/Cannon4"
+
 
 func _ready():
 	
@@ -74,14 +84,8 @@ func _physics_process(delta):
 	var sprint = Input.is_action_just_pressed("shift")
 	var aim = camera.get_camera_transform().basis
 	var right_click = Input.is_action_pressed("right_click")
-	
-	if accept:
-		$"../Ship/ParticlesRight".emitting = true
-		$"../Ship/ParticlesLeft".emitting = true
-	elif not accept:
-		$"../Ship/ParticlesRight".emitting = false
-		$"../Ship/ParticlesLeft".emitting = false
-		
+	var left_click = Input.is_action_just_pressed("left_click")
+
 	if sail1.scale.z > 1:
 		sail1.scale.z -= 0.1
 		sail2.scale.z -= 0.1
@@ -100,15 +104,16 @@ func _physics_process(delta):
 			sail3.scale.z -= 0.1
 			
 		is_moving = true
-		if sprint and sail1.scale.z < 6 and movement_speed > 2.5:
-			movement_speed = sprint_speed
+		if sprint and sail1.scale.z < 6 and movement_speed > 2:
+			movement_speed += 2
 			sail1.scale.z += 3
 			sail2.scale.z += 3
 			sail3.scale.z += 3
 		else:
 			movement_speed = lerp(movement_speed, normal_speed, delta)
 	else:
-		movement_speed = 0
+		
+		movement /= 1.05
 		#direction = Vector3()
 		is_moving = false
 		
@@ -142,6 +147,7 @@ func _physics_process(delta):
 		
 		#player_rotation.y = angle
 		my_model.rotation = lerp(my_model.rotation, player_rotation, delta)
+		collider.rotation = lerp(my_model.rotation, player_rotation, delta)
 	
 	#Camera Rotation
 	gimbal.rotate_x(deg2rad(my_rotation.y) * delta * mouse_sensitivity)
@@ -151,12 +157,29 @@ func _physics_process(delta):
 	
 func _input(event):
 	if event.is_action_pressed("right_click"):
-		is_zoomed = true
 		$"../AnimationPlayer".play("Focus")
-
+	
 	if event.is_action_released("right_click"):
-		is_zoomed = false
 		$"../AnimationPlayer".play_backwards("Focus")
+	
+	if event.is_action_pressed("left_click") and is_zoomed and can_shoot:
+		$"../AnimationPlayer".play("Shoot")
+		$"../ShootTimer".start()
+		can_shoot = false
+		var new_cannonball = CANNONBALL.instance()
+		var new_cannonball2 = CANNONBALL.instance()
+		var new_cannonball3 = CANNONBALL.instance()
+		var new_cannonball4 = CANNONBALL.instance()
+		
+		cannon1.add_child(new_cannonball)
+		cannon2.add_child(new_cannonball2)
+		cannon3.add_child(new_cannonball3)
+		cannon4.add_child(new_cannonball4)
+
+func _on_ShootTimer_timeout():
+	can_shoot = true
+
+
 
 func update_islands_in_range(amount):
 	Jukebox.update_near_island(amount)

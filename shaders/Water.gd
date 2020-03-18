@@ -1,6 +1,8 @@
 tool 
 extends MeshInstance
 
+const TYPE ="WATER"
+
 export(int)			var resolution = 100
 export(float) 		var scaleFactor = 0.10
 export(float)		var quadraticFactor = 0.09

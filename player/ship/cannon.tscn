@@ -1,0 +1,7 @@
+[gd_scene format=2]
+
+[node name="Cannon" type="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.531846, 0.463486, -0.452101 )
+
+[node name="RayCast" type="RayCast" parent="."]
+cast_to = Vector3( -1, 0, 0 )

@@ -172,4 +172,3 @@ material/110 = null
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.547964, 1.69777, 0 )
 light_energy = 0.5
 omni_range = 4.0
-max_light = 1.0
