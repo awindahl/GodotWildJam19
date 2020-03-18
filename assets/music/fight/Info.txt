@@ -1,0 +1,3 @@
+Day - 12 beats at 155bpm, meaning a new track should be played every ~4.65 seconds (the intro is double this, and is marked as such in its title).
+Transitions (hopefully) seamlessly from the day ambience, so it should be able to fit in with the current queue system.
+Blank tracks should be played more often than fills, as before.
