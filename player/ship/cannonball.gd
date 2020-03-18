@@ -8,11 +8,12 @@ var forward_dir
 func _ready():
 	
 	forward_dir = get_parent().get_node("RayCast").get_global_transform().basis.x.normalized() * -1
+	forward_dir.y = 0.01
 	
 func _process(delta):
 	
 	set_as_toplevel(true)
-	forward_dir.y -= 0.001
+	forward_dir.y /= 1.1
 	global_translate(forward_dir * delta * speed)
 
 func _on_Area_body_entered(body):

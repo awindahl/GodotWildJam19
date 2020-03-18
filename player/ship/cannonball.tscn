@@ -29,15 +29,17 @@ _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
 curve = SubResource( 7 )
 
 [sub_resource type="ParticlesMaterial" id=9]
+flag_align_y = true
 direction = Vector3( 0, 22.233, 0 )
 gravity = Vector3( 0, 0, 0 )
-initial_velocity = 10.0
+initial_velocity = 13.28
 initial_velocity_random = 1.0
-scale = 9.89
+scale = 50.0
 scale_curve = SubResource( 8 )
 color_ramp = SubResource( 6 )
 
 [sub_resource type="SpatialMaterial" id=10]
+render_priority = 2
 flags_transparent = true
 flags_unshaded = true
 vertex_color_use_as_albedo = true
@@ -53,6 +55,7 @@ material = SubResource( 10 )
 
 [node name="Cannonball" type="KinematicBody"]
 transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0 )
+input_ray_pickable = false
 collision_layer = 0
 collision_mask = 0
 script = ExtResource( 2 )
@@ -63,6 +66,7 @@ material/0 = SubResource( 1 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 shape = SubResource( 3 )
+disabled = true
 
 [node name="Area" type="Area" parent="."]
 collision_layer = 262144
@@ -76,8 +80,8 @@ shape = SubResource( 4 )
 [node name="Particles" type="Particles" parent="."]
 emitting = false
 amount = 64
+lifetime = 0.34
 one_shot = true
-speed_scale = 4.0
 explosiveness = 1.0
 process_material = SubResource( 9 )
 draw_pass_1 = SubResource( 11 )

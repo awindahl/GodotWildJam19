@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Night Near Land Loop.ogg-4929ace2da92c8088a5b809808ce9f08.oggstr"
+
+[deps]
+
+source_file="res://assets/music/night/Night Near Land Loop.ogg"
+dest_files=[ "res://.import/Night Near Land Loop.ogg-4929ace2da92c8088a5b809808ce9f08.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
