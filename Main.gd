@@ -10,7 +10,7 @@ var map_margin = safety_distance/2.0
 func _ready():
 	map_size -= Vector2(map_margin, map_margin)
 	randomize()
-	create_map()
+	#create_map()
 
 func _process(delta):
 	$Control/VBoxContainer/FPS.text = str(Engine.get_frames_per_second())

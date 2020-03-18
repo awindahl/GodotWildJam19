@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://islands/IslandBase.tscn" type="PackedScene" id=1]
+
+[node name="NoIsland" instance=ExtResource( 1 )]
+is_island = false
+
+[node name="Land" parent="LandPivot" index="0"]
+visible = false
+
+[node name="Chest" parent="LandPivot/ChestPosition" index="0"]
+visible = false
+
+[node name="PropHolder" parent="LandPivot" index="2"]
+visible = false
+
+[node name="CollisionPlayer" parent="." index="1"]
+visible = false
+
+[node name="CollisionAI" parent="." index="2"]
+visible = false
+
+[node name="AreaDocking" parent="." index="3"]
+visible = false
+
+[node name="SimpleLight" parent="." index="4"]
+visible = false

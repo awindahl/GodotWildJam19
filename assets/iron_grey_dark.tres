@@ -1,0 +1,6 @@
+[gd_resource type="SpatialMaterial" format=2]
+
+[resource]
+resource_name = "Iron_Grey_-_Dark (Instance)"
+albedo_color = Color( 0.4157, 0.4, 0.3843, 1 )
+metallic = 0.33

@@ -1,11 +1,11 @@
 extends Node
 
 var level_size = 5
-var tile_size = 10
+export var tile_size = 20
+export var real_map = true
 var scope = 3
 var radius = int(floor(scope/2))
-var biomes = ["sea", "island1"]
-#var biomes = ["a", "b", "c", "d", "e", "f", "g", "h"]
+var biomes = []
 onready var pre_load_biomes = {}
 
 
@@ -19,9 +19,14 @@ func _ready():
 	# This will prevent a false scope value from an invalid array call on our map
 	if level_size / scope < scope :
 		level_size = scope * 3
-	
-	for biome in biomes:
-		pre_load_biomes[biome] = load("res://tiles/%s.tscn" % biome)
+	if real_map:
+		biomes = ["NoIsland", "Island1"]
+		for biome in biomes:
+			pre_load_biomes[biome] = load("res://islands/tiles/%s.tscn" % biome)
+	else:
+		biomes = ["sea", "island1"]
+		for biome in biomes:
+			pre_load_biomes[biome] = load("res://tiles/%s.tscn" % biome)
 	
 	create_map()
 	saved_coords = coordinates().duplicate()
@@ -41,10 +46,12 @@ func create_map():
 			row_info.append([false, randf(), randf(), Vector2(x, z)])
 		map.append(row)
 		map_info.append(row_info)
+	# Make initial tile empty
+	map[0][0] = biomes[0]
 
 func coordinates():
-	var x = floor(get_parent().get_node("Player").get_translation().x)
-	var z = floor(get_parent().get_node("Player").get_translation().z)
+	var x = floor(get_parent().get_node("player_ship_1").get_translation().x)
+	var z = floor(get_parent().get_node("player_ship_1").get_translation().z)
 	x = int(x / tile_size) % (level_size)
 	z = int(z / tile_size) % (level_size)
 	return [x, z]
@@ -74,8 +81,8 @@ func pattern():
 	return pattern
 
 func spawn_tiles():
-	var x = int(floor(get_parent().get_node("Player").get_translation().x))
-	var z = int(floor(get_parent().get_node("Player").get_translation().z))
+	var x = int(floor(get_parent().get_node("player_ship_1").get_translation().x))
+	var z = int(floor(get_parent().get_node("player_ship_1").get_translation().z))
 
 	var pattern = pattern()
 	var tile = 0
@@ -109,8 +116,8 @@ func spawn_tiles():
 					var type = map[pos_x][pos_z]
 					var tile_info = map_info[pos_x][pos_z]
 					
-					var tilescene = load("res://tiles/%s.tscn" % str(type))
-					#var tilescene = pre_load_biomes[str(type)]
+					#var tilescene = load("res://tiles/%s.tscn" % str(type))
+					var tilescene = pre_load_biomes[str(type)]
 					var new_tile = tilescene.instance()
 
 					# The following 6 lines are optional and are meant to beautify the spawn position if the value is negative
@@ -128,7 +135,8 @@ func spawn_tiles():
 
 					new_tile.set_translation(Vector3(tile_x, 0, tile_z))
 					new_tile.set_name("tile" + str(name))
-					if type == 'island1':
+					if type == 'Island1':
+						new_tile.tile_size = tile_size
 						new_tile.add_info(tile_info)
 
 					self.get_parent().call_deferred("add_child", new_tile)
