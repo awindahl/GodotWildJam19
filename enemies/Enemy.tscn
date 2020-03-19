@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/enemy_ship.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://enemies/Enemy.gd" type="Script" id=2]
+
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 1, 1, 1.83164 )
+
+[sub_resource type="CylinderShape" id=2]
+radius = 28.5173
+height = 1.69092
+
+[node name="Enemy" type="KinematicBody"]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
+collision_layer = 262147
+collision_mask = 262147
+script = ExtResource( 2 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+mesh = ExtResource( 1 )
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+material/4 = null
+material/5 = null
+material/6 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0573, -0.233978 )
+shape = SubResource( 3 )
+
+[node name="Area" type="Area" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape" type="CollisionShape" parent="Area"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.12109, 0 )
+shape = SubResource( 2 )

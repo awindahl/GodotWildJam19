@@ -93,6 +93,9 @@ one_shot = true
 wait_time = 30.0
 one_shot = true
 autostart = true
+
+[node name="TimeToActivate" type="Timer" parent="."]
 [connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]
 [connection signal="timeout" from="KillTime" to="." method="_on_KillTime_timeout"]
 [connection signal="timeout" from="TimeToLive" to="." method="_on_TimeToLive_timeout"]
+[connection signal="timeout" from="TimeToActivate" to="." method="_on_TimeToActivate_timeout"]

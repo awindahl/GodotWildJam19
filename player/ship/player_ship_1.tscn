@@ -125,7 +125,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.1, 0.6 ),
+"times": PoolRealArray( 0.2, 0.7 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
@@ -137,15 +137,41 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.1, 0.6 ),
+"times": PoolRealArray( 0.2, 0.7 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("Ship:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 1, 1, 1 ), Vector3( 1, 1.1, 1 ), Vector3( 1.2, 1, 1 ), Vector3( 1, 1, 1 ) ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("Controller")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_ChargeTimer_start"
+} ]
+}
 
 [node name="player_ship_1" type="KinematicBody"]
-collision_layer = 524289
-collision_mask = 524289
+collision_layer = 524291
+collision_mask = 524291
 collision/safe_margin = 0.1
 
 [node name="Ship" type="MeshInstance" parent="."]
@@ -206,7 +232,6 @@ material/0 = ExtResource( 7 )
 
 [node name="ParticlesRight" type="Particles" parent="Ship"]
 transform = Transform( -0.999893, 0, -0.01466, 0, 1, 0, 0.01466, 0, -0.999893, -0.657935, 0.635277, -0.753182 )
-emitting = false
 amount = 128
 lifetime = 4.0
 speed_scale = 4.17
@@ -220,7 +245,6 @@ draw_pass_1 = SubResource( 2 )
 
 [node name="ParticlesLeft" type="Particles" parent="Ship"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.00084, 0.635277, -0.753182 )
-emitting = false
 amount = 128
 lifetime = 4.0
 speed_scale = 4.17
@@ -233,9 +257,10 @@ process_material = ExtResource( 8 )
 draw_pass_1 = SubResource( 2 )
 
 [node name="Cannon" parent="Ship" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.849836, 0.463486, -0.452101 )
 
 [node name="Cannon2" parent="Ship" instance=ExtResource( 9 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.531846, 0.463486, -1.20161 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.849836, 0.463486, -1.20161 )
 
 [node name="Cannon3" parent="Ship" instance=ExtResource( 9 )]
 transform = Transform( -1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 2.17985, 0.463486, -1.20161 )
@@ -300,6 +325,11 @@ omni_attenuation = 11.7126
 [node name="ShootTimer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
+
+[node name="ChargeTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
 [connection signal="timeout" from="ShootTimer" to="Controller" method="_on_ShootTimer_timeout"]
+[connection signal="timeout" from="ChargeTimer" to="Controller" method="_on_ChargeTimer_timeout"]
 
 [editable path="Ship/Cannon"]

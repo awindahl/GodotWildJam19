@@ -95,6 +95,7 @@ func _physics_process(delta):
 	
 	if up:
 		direction -= aim[2]
+		print(direction)
 		
 		if sail1.scale.z < 5:
 			sail1.scale.z += 0.3
@@ -166,15 +167,20 @@ func _input(event):
 		$"../AnimationPlayer".play("Shoot")
 		$"../ShootTimer".start()
 		can_shoot = false
-		var new_cannonball = CANNONBALL.instance()
-		var new_cannonball2 = CANNONBALL.instance()
-		var new_cannonball3 = CANNONBALL.instance()
-		var new_cannonball4 = CANNONBALL.instance()
-		
-		cannon1.add_child(new_cannonball)
-		cannon2.add_child(new_cannonball2)
-		cannon3.add_child(new_cannonball3)
-		cannon4.add_child(new_cannonball4)
 
 func _on_ShootTimer_timeout():
 	can_shoot = true
+
+func _ChargeTimer_start():
+	$"../ChargeTimer".start()
+
+func _on_ChargeTimer_timeout():
+	var new_cannonball = CANNONBALL.instance()
+	var new_cannonball2 = CANNONBALL.instance()
+	var new_cannonball3 = CANNONBALL.instance()
+	var new_cannonball4 = CANNONBALL.instance()
+	
+	cannon1.add_child(new_cannonball)
+	cannon2.add_child(new_cannonball2)
+	cannon3.add_child(new_cannonball3)
+	cannon4.add_child(new_cannonball4)
