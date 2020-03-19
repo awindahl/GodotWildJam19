@@ -146,8 +146,9 @@ func _physics_process(delta):
 		var player_rotation = get_rotation()
 		
 		#player_rotation.y = angle
-		my_model.rotation = lerp(my_model.rotation, player_rotation, delta)
-		collider.rotation = lerp(my_model.rotation, player_rotation, delta)
+		
+		my_model.rotation.y = lerp_angle(my_model.rotation.y, player_rotation.y, delta)
+		collider.rotation.y = lerp_angle(my_model.rotation.y, player_rotation.y, delta)
 	
 	#Camera Rotation
 	gimbal.rotate_x(deg2rad(my_rotation.y) * delta * mouse_sensitivity)

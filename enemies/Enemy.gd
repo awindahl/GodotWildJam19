@@ -33,18 +33,14 @@ func _process(delta):
 	movement.x = hVel.x
 	movement.z = hVel.z
 
-	if transform.origin.distance_to(home.transform.origin) > 10 and not is_turned:
+	if transform.origin.distance_to(home.transform.origin) > 10:
 		is_turned = true
-		movement *= -1
-		direction *= -1
-		rotation_degrees.y = rad2deg(atan2(movement.x, movement.z))
+		direction = transform.origin.direction_to(home.transform.origin)
+		look_at(direction, Vector3(0, 1, 0))
 		
-	if transform.origin.distance_to(home.transform.origin) < 1:
-		is_turned = false
-		rotation_degrees.y = rad2deg(atan2(movement.x, movement.z))
-	
-	movement = move_and_slide(movement)
-
+	rotation_degrees.y = rad2deg(atan2(movement.x, movement.z))
+	movement = lerp(movement, direction, delta)
+	move_and_slide(movement)
 
 func _on_Area_body_entered(body):
 	pass # Replace with function body.
