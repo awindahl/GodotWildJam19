@@ -3,28 +3,27 @@
 [ext_resource path="res://assets/enemy_ship.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://enemies/Enemy.gd" type="Script" id=2]
 
-[sub_resource type="CubeMesh" id=4]
-
 [sub_resource type="BoxShape" id=3]
-extents = Vector3( 1, 1, 1.83164 )
+extents = Vector3( 0.379883, 0.672055, 0.877868 )
 
 [sub_resource type="CylinderShape" id=2]
 radius = 28.5173
 height = 1.69092
 
+[sub_resource type="Curve3D" id=4]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -0.0325416, 0, -3.42017, 0, 0, 0, 0, 0, 0, 3.68057, 0, -3.50089, 0, 0, 0, 0, 0, 0, 5.53713, 0, -0.401247, 0, 0, 0, 0, 0, 0, 3.729, 0, 3.19886, 0, 0, 0, 0, 0, 0, -3.27748, 0, 3.7639, 0, 0, 0, 0, 0, 0, -5.34391, 0, 0.825694, 0, 0, 0, 0, 0, 0, -4.06853, 0, -2.67755, 0, 0, 0, 0, 0, 0, -0.0325416, 0, -3.42017 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0 )
+}
+
 [node name="Enemy" type="KinematicBody"]
-transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
 collision_layer = 262147
 collision_mask = 262147
 script = ExtResource( 2 )
-
-[node name="Position3D" type="Position3D" parent="."]
-
-[node name="MeshInstance" type="MeshInstance" parent="Position3D"]
-mesh = SubResource( 4 )
-material/0 = null
+patrol_path = NodePath("Path")
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( -0.5, 0, -1.94707e-07, 0, 0.5, 0, 1.94707e-07, 0, -0.5, 0, 0, 0 )
 mesh = ExtResource( 1 )
 material/0 = null
 material/1 = null
@@ -35,7 +34,7 @@ material/5 = null
 material/6 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0573, -0.233978 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.711108, 0.112221 )
 shape = SubResource( 3 )
 
 [node name="Area" type="Area" parent="."]
@@ -45,4 +44,11 @@ collision_mask = 2
 [node name="CollisionShape" type="CollisionShape" parent="Area"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.12109, 0 )
 shape = SubResource( 2 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 2.5, 5.635 )
+
+[node name="Path" type="Path" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.39023 )
+curve = SubResource( 4 )
 [connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]
