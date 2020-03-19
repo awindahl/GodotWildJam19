@@ -95,7 +95,6 @@ func _physics_process(delta):
 	
 	if up:
 		direction -= aim[2]
-		print(direction)
 		
 		if sail1.scale.z < 5:
 			sail1.scale.z += 0.3
