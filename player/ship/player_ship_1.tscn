@@ -1,30 +1,15 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://assets/player_ship_1_no_sail.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://player/ship/player_ship.gd" type="Script" id=2]
 [ext_resource path="res://assets/just_sail.obj" type="ArrayMesh" id=3]
 [ext_resource path="res://assets/arrow.obj" type="ArrayMesh" id=4]
-[ext_resource path="res://assets/smoke_08.png" type="Texture" id=5]
+[ext_resource path="res://player/ship/smoke.tres" type="QuadMesh" id=5]
 [ext_resource path="res://environment/light/SimpleLight.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/arrow_mat.tres" type="Material" id=7]
 [ext_resource path="res://player/ship/cannon_smoke_particle.tres" type="Material" id=8]
 [ext_resource path="res://player/ship/cannon.tscn" type="PackedScene" id=9]
-
-[sub_resource type="SpatialMaterial" id=1]
-render_priority = 2
-flags_transparent = true
-flags_unshaded = true
-vertex_color_use_as_albedo = true
-params_diffuse_mode = 4
-params_blend_mode = 1
-params_billboard_mode = 3
-particles_anim_h_frames = 1
-particles_anim_v_frames = 1
-particles_anim_loop = false
-albedo_texture = ExtResource( 5 )
-
-[sub_resource type="QuadMesh" id=2]
-material = SubResource( 1 )
+[ext_resource path="res://player/ship/player_general.gd" type="Script" id=10]
 
 [sub_resource type="BoxShape" id=3]
 extents = Vector3( 0.912987, 1, 1 )
@@ -149,7 +134,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.4 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 1 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Vector3( 1, 1, 1 ), Vector3( 1, 1.1, 1 ), Vector3( 1.2, 1, 1 ), Vector3( 1, 1, 1 ) ]
@@ -170,9 +155,10 @@ tracks/3/keys = {
 }
 
 [node name="player_ship_1" type="KinematicBody"]
-collision_layer = 524291
-collision_mask = 524291
+collision_layer = 786435
+collision_mask = 786435
 collision/safe_margin = 0.1
+script = ExtResource( 10 )
 
 [node name="Ship" type="MeshInstance" parent="."]
 mesh = ExtResource( 1 )
@@ -202,7 +188,6 @@ material/0 = null
 
 [node name="AimArrowRight" type="MeshInstance" parent="Ship"]
 transform = Transform( -1.03129e-07, 0, 0.1, 0, 1.341, 0, -0.633, 0, -1.62921e-08, -0.499106, 0.436021, -1.15853 )
-visible = false
 material_override = ExtResource( 7 )
 cast_shadow = 0
 mesh = ExtResource( 4 )
@@ -217,7 +202,6 @@ material/0 = ExtResource( 7 )
 
 [node name="AimArrowLeft" type="MeshInstance" parent="Ship"]
 transform = Transform( 1.2325e-07, 0, -0.1, 0, 1.341, 0, 0.633, 0, 1.94707e-08, 1.93353, 0.436021, -0.409748 )
-visible = false
 material_override = ExtResource( 7 )
 cast_shadow = 0
 mesh = ExtResource( 4 )
@@ -242,7 +226,7 @@ visibility_aabb = AABB( -0.56831, -0.910156, -1.33268, 0.293846, 0.413085, 0.456
 local_coords = false
 draw_order = 2
 process_material = ExtResource( 8 )
-draw_pass_1 = SubResource( 2 )
+draw_pass_1 = ExtResource( 5 )
 
 [node name="ParticlesLeft" type="Particles" parent="Ship"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.00084, 0.635277, -0.753182 )
@@ -256,7 +240,7 @@ visibility_aabb = AABB( -0.56831, -0.910156, -1.33268, 0.293846, 0.413085, 0.456
 local_coords = false
 draw_order = 2
 process_material = ExtResource( 8 )
-draw_pass_1 = SubResource( 2 )
+draw_pass_1 = ExtResource( 5 )
 
 [node name="Cannon" parent="Ship" instance=ExtResource( 9 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.849836, 0.463486, -0.452101 )
@@ -276,6 +260,7 @@ shape = SubResource( 3 )
 
 [node name="Controller" type="Spatial" parent="."]
 script = ExtResource( 2 )
+is_zoomed = true
 
 [node name="InnerGimbal" type="Spatial" parent="Controller"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.02049 )
@@ -298,18 +283,18 @@ __meta__ = {
 }
 
 [node name="ColorRect" type="ColorRect" parent="CinematicBoxes"]
-margin_top = -93.0782
+margin_top = -1.07823
 margin_right = 1024.0
-margin_bottom = -5.07823
+margin_bottom = 86.9217
 color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ColorRect2" type="ColorRect" parent="CinematicBoxes"]
-margin_top = 603.115
+margin_top = 512.308
 margin_right = 1024.0
-margin_bottom = 691.115
+margin_bottom = 600.308
 color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false

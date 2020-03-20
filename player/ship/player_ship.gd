@@ -15,6 +15,7 @@ export(float) var zoom_speed = 2
 export(bool) var is_zoomed = false
 
 # player stuff
+var health = 3
 var velocity = Vector3()
 var movement_speed = 0
 var normal_speed = 3
