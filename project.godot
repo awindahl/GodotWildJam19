@@ -24,6 +24,15 @@ config/icon="res://icon.png"
 Global="*res://Global.gd"
 Jukebox="*res://Jukebox.tscn"
 
+[debug]
+
+shapes/collision/shape_color=Color( 0, 0.482353, 0.0509804, 1 )
+
+[display]
+
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
+
 [editor_plugins]
 
 enabled=PoolStringArray( "SIsilicon.vfx.godrays" )

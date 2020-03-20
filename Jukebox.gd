@@ -53,10 +53,10 @@ func next_song():
 func update_near_island(amount):
 	if (near_island == 0) and (amount == 1) and (current != $FindingLand) and !($FindingLand in queue_track):
 		queue_track.append($FindingLand)
-	elif (near_island > 0) and (amount == -1):
+	elif (near_island > 0) and (amount == -1) and (current != $LeavingLand) and !($LeavingLand in queue_track):
 		queue_track.append($LeavingLand)
 	near_island = max(0, near_island + amount)
-	print('Near island: ', near_island)
+	#print('Near island: ', near_island)
 
 func dock_on_port():
 	print('Docking!')

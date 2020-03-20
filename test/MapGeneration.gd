@@ -1,16 +1,16 @@
 extends Node
 
-var level_size = 5
-export var tile_size = 20
 export var real_map = true
-var scope = 3
+export var level_size = 10
+export var tile_size = 20
+export var scope = 3
+export var number_of_islands = 0
 var radius = int(floor(scope/2))
 var biomes = []
 onready var pre_load_biomes = {}
 
 
 var map = []
-var map_info = []
 var saved_coords = []
 
 
@@ -20,7 +20,9 @@ func _ready():
 	if level_size / scope < scope :
 		level_size = scope * 3
 	if real_map:
-		biomes = ["NoIsland", "Island1"]
+		#biomes = ["NoIsland", "Island1"]
+		#biomes = ["Empty", "Island1", "Island2"]
+		biomes = ["Empty", "Island1", "Island2", "Island3", 'SandIsland']
 		for biome in biomes:
 			pre_load_biomes[biome] = load("res://islands/tiles/%s.tscn" % biome)
 	else:
@@ -36,18 +38,41 @@ func _ready():
 func create_map():
 	# Refresh seed
 	randomize()
-
+	
+	var biome_idx = 0
+	var biome_list = []
+	if number_of_islands != 0:
+		# Can only generate at maximum one island per grid tile minus origin one
+		for _idx in range(min(number_of_islands, level_size*level_size-1)):
+			biome_list.append(randi()%4+1) # Create random vector of islands
+		# Fill remaining tiles, if any, with empty
+		for _idx in range(level_size*level_size-1-number_of_islands): 
+			biome_list += [0]
+	biome_list.shuffle()
+	print('Island spawn: ', biome_list)
+		
 	# Create a map that holds the level tiles
 	for x in range(level_size):
 		var row = []
 		var row_info = []
 		for z in range(level_size):
-			row.append(biomes[int(rand_range( 0, biomes.size() ))])
-			row_info.append([false, randf(), randf(), Vector2(x, z)])
+			#row.append(biomes[int(rand_range( 0, biomes.size() ))])
+			if number_of_islands == 0:
+				row.append({'biome': biomes[int(rand_range( 0, biomes.size() ))], \
+					"visited": false, "x_disp": randf(), "rotation": randf(), \
+					"tile_pos": Vector2(x, z), "tile_size": tile_size})
+			else:
+				row.append({'biome': biomes[biome_list[biome_idx]], \
+					"visited": false, "x_disp": randf(), "rotation": randf(), \
+					"tile_pos": Vector2(x, z), "tile_size": tile_size})
+				if (x!=0) or (z!=0):
+					# Origin tile will be replaced by empty tile, so only go to 
+					# next tile if current is not origin
+					biome_idx += 1
 		map.append(row)
-		map_info.append(row_info)
+		#map_info.append(row_info)
 	# Make initial tile empty
-	map[0][0] = biomes[0]
+	map[0][0]['biome'] = biomes[0]
 
 func coordinates():
 	var x = floor(get_parent().get_node("player_ship_1").get_translation().x)
@@ -112,9 +137,10 @@ func spawn_tiles():
 						pos_x *= -1
 					if pos_z < 0:
 						pos_z *= -1
-
-					var type = map[pos_x][pos_z]
-					var tile_info = map_info[pos_x][pos_z]
+					#print('X ', pos_x, '  Z ', pos_z)
+					#print(map[pos_x][pos_z])
+					var type = map[pos_x][pos_z]['biome']
+					#var tile_info = map_info[pos_x][pos_z]
 					
 					#var tilescene = load("res://tiles/%s.tscn" % str(type))
 					var tilescene = pre_load_biomes[str(type)]
@@ -135,9 +161,9 @@ func spawn_tiles():
 
 					new_tile.set_translation(Vector3(tile_x, 0, tile_z))
 					new_tile.set_name("tile" + str(name))
-					if type == 'Island1':
-						new_tile.tile_size = tile_size
-						new_tile.add_info(tile_info)
+					if real_map and (type != 'Empty'):
+						#new_tile.tile_size = tile_size
+						new_tile.add_info(map[pos_x][pos_z])
 
 					self.get_parent().call_deferred("add_child", new_tile)
 			tile += 1
@@ -165,4 +191,6 @@ func _physics_process(delta):
 
 func update_tile_visibility(pos):
 	#print(origin, map_info[origin.substr(4,5)], map_info[origin.substr(6,7)])
-	map_info[pos.x][pos.y][0] = true
+	#print('pos ', pos)
+	map[pos.x][pos.y]['visited'] = true
+

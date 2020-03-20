@@ -13,7 +13,7 @@ func _ready():
 	#create_map()
 
 func _process(delta):
-	$Control/VBoxContainer/FPS.text = str(Engine.get_frames_per_second())
+	$Control/VBoxContainer/HBoxContainer/FPS.text = str(Engine.get_frames_per_second())
 
 func create_map():
 	print('Generating new map...')
