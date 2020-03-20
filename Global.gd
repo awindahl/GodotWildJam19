@@ -3,8 +3,8 @@ extends Node
 signal day_change
 
 # Adjust these  -----------
-var day_running = true # For pauses or stopping day/night cycle
-var max_real_time = 180.0 # Real world day cycle time, put 10.0 to see fast day/night transition
+var day_running = false # For pauses or stopping day/night cycle
+var max_real_time = 30.0 # Real world day cycle time, put 10.0 to see fast day/night transition
 var start_perc = .6  # Where to start in the day, percentage
 var night_time_perc = .9  # Percentage of day to formally start NIGHT
 var day_time_perc = .4  # Percentage of day to formally start DAY

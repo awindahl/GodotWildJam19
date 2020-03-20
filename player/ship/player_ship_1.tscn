@@ -143,12 +143,15 @@ tracks/1/keys = {
 "values": [ true, false ]
 }
 
-[node name="player_ship_1" type="KinematicBody"]
-collision_layer = 524289
+[node name="player_ship_1" type="KinematicBody" groups=[
+"player",
+]]
+collision_layer = 524291
 collision_mask = 524289
 collision/safe_margin = 0.1
 
 [node name="Ship" type="MeshInstance" parent="."]
+cast_shadow = 0
 mesh = ExtResource( 1 )
 material/0 = null
 material/1 = null
@@ -260,6 +263,7 @@ near = 0.01
 far = 255.0
 
 [node name="RayCast" type="RayCast" parent="Controller/InnerGimbal/Camera"]
+visible = false
 cast_to = Vector3( 0, -0.545, -3.364 )
 collision_mask = 262144
 
@@ -293,9 +297,10 @@ anims/Focus = SubResource( 4 )
 anims/Shoot = SubResource( 5 )
 
 [node name="SimpleLight" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.655018, 0.942245, -0.286305 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.655018, 5.47696, 2.27849 )
 omni_range = 10.0
 omni_attenuation = 11.7126
+max_light = 0.5
 
 [node name="ShootTimer" type="Timer" parent="."]
 wait_time = 2.0
@@ -303,4 +308,3 @@ one_shot = true
 [connection signal="timeout" from="ShootTimer" to="Controller" method="_on_ShootTimer_timeout"]
 
 [editable path="Ship/Cannon"]
-

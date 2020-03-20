@@ -182,4 +182,5 @@ func _on_ShootTimer_timeout():
 
 
 func update_islands_in_range(amount):
+	print('!!!')
 	Jukebox.update_near_island(amount)

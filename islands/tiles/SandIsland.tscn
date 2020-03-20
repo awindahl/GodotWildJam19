@@ -6,11 +6,11 @@
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 1.60639, 0.678567, 1.8445 )
 
-[sub_resource type="CapsuleShape" id=3]
+[sub_resource type="CapsuleShape" id=2]
 radius = 0.952242
 height = 0.636379
 
-[sub_resource type="CapsuleShape" id=2]
+[sub_resource type="CapsuleShape" id=3]
 radius = 0.102319
 height = 0.217709
 
@@ -67,12 +67,15 @@ visible = false
 shape = SubResource( 1 )
 disabled = true
 
+[node name="SimpleLight" parent="LandPivot/Land/ChestPosition" index="2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.54548, 0 )
+
 [node name="AreaDocking" parent="LandPivot/Land" index="2"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.817579, -0.135368, 0.190171 )
 
 [node name="CollisionShape" parent="LandPivot/Land/AreaDocking" index="0"]
 transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -0.0399492, 0.110851, 0 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="CollisionPlayer" parent="LandPivot/Land" index="3"]
 transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -0.867462, 0, 0.177179 )
@@ -80,5 +83,5 @@ transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -0.8674
 [node name="CollisionDock" parent="LandPivot/Land" index="4"]
 transform = Transform( 0.995358, 0, 0.0962454, 0, 1, 0, -0.0962454, 0, 0.995358, -0.68335, 0, 0.660398 )
 visible = false
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 disabled = true

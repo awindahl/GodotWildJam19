@@ -147,6 +147,9 @@ visible = false
 shape = SubResource( 1 )
 disabled = true
 
+[node name="SimpleLight" parent="LandPivot/Land/ChestPosition" index="2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.359139, 1.61509, -0.0127457 )
+
 [node name="AreaDocking" parent="LandPivot/Land" index="2"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.32704, -0.135368, -0.624325 )
 
@@ -161,6 +164,3 @@ shape = SubResource( 3 )
 [node name="CollisionDock" parent="LandPivot/Land" index="4"]
 transform = Transform( 0.991386, 0, 0.130976, 0, 1, 0, -0.130976, 0, 0.991386, -0.67852, 0.0790982, 0.626376 )
 shape = SubResource( 4 )
-
-[node name="SimpleLight" parent="LandPivot/Land" index="5"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.423634, 1.49912, 0.576406 )

@@ -46,6 +46,11 @@ collision_mask = 2
 [node name="CollisionShape" type="CollisionShape" parent="LandPivot/Land/ChestPosition/AreaMusic"]
 shape = SubResource( 3 )
 
+[node name="SimpleLight" parent="LandPivot/Land/ChestPosition" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.29349, 0 )
+light_bake_mode = 2
+omni_range = 3.14695
+
 [node name="AreaDocking" type="Area" parent="LandPivot/Land"]
 transform = Transform( 0.326942, 0, 0, 0, 1, 0, 0, 0, 0.326942, -1.37835, -0.135368, 1.31242 )
 collision_layer = 0
@@ -60,11 +65,6 @@ shape = SubResource( 5 )
 
 [node name="CollisionDock" type="CollisionShape" parent="LandPivot/Land"]
 shape = SubResource( 5 )
-
-[node name="SimpleLight" parent="LandPivot/Land" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.49912, 0 )
-light_energy = 0.5
-omni_range = 4.0
 [connection signal="body_entered" from="LandPivot/Land/ChestPosition/AreaMusic" to="." method="_on_AreaMusic_body_entered"]
 [connection signal="body_exited" from="LandPivot/Land/ChestPosition/AreaMusic" to="." method="_on_AreaMusic_body_exited"]
 [connection signal="body_entered" from="LandPivot/Land/AreaDocking" to="." method="_on_AreaDocking_body_entered"]

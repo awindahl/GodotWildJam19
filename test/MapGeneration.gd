@@ -2,9 +2,10 @@ extends Node
 
 export var real_map = true
 export var level_size = 10
-export var tile_size = 20
-export var scope = 3
-export var number_of_islands = 0
+export var tile_size = 10
+export var scope = 5
+export var number_of_islands = 0  # There can be one less value than this if
+# there is an island spawn on origin player position. 0 means random
 var radius = int(floor(scope/2))
 var biomes = []
 onready var pre_load_biomes = {}
@@ -49,7 +50,10 @@ func create_map():
 		for _idx in range(level_size*level_size-1-number_of_islands): 
 			biome_list += [0]
 	biome_list.shuffle()
-	print('Island spawn: ', biome_list)
+	biome_list[0] = 0
+	#print('Island spawn: ', biome_list)
+	for row in range(level_size):
+		print(biome_list.slice(4*row, 4*row+level_size))
 		
 	# Create a map that holds the level tiles
 	for x in range(level_size):
@@ -113,7 +117,6 @@ func spawn_tiles():
 	var tile = 0
 	var offeset_x = -radius
 	var offeset_z = -radius
-
 	for a in scope:
 		for b in scope:
 			for new in pattern:

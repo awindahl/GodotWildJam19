@@ -3,26 +3,26 @@
 [ext_resource path="res://islands/IslandBase.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/island_base_2.obj" type="ArrayMesh" id=2]
 
-[sub_resource type="BoxShape" id=5]
+[sub_resource type="BoxShape" id=1]
 extents = Vector3( 0.593311, 0.356616, 0.498903 )
 
-[sub_resource type="CapsuleShape" id=6]
+[sub_resource type="CapsuleShape" id=2]
 radius = 0.594955
 height = 0.417515
 
-[sub_resource type="CapsuleShape" id=1]
+[sub_resource type="CapsuleShape" id=3]
 radius = 0.0647296
 height = 0.299404
 
-[sub_resource type="CapsuleShape" id=2]
+[sub_resource type="CapsuleShape" id=4]
 radius = 0.0638269
 height = 0.449848
 
-[sub_resource type="CapsuleShape" id=3]
+[sub_resource type="CapsuleShape" id=5]
 radius = 0.313657
 height = 0.0994824
 
-[sub_resource type="CapsuleShape" id=4]
+[sub_resource type="CapsuleShape" id=6]
 radius = 0.0758545
 height = 0.467778
 
@@ -334,29 +334,34 @@ transform = Transform( -0.177376, 0, -0.0923993, 0, 0.2, 0, 0.0923993, 0, -0.177
 [node name="CollisionShape" parent="LandPivot/Land/ChestPosition/AreaMusic" index="0"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.669132, 0 )
 
+[node name="SimpleLight" parent="LandPivot/Land/ChestPosition" index="2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.493549, 1.08464, -0.162127 )
+omni_range = 1.97242
+omni_attenuation = 2.29739
+
 [node name="AreaDocking" parent="LandPivot/Land" index="2"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.162891, -0.135368, 2.45488 )
 
 [node name="CollisionShape" parent="LandPivot/Land/AreaDocking" index="0"]
 transform = Transform( 0.86283, -0.00360692, 0.505481, 0.000825095, 0.999983, 0.0057271, -0.505494, -0.00452444, 0.862818, -0.187374, 0.157226, -0.186733 )
-shape = SubResource( 5 )
+shape = SubResource( 1 )
 
 [node name="CollisionPlayer" parent="LandPivot/Land" index="3"]
 transform = Transform( 0.959027, -1.02654e-05, -0.283312, -8.71848e-06, 1, -6.5746e-05, 0.283312, 6.55223e-05, 0.959027, 0.0682877, 0, 0.597994 )
-shape = SubResource( 6 )
+shape = SubResource( 2 )
 
 [node name="CollisionDock" parent="LandPivot/Land" index="4"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.441387, 0.00852445, 2.3525 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 
 [node name="CollisionDock2" type="CollisionShape" parent="LandPivot/Land" index="5"]
 transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -0.472109, 0, 2.18776 )
-shape = SubResource( 2 )
-
-[node name="CollisionPlayer2" type="CollisionShape" parent="LandPivot/Land" index="7"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.176877, 0, 1.96663 )
-shape = SubResource( 3 )
-
-[node name="CollisionPlayer3" type="CollisionShape" parent="LandPivot/Land" index="8"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.192538, 0.033976, 1.49817 )
 shape = SubResource( 4 )
+
+[node name="CollisionPlayer2" type="CollisionShape" parent="LandPivot/Land" index="6"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.176877, 0, 1.96663 )
+shape = SubResource( 5 )
+
+[node name="CollisionPlayer3" type="CollisionShape" parent="LandPivot/Land" index="7"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.192538, 0.033976, 1.49817 )
+shape = SubResource( 6 )
