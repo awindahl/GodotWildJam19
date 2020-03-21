@@ -3,7 +3,7 @@
 [sub_resource type="Curve" id=1]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=5]
+[sub_resource type="CurveTexture" id=2]
 curve = SubResource( 1 )
 
 [resource]
@@ -17,7 +17,7 @@ initial_velocity_random = 1.0
 angle = 360.0
 angle_random = 1.0
 scale = 0.2
-scale_curve = SubResource( 5 )
+scale_curve = SubResource( 2 )
 anim_speed = 1.0
 anim_offset = 1.0
 anim_offset_random = 1.0

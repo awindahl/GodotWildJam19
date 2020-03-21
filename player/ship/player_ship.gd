@@ -15,7 +15,6 @@ export(float) var zoom_speed = 2
 export(bool) var is_zoomed = false
 
 # player stuff
-var health = 3
 var velocity = Vector3()
 var movement_speed = 0
 var normal_speed = 3
@@ -27,6 +26,7 @@ var speed = Vector3()
 var movement = Vector3()
 var rotation_speed = 2
 var can_shoot = true
+var is_dead = false
 
 # camera stuff
 var yaw = 0
@@ -53,6 +53,7 @@ onready var cannon1 = $"../Ship/Cannon"
 onready var cannon2 = $"../Ship/Cannon2"
 onready var cannon3 = $"../Ship/Cannon3"
 onready var cannon4 = $"../Ship/Cannon4"
+onready var health = get_parent().health
 
 
 func _ready():
@@ -76,6 +77,8 @@ func _unhandled_input(event):
 
 func _physics_process(delta):
 	
+	health = get_parent().health
+
 	# Ship movement
 	var up = Input.is_action_pressed("ui_up")
 	var down = Input.is_action_pressed("ui_down")
@@ -139,10 +142,11 @@ func _physics_process(delta):
 	movement.x = hVel.x
 	movement.z = hVel.z
 	
-	movement = get_parent().move_and_slide(movement)
+	if not is_dead:
+		movement = get_parent().move_and_slide(movement)
 	
 	#Player Rotation
-	if is_moving:
+	if is_moving and not is_dead:
 		var angle = atan2(movement.x, movement.z)
 		var player_rotation = get_rotation()
 		
@@ -156,6 +160,12 @@ func _physics_process(delta):
 	gimbal.rotation_degrees.x = clamp(gimbal.rotation_degrees.x, -rotation_limit, rotation_limit)
 	
 	my_rotation = Vector2()
+	
+	if health <= 0:
+		collider.disabled = true
+		$"../DeathCamera".current = true
+		is_dead = true
+		$"../AnimationPlayer".play("Die")
 	
 func _input(event):
 	if event.is_action_pressed("right_click"):
@@ -185,3 +195,6 @@ func _on_ChargeTimer_timeout():
 	cannon2.add_child(new_cannonball2)
 	cannon3.add_child(new_cannonball3)
 	cannon4.add_child(new_cannonball4)
+
+func _die():
+	queue_free()

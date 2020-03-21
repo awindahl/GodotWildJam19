@@ -22,7 +22,10 @@ func _on_Area_body_entered(body):
 		$Particles.emitting = true
 		$KillTime.start()
 		speed = 0
-		
+		if body.name == "player_ship_1" or body.name == "Enemy":
+			body.health -= 1
+		else:
+			pass
 
 func _on_KillTime_timeout():
 	queue_free()

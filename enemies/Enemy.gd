@@ -27,7 +27,8 @@ var patrol_index = 0
 var sees_player = false
 var player_pos
 var can_shoot = true
-var health = 2
+var health = 15
+var is_dead = false
 
 func _ready():
 	home.set_as_toplevel(true)
@@ -39,21 +40,23 @@ func _process(delta):
 	if !patrol_path:
 		return
 	var patrol_target = patrol_points[patrol_index]
-	if get_transform().origin.distance_to(patrol_target) < 1 and not sees_player:
+	if get_transform().origin.distance_to(patrol_target) < 1 and not sees_player and not is_dead:
 		patrol_index = wrapi(patrol_index + 1, 0 , patrol_points.size())
 		patrol_target = patrol_points[patrol_index]
 		look_at(patrol_points[patrol_index], Vector3(0, 1, 0))
 		
-	else:
+	elif not is_dead:
 		for body in area.get_overlapping_bodies():
 			if body.TYPE == "PLAYER":
+				if body.health <= 0:
+					sees_player = false
 				player_pos = body.get_transform().origin
 				look_at(player_pos, Vector3(0, 1, 0))
-
 	
-	rotation.x = 0
-	movement.y -= 10 * delta
-
+	if not is_dead:
+		rotation.x = 0
+		movement.y -= 10 * delta
+	
 	if not sees_player:
 		movement = (patrol_target - get_transform().origin).normalized()
 	elif sees_player:
@@ -73,20 +76,26 @@ func _process(delta):
 	movement.x = hVel.x
 	movement.z = hVel.z
 	
-	movement = move_and_slide(movement)
+	if not is_dead:
+		movement = move_and_slide(movement)
 	
-	if ray.is_colliding() and can_shoot:
+	if ray.is_colliding() and can_shoot and not is_dead:
 		$AnimationPlayer.play("Shoot")
-
+	
+	if health == 0:
+		is_dead = true
+		$AnimationPlayer.play("Die")
+	
 func _on_Area_body_entered(body):
 	if body.TYPE == "PLAYER":
-		sees_player = true
-	
+		if body.health > 0:
+			sees_player = true
+		else:
+			sees_player = false
 
 func _on_Area_body_exited(body):
 	if body.TYPE == "PLAYER":
 		sees_player = false
-
 
 func _on_ChargeTimer_timeout():
 	$CooldownTimer.start()
@@ -104,3 +113,6 @@ func _on_AttackTimer_timeout():
 
 func _on_CooldownTimer_timeout():
 	can_shoot = true
+
+func _free():
+	queue_free()

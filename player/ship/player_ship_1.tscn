@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://assets/player_ship_1_no_sail.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://player/ship/player_ship.gd" type="Script" id=2]
@@ -11,10 +11,52 @@
 [ext_resource path="res://player/ship/cannon.tscn" type="PackedScene" id=9]
 [ext_resource path="res://player/ship/player_general.gd" type="Script" id=10]
 
-[sub_resource type="BoxShape" id=3]
+[sub_resource type="BoxShape" id=1]
 extents = Vector3( 0.912987, 1, 1 )
 
 [sub_resource type="Animation" id=4]
+resource_name = "Die"
+length = 2.0
+tracks/0/type = "method"
+tracks/0/path = NodePath("Controller")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_die"
+} ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Ship:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, -1.858, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Ship:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( -10, 0, 90 ) ]
+}
+
+[sub_resource type="Animation" id=2]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("CinematicBoxes/ColorRect:rect_position")
@@ -101,7 +143,7 @@ tracks/6/keys = {
 "values": [ false, true ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=3]
 resource_name = "Shoot"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Ship/ParticlesRight:emitting")
@@ -188,6 +230,7 @@ material/0 = null
 
 [node name="AimArrowRight" type="MeshInstance" parent="Ship"]
 transform = Transform( -1.03129e-07, 0, 0.1, 0, 1.341, 0, -0.633, 0, -1.62921e-08, -0.499106, 0.436021, -1.15853 )
+visible = false
 material_override = ExtResource( 7 )
 cast_shadow = 0
 mesh = ExtResource( 4 )
@@ -202,6 +245,7 @@ material/0 = ExtResource( 7 )
 
 [node name="AimArrowLeft" type="MeshInstance" parent="Ship"]
 transform = Transform( 1.2325e-07, 0, -0.1, 0, 1.341, 0, 0.633, 0, 1.94707e-08, 1.93353, 0.436021, -0.409748 )
+visible = false
 material_override = ExtResource( 7 )
 cast_shadow = 0
 mesh = ExtResource( 4 )
@@ -256,11 +300,10 @@ transform = Transform( -1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 2.17985
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 2.07011, 0.796575, 1.30199, -1.14069 )
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 
 [node name="Controller" type="Spatial" parent="."]
 script = ExtResource( 2 )
-is_zoomed = true
 
 [node name="InnerGimbal" type="Spatial" parent="Controller"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.02049 )
@@ -283,26 +326,27 @@ __meta__ = {
 }
 
 [node name="ColorRect" type="ColorRect" parent="CinematicBoxes"]
-margin_top = -1.07823
+margin_top = -93.0782
 margin_right = 1024.0
-margin_bottom = 86.9217
+margin_bottom = -5.07827
 color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ColorRect2" type="ColorRect" parent="CinematicBoxes"]
-margin_top = 512.308
+margin_top = 603.115
 margin_right = 1024.0
-margin_bottom = 600.308
+margin_bottom = 691.115
 color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Focus = SubResource( 4 )
-anims/Shoot = SubResource( 5 )
+anims/Die = SubResource( 4 )
+anims/Focus = SubResource( 2 )
+anims/Shoot = SubResource( 3 )
 
 [node name="SimpleLight" parent="." instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.655018, 0.942245, -0.286305 )
@@ -316,6 +360,9 @@ one_shot = true
 [node name="ChargeTimer" type="Timer" parent="."]
 wait_time = 0.2
 one_shot = true
+
+[node name="DeathCamera" type="Camera" parent="."]
+transform = Transform( 0.493653, -0.318279, 0.809324, 0, 0.930622, 0.365982, -0.869659, -0.180668, 0.459405, 5.806, 4.368, 2.059 )
 [connection signal="timeout" from="ShootTimer" to="Controller" method="_on_ShootTimer_timeout"]
 [connection signal="timeout" from="ChargeTimer" to="Controller" method="_on_ChargeTimer_timeout"]
 
