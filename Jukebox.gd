@@ -16,9 +16,9 @@ var day_time = true
 func _ready():
 	randomize()
 	$SwitchTimer.wait_time = switch_time
-	$SwitchTimer.start()
+	#$SwitchTimer.start()
 	print('Playing intro ', current.get_path())
-	current.play()
+	#current.play()
 
 func _on_track_finished():
 	pass

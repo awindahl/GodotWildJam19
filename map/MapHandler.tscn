@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://map/2d/MapMaker.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+
+[node name="MapHandler" type="Spatial" groups=[
+"map_handler",
+]]
+script = ExtResource( 1 )
+
+[node name="PlayerMap" type="Node2D" parent="."]
+position = Vector2( 130, 120 )
+
+[node name="MapBackground" type="Sprite" parent="PlayerMap"]
+modulate = Color( 1, 1, 1, 0.537255 )
+position = Vector2( 384.319, 180.126 )
+scale = Vector2( 13.964, 7.30024 )
+texture = ExtResource( 2 )
+
+[node name="PlayerIcon" type="Sprite" parent="PlayerMap"]
+scale = Vector2( 0.3, 0.6 )
+texture = ExtResource( 2 )
+flip_v = true
+
+[node name="SeaTiles" type="Control" parent="PlayerMap"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="IslandTiles" type="Control" parent="PlayerMap"]
+margin_left = 27.1395
+margin_top = -3.87708
+margin_right = 67.1395
+margin_bottom = 36.1229
+__meta__ = {
+"_edit_use_anchors_": false
+}

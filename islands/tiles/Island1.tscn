@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://islands/IslandBase.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/island_base_1.obj" type="ArrayMesh" id=2]
@@ -16,6 +16,9 @@ height = 0.873786
 [sub_resource type="CapsuleShape" id=4]
 radius = 0.0944319
 height = 0.304956
+
+[sub_resource type="SpatialMaterial" id=5]
+albedo_color = Color( 0.482353, 0.964706, 0, 1 )
 
 [node name="Island1" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.000132978, 0 )
@@ -164,3 +167,6 @@ shape = SubResource( 3 )
 [node name="CollisionDock" parent="LandPivot/Land" index="4"]
 transform = Transform( 0.991386, 0, 0.130976, 0, 1, 0, -0.130976, 0, 0.991386, -0.67852, 0.0790982, 0.626376 )
 shape = SubResource( 4 )
+
+[node name="MeshInstance" parent="." index="1"]
+material/0 = SubResource( 5 )
