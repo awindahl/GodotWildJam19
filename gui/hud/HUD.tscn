@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://gui/theme.tres" type="Theme" id=1]
+[ext_resource path="res://gui/BaseButton.tscn" type="PackedScene" id=2]
+
+[node name="HUD" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 0.7547
+margin_top = -0.754715
+margin_right = 0.754639
+margin_bottom = -0.7547
+theme = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" parent="." instance=ExtResource( 2 )]
