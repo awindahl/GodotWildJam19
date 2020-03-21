@@ -1,457 +1,912 @@
-# Made using Asset Forge (www.assetforge.io) version 1.3 
-
-newmtl Grass (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.1333 0.5451 0.1333 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Rock (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.6314 0.6235 0.6118 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Rock (Instance) (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.6314 0.6235 0.6118 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Grass (Instance) (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.1333 0.5451 0.1333 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Grass (Instance) (Instance) (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.1333 0.5451 0.1333 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Grass (Instance) (Instance) (Instance) (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.1333 0.5451 0.1333 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Rock (Instance) (Instance) (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.6314 0.6235 0.6118 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Rock (Instance) (Instance) (Instance) (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.6314 0.6235 0.6118 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Dirt (Instance) (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.7686 0.6863 0.5608 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Dirt (Instance) (Instance) (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.7686 0.6863 0.5608 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Dirt (Instance) (Instance) (Instance) (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.7686 0.6863 0.5608 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Grass (Instance) (Instance) (Instance) (Instance) (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.1333 0.5451 0.1333 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Dirt (Instance) (Instance) (Instance) (Instance) (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.7686 0.6863 0.5608 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Grass (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.1333 0.5451 0.1333 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Dirt (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.7686 0.6863 0.5608 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Grass (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.1333 0.5451 0.1333 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Dirt (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.7686 0.6863 0.5608 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Pine_Leaves (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.1255 0.4039 0.2039 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Wood_Dark (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.5176 0.4196 0.3333 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Pine_Leaves (Instance) (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.1255 0.4039 0.2039 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Wood_Dark (Instance) (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.5176 0.4196 0.3333 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Rock (Instance) (Instance) (Instance) (Instance) (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.6314 0.6235 0.6118 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Grass (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.1333 0.5451 0.1333 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Dirt (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.7686 0.6863 0.5608 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Grass (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.1333 0.5451 0.1333 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Dirt (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.7686 0.6863 0.5608 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Grass (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.1333 0.5451 0.1333 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Dirt (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.7686 0.6863 0.5608 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Grass (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.1333 0.5451 0.1333 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Dirt (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.7686 0.6863 0.5608 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Grass (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.1333 0.5451 0.1333 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Dirt (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.7686 0.6863 0.5608 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Grass (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.1333 0.5451 0.1333 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Dirt (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.7686 0.6863 0.5608 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Grass (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.1333 0.5451 0.1333 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Dirt (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.7686 0.6863 0.5608 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Grass (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.1333 0.5451 0.1333 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Dirt (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.7686 0.6863 0.5608 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Grass (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.1333 0.5451 0.1333 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Dirt (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.7686 0.6863 0.5608 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Rock (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.6314 0.6235 0.6118 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Rock (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.6314 0.6235 0.6118 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Rock (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.6314 0.6235 0.6118 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Rock (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.6314 0.6235 0.6118 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Rock (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.6314 0.6235 0.6118 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Rock (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.6314 0.6235 0.6118 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Rock (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.6314 0.6235 0.6118 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Wood_Light (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.7373 0.6314 0.4627 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Wood_Dark (Instance) (Instance) (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.5176 0.4196 0.3333 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Wood_Light (Instance) (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.7373 0.6314 0.4627 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Oak_Leaves (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.3216 0.5412 0.1569 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Wood_Darker (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.3843 0.3137 0.251 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Wood_Medium (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.6275 0.5255 0.3961 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Stone_Brit_Gray_Light (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.5725 0.4902 0.4275 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Stone_Bri_Gray_Lighter (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.6627 0.5961 0.5451 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Stone_Brit_Gray (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.4863 0.4235 0.3725 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Burlap (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.7255 0.6431 0.5216 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Dark_Red_Roof (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.4235 0.1804 0.1176 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Red_Roof (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.5765 0.2667 0.1922 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Wood_Darker (Instance) (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.3843 0.3137 0.251 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Red_Roof (Instance) (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.5765 0.2667 0.1922 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Dark_Red_Roof (Instance) (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.4235 0.1804 0.1176 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Stucco (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.9373 0.8941 0.8196 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Window (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.6588 0.7059 0.7765 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Wood_Darker (Instance) (Instance) (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.3843 0.3137 0.251 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Red_Roof (Instance) (Instance) (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.5765 0.2667 0.1922 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Dark_Red_Roof (Instance) (Instance) (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.4235 0.1804 0.1176 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Stucco (Instance) (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.9373 0.8941 0.8196 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Window (Instance) (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.6588 0.7059 0.7765 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Iron_Grey (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.4275 0.4196 0.3882 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Iron_Grey_-_Dark (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.302 0.2863 0.2745 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Candlelight (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 1 0.8824 0.5255 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Iron_Grey (Instance) (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.4275 0.4196 0.3882 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Wood_Medium (Instance) (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.6275 0.5255 0.3961 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Iron_Grey_-_Dark (Instance) (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.302 0.2863 0.2745 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Cedar_Leaves (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.1451 0.2706 0.1451 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Mushroom_White (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.9608 0.9451 0.9059 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Red_Mushroom (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.8588 0.502 0.4078 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Burlap (Instance) (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.7255 0.6431 0.5216 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Oak_Leaves (Instance) (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.3216 0.5412 0.1569 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Daisy_White (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.9725 0.9608 0.9373 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Pollen (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.9922 0.902 0.4588 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Wood_Light (Instance) (Instance) (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.7373 0.6314 0.4627 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Wood_Dark (Instance) (Instance) (Instance) (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.5176 0.4196 0.3333 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Wood_Light (Instance) (Instance) (Instance) (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.7373 0.6314 0.4627 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Wood_Dark (Instance) (Instance) (Instance) (Instance) (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.5176 0.4196 0.3333 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Wood_Light (Instance) (Instance) (Instance) (Instance) (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.7373 0.6314 0.4627 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Wood_Dark (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.5176 0.4196 0.3333 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Wood_Light (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.7373 0.6314 0.4627 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Pollen (Instance) (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.9922 0.902 0.4588 
-Ks 0.330000 0.330000 0.330000 
-
-newmtl Lily (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.9529 0.6039 0.7608 
-Ks 0.330000 0.330000 0.330000 
-
+# Blender MTL File: 'None'
+# Material Count: 91
+
+newmtl Burlap_(Instance)
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.725500 0.643100 0.521600
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Burlap_(Instance)_(Instance)
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.725500 0.643100 0.521600
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Candlelight_(Instance)
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 0.882400 0.525500
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Cedar_Leaves_(Instance).001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.145100 0.270600 0.145100
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Daisy_White_(Instance)
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.972500 0.960800 0.937300
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Dark_Red_Roof_(Instance)
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.423500 0.180400 0.117600
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Dark_Red_Roof_(Instance)_(Instance)
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.423500 0.180400 0.117600
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Dark_Red_Roof_(Instance)_(Instance)_(Instance)
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.423500 0.180400 0.117600
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Dirt_(Instance)_(Instance).001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.768600 0.686300 0.560800
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Dirt_(Instance)_(Instance)_(Instance)
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.768600 0.686300 0.560800
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Dirt_(Instance)_(Instance)_(Instance)_(Instance)
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.768600 0.686300 0.560800
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Dirt_(Instance)_(Instance)_(Instance)_(Instance)_(Instance)
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.768600 0.686300 0.560800
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Dirt_(Instance)_(Instance)_(Instance)_(Instance)_(Instance).001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.768600 0.686300 0.560800
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Dirt_(Instance)_(Instance)_(Instance)_(Instance)_(Instance).002
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.768600 0.686300 0.560800
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Dirt_(Instance)_(Instance)_(Instance)_(Instance)_(Instance).003
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.768600 0.686300 0.560800
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Dirt_(Instance)_(Instance)_(Instance)_(Instance)_(Instance).004
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.768600 0.686300 0.560800
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Dirt_(Instance)_(Instance)_(Instance)_(Instance)_(Instance).005
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.768600 0.686300 0.560800
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Dirt_(Instance)_(Instance)_(Instance)_(Instance)_(Instance).006
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.768600 0.686300 0.560800
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Dirt_(Instance)_(Instance)_(Instance)_(Instance)_(Instance).007
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.768600 0.686300 0.560800
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Dirt_(Instance)_(Instance)_(Instance)_(Instance)_(Instance).008
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.768600 0.686300 0.560800
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Dirt_(Instance)_(Instance)_(Instance)_(Instance)_(Instance).009
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.768600 0.686300 0.560800
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Dirt_(Instance)_(Instance)_(Instance)_(Instance)_(Instance).010
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.768600 0.686300 0.560800
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Dirt_(Instance)_(Instance)_(Instance)_(Instance)_(Instance)_(In
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.768600 0.686300 0.560800
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Grass_(Instance).001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.133300 0.545100 0.133300
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Grass_(Instance)_(Instance).001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.133300 0.545100 0.133300
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Grass_(Instance)_(Instance)_(Instance).001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.133300 0.545100 0.133300
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Grass_(Instance)_(Instance)_(Instance)_(Instance)
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.133300 0.545100 0.133300
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Grass_(Instance)_(Instance)_(Instance)_(Instance)_(Instance
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.133300 0.545100 0.133300
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Grass_(Instance)_(Instance)_(Instance)_(Instance)_(Instance)
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.133300 0.545100 0.133300
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Grass_(Instance)_(Instance)_(Instance)_(Instance)_(Instance)_(I
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.133300 0.545100 0.133300
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Grass_(Instance)_(Instance)_(Instance)_(Instance)_(Instance.001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.133300 0.545100 0.133300
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Grass_(Instance)_(Instance)_(Instance)_(Instance)_(Instance.002
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.133300 0.545100 0.133300
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Grass_(Instance)_(Instance)_(Instance)_(Instance)_(Instance.003
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.133300 0.545100 0.133300
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Grass_(Instance)_(Instance)_(Instance)_(Instance)_(Instance.004
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.133300 0.545100 0.133300
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Grass_(Instance)_(Instance)_(Instance)_(Instance)_(Instance.005
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.133300 0.545100 0.133300
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Grass_(Instance)_(Instance)_(Instance)_(Instance)_(Instance.006
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.133300 0.545100 0.133300
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Grass_(Instance)_(Instance)_(Instance)_(Instance)_(Instance.007
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.133300 0.545100 0.133300
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Grass_(Instance)_(Instance)_(Instance)_(Instance)_(Instance.008
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.133300 0.545100 0.133300
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Grass_(Instance)_(Instance)_(Instance)_(Instance)_(Instance.009
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.133300 0.545100 0.133300
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Iron_Grey_(Instance)
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.427500 0.419600 0.388200
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Iron_Grey_(Instance)_(Instance)
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.427500 0.419600 0.388200
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Iron_Grey_-_Dark_(Instance)
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.302000 0.286300 0.274500
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Iron_Grey_-_Dark_(Instance)_(Instance)
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.302000 0.286300 0.274500
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Lily_(Instance)
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.952900 0.603900 0.760800
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Mushroom_White_(Instance)
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.960800 0.945100 0.905900
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Oak_Leaves_(Instance).001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.321600 0.541200 0.156900
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Oak_Leaves_(Instance)_(Instance).001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.321600 0.541200 0.156900
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Pine_Leaves_(Instance)
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.125500 0.403900 0.203900
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Pine_Leaves_(Instance)_(Instance)
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.125500 0.403900 0.203900
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Pollen_(Instance)
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.992200 0.902000 0.458800
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Pollen_(Instance)_(Instance)
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.992200 0.902000 0.458800
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Red_Mushroom_(Instance)
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.858800 0.502000 0.407800
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Red_Roof_(Instance)
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.576500 0.266700 0.192200
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Red_Roof_(Instance)_(Instance)
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.576500 0.266700 0.192200
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Red_Roof_(Instance)_(Instance)_(Instance)
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.576500 0.266700 0.192200
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Rock_(Instance).001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.631400 0.623500 0.611800
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Rock_(Instance)_(Instance).001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.631400 0.623500 0.611800
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Rock_(Instance)_(Instance)_(Instance).001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.631400 0.623500 0.611800
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Rock_(Instance)_(Instance)_(Instance)_(Instance).001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.631400 0.623500 0.611800
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Rock_(Instance)_(Instance)_(Instance)_(Instance)_(Instance).001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.631400 0.623500 0.611800
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Rock_(Instance)_(Instance)_(Instance)_(Instance)_(Instance).002
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.631400 0.623500 0.611800
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Rock_(Instance)_(Instance)_(Instance)_(Instance)_(Instance).003
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.631400 0.623500 0.611800
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Rock_(Instance)_(Instance)_(Instance)_(Instance)_(Instance).004
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.631400 0.623500 0.611800
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Rock_(Instance)_(Instance)_(Instance)_(Instance)_(Instance).005
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.631400 0.623500 0.611800
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Rock_(Instance)_(Instance)_(Instance)_(Instance)_(Instance).006
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.631400 0.623500 0.611800
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Rock_(Instance)_(Instance)_(Instance)_(Instance)_(Instance).007
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.631400 0.623500 0.611800
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Rock_(Instance)_(Instance)_(Instance)_(Instance)_(Instance).008
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.631400 0.623500 0.611800
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Stone_Bri_Gray_Lighter_(Instance)
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.662700 0.596100 0.545100
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Stone_Brit_Gray_(Instance)
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.486300 0.423500 0.372500
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Stone_Brit_Gray_Light_(Instance)
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.572500 0.490200 0.427500
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Stucco_(Instance)
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.937300 0.894100 0.819600
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Stucco_(Instance)_(Instance)
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.937300 0.894100 0.819600
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Window_(Instance)
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.658800 0.705900 0.776500
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Window_(Instance)_(Instance)
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.658800 0.705900 0.776500
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Wood_Dark_(Instance).001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.517600 0.419600 0.333300
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Wood_Dark_(Instance)_(Instance).001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.517600 0.419600 0.333300
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Wood_Dark_(Instance)_(Instance)_(Instance).001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.517600 0.419600 0.333300
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Wood_Dark_(Instance)_(Instance)_(Instance)_(Instance).001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.517600 0.419600 0.333300
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Wood_Dark_(Instance)_(Instance)_(Instance)_(Instance)_(Inst
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.517600 0.419600 0.333300
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Wood_Dark_(Instance)_(Instance)_(Instance)_(Instance)_(Inst.001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.517600 0.419600 0.333300
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Wood_Darker_(Instance)
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.384300 0.313700 0.251000
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Wood_Darker_(Instance)_(Instance)
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.384300 0.313700 0.251000
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Wood_Darker_(Instance)_(Instance)_(Instance)
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.384300 0.313700 0.251000
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Wood_Light_(Instance).001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.737300 0.631400 0.462700
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Wood_Light_(Instance)_(Instance).001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.737300 0.631400 0.462700
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Wood_Light_(Instance)_(Instance)_(Instance).001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.737300 0.631400 0.462700
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Wood_Light_(Instance)_(Instance)_(Instance)_(Instance).001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.737300 0.631400 0.462700
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Wood_Light_(Instance)_(Instance)_(Instance)_(Instance)_(Ins
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.737300 0.631400 0.462700
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Wood_Light_(Instance)_(Instance)_(Instance)_(Instance)_(Ins.001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.737300 0.631400 0.462700
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Wood_Medium_(Instance)
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.627500 0.525500 0.396100
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Wood_Medium_(Instance)_(Instance)
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.627500 0.525500 0.396100
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2

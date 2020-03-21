@@ -22,7 +22,7 @@ func _on_Area_body_entered(body):
 		$Particles.emitting = true
 		$KillTime.start()
 		speed = 0
-		body.health = -1
+		
 
 func _on_KillTime_timeout():
 	queue_free()
