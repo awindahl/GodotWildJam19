@@ -17,12 +17,13 @@ func _process(delta):
 	global_translate(forward_dir * delta * speed)
 
 func _on_Area_body_entered(body):
-	if not body.name == get_parent().get_parent().name and not body.name == get_parent().get_parent().get_parent().name:
+	if not body.name == get_parent().get_parent().name and not body.name == get_parent().get_parent().get_parent().get_parent().name:
 		$MeshInstance.visible = false
 		$Particles.emitting = true
 		$KillTime.start()
 		speed = 0
-		if body.name == "player_ship_1" or body.name == "Enemy":
+		print(body.name)
+		if body.name == "Player" or body.name == "Player2" or body.name == "Player3" or body.name == "Enemy":
 			body.health -= 1
 		else:
 			pass

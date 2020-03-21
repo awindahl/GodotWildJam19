@@ -27,6 +27,7 @@ var movement = Vector3()
 var rotation_speed = 2
 var can_shoot = true
 var is_dead = false
+var cannons 
 
 # camera stuff
 var yaw = 0
@@ -35,7 +36,6 @@ var base_camera_flag = true
 var no_buttons = true
 var zoom_factor = 1
 var actual_zoom = 1
-
 var camera_min_fov = 70
 var camera_max_fov = 90
 
@@ -46,15 +46,10 @@ onready var gimbal = $InnerGimbal
 onready var camera = $InnerGimbal/Camera
 onready var camera_cast = $InnerGimbal/Camera/RayCast
 onready var my_model = $"../Ship"
-onready var collider = $"../CollisionShape"
+onready var collider = $"../Collider"
 onready var aim_assist_r = $"../Ship/AimArrowRight"
 onready var aim_assist_l = $"../Ship/AimArrowLeft"
-onready var cannon1 = $"../Ship/Cannon"
-onready var cannon2 = $"../Ship/Cannon2"
-onready var cannon3 = $"../Ship/Cannon3"
-onready var cannon4 = $"../Ship/Cannon4"
 onready var health = get_parent().health
-
 
 func _ready():
 	
@@ -62,7 +57,9 @@ func _ready():
 	movement_speed = normal_speed
 	camera_cast.add_exception(get_parent())
 	camera.translation = DEFAULT_CAMERA_POSITION
-
+	
+	cannons = get_parent().get_node("Ship/Cannons").get_children()
+	
 func _unhandled_input(event):
 
 	if event is InputEventMouseMotion:
@@ -186,15 +183,11 @@ func _ChargeTimer_start():
 	$"../ChargeTimer".start()
 
 func _on_ChargeTimer_timeout():
-	var new_cannonball = CANNONBALL.instance()
-	var new_cannonball2 = CANNONBALL.instance()
-	var new_cannonball3 = CANNONBALL.instance()
-	var new_cannonball4 = CANNONBALL.instance()
 	
-	cannon1.add_child(new_cannonball)
-	cannon2.add_child(new_cannonball2)
-	cannon3.add_child(new_cannonball3)
-	cannon4.add_child(new_cannonball4)
-
+	for cannon in cannons:
+		var new_cannonball = CANNONBALL.instance()
+		cannon.add_child(new_cannonball)
+		cannon.get_node("Particles").emitting = true
+	
 func _die():
 	queue_free()

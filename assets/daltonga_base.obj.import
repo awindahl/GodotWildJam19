@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/daltonga_base.obj-867a56a26355e915b879248288220715.mesh"
+
+[deps]
+
+files=[ "res://.import/daltonga_base.obj-867a56a26355e915b879248288220715.mesh" ]
+
+source_file="res://assets/daltonga_base.obj"
+dest_files=[ "res://.import/daltonga_base.obj-867a56a26355e915b879248288220715.mesh", "res://.import/daltonga_base.obj-867a56a26355e915b879248288220715.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

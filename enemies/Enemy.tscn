@@ -1,34 +1,12 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/enemy_ship.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://enemies/Enemy.gd" type="Script" id=2]
 [ext_resource path="res://player/ship/cannon.tscn" type="PackedScene" id=3]
-[ext_resource path="res://player/ship/smoke.tres" type="QuadMesh" id=4]
 
-[sub_resource type="CylinderShape" id=1]
+[sub_resource type="CylinderShape" id=9]
 radius = 6.44
 height = 1.69092
-
-[sub_resource type="Curve" id=2]
-_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
-
-[sub_resource type="CurveTexture" id=3]
-curve = SubResource( 2 )
-
-[sub_resource type="ParticlesMaterial" id=4]
-render_priority = 5
-emission_shape = 1
-emission_sphere_radius = 0.33
-spread = 19.05
-gravity = Vector3( 0, 0, 0 )
-initial_velocity = 1.72
-initial_velocity_random = 1.0
-angle = 360.0
-angle_random = 1.0
-scale_curve = SubResource( 3 )
-anim_speed = 1.0
-anim_offset = 1.0
-anim_offset_random = 1.0
 
 [sub_resource type="BoxShape" id=5]
 extents = Vector3( 0.275071, 0.375454, 0.576801 )
@@ -42,31 +20,31 @@ _data = {
 [sub_resource type="Animation" id=7]
 resource_name = "Die"
 length = 2.0
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.9 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector3( 0, 0, 0 ), Vector3( 32.416, 0, -90 ) ]
-}
-tracks/1/type = "method"
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
 "times": PoolRealArray( 2 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
 "method": "_free"
 } ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("MeshInstance:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, -180, 0 ), Vector3( -19.877, -180, 0 ), Vector3( -19.877, -180, -80 ) ]
 }
 
 [sub_resource type="Animation" id=8]
@@ -82,49 +60,13 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Vector3( 0.2, 0.2, 0.2 ), Vector3( 0.2, 0.22, 0.2 ), Vector3( 0.2, 0.2, 0.22 ), Vector3( 0.2, 0.2, 0.2 ) ]
 }
-tracks/1/type = "value"
-tracks/1/path = NodePath("MeshInstance/Particles:emitting")
+tracks/1/type = "method"
+tracks/1/path = NodePath("ChargeTimer")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.3, 0.4 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 1,
-"values": [ false, true, false ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("MeshInstance/Particles2:emitting")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.3, 0.4 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 1,
-"values": [ false, true, false ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("MeshInstance/Particles3:emitting")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0, 0.3, 0.4 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 1,
-"values": [ false, true, false ]
-}
-tracks/4/type = "method"
-tracks/4/path = NodePath("ChargeTimer")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
@@ -133,15 +75,16 @@ tracks/4/keys = {
 } ]
 }
 
-[node name="Enemy" type="KinematicBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+[node name="Enemy" type="KinematicBody" groups=[
+"Enemy",
+]]
 collision_layer = 262147
 collision_mask = 262147
 script = ExtResource( 2 )
 patrol_path = NodePath("Path")
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
-transform = Transform( -0.2, 0, -7.78829e-08, 0, 0.2, 0, 7.78829e-08, 0, -0.2, 0.19886, 0, 0 )
+transform = Transform( -0.2, 0, -3.01992e-08, 0, 0.2, 0, 3.01992e-08, 0, -0.2, 0.19886, 0, 0 )
 mesh = ExtResource( 1 )
 material/0 = null
 material/1 = null
@@ -158,44 +101,11 @@ collision_mask = 2
 
 [node name="CollisionShape" type="CollisionShape" parent="MeshInstance/Area"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.428293, -2.34987 )
-shape = SubResource( 1 )
-
-[node name="Particles" type="Particles" parent="MeshInstance"]
-transform = Transform( -4.37111e-08, 0, -1, 0, 1, 0, 1, 0, -4.37111e-08, 0.912856, 0.308981, 3.30359 )
-emitting = false
-amount = 64
-one_shot = true
-explosiveness = 1.0
-visibility_aabb = AABB( -1.0392, -1.22051, -2.14108, 2.0784, 2.44103, 4.28217 )
-process_material = SubResource( 4 )
-draw_pass_1 = ExtResource( 4 )
-
-[node name="Particles2" type="Particles" parent="MeshInstance"]
-transform = Transform( -4.37111e-08, 0, -1, 0, 1, 0, 1, 0, -4.37111e-08, -0.0666338, 0.308981, 2.62456 )
-emitting = false
-amount = 64
-one_shot = true
-explosiveness = 1.0
-visibility_aabb = AABB( -1.0392, -1.22051, -2.14108, 2.0784, 2.44103, 4.28217 )
-process_material = SubResource( 4 )
-draw_pass_1 = ExtResource( 4 )
-
-[node name="Particles3" type="Particles" parent="MeshInstance"]
-transform = Transform( -4.37111e-08, 0, -1, 0, 1, 0, 1, 0, -4.37111e-08, 1.82497, 0.308981, 2.62456 )
-emitting = false
-amount = 64
-one_shot = true
-explosiveness = 1.0
-visibility_aabb = AABB( -1.0392, -1.22051, -2.14108, 2.0784, 2.44103, 4.28217 )
-process_material = SubResource( 4 )
-draw_pass_1 = ExtResource( 4 )
+shape = SubResource( 9 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.307861, 0.072754 )
 shape = SubResource( 5 )
-
-[node name="Camera" type="Camera" parent="."]
-transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 2.5, 5.635 )
 
 [node name="Path" type="Path" parent="."]
 transform = Transform( 0.124589, 0, 0.992208, 0, 1, 0, -0.992208, 0, 0.124589, 0, 0, -4.95422 )
@@ -223,9 +133,11 @@ wait_time = 0.3
 one_shot = true
 
 [node name="AttackTimer" type="Timer" parent="."]
+wait_time = 1.9
 one_shot = true
 
 [node name="CooldownTimer" type="Timer" parent="."]
+wait_time = 1.9
 one_shot = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

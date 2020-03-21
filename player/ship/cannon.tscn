@@ -1,7 +1,17 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
 
-[node name="Cannon" type="Spatial"]
+[ext_resource path="res://player/ship/CannonParticle.tscn" type="PackedScene" id=1]
+
+[node name="Cannon" type="Spatial" groups=[
+"Cannon",
+]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.531846, 0.463486, -0.452101 )
 
 [node name="RayCast" type="RayCast" parent="."]
 cast_to = Vector3( -1, 0, 0 )
+
+[node name="Particles" parent="." instance=ExtResource( 1 )]
+transform = Transform( -0.999893, 0, -0.01466, 0, 1, 0, 0.01466, 0, -0.999893, 0, 0, 0 )
+lifetime = 1.9
+one_shot = true
+speed_scale = 2.71

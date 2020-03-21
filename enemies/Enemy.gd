@@ -8,7 +8,6 @@ const CANNONBALL = preload("res://player/ship/cannonball.tscn")
 export (NodePath) var patrol_path
 
 onready var home = $Position3D
-onready var camera = $Camera
 onready var area = $MeshInstance/Area
 onready var ray = $RayCast
 onready var cannon1 = $"Cannon"
@@ -45,7 +44,7 @@ func _process(delta):
 		patrol_target = patrol_points[patrol_index]
 		look_at(patrol_points[patrol_index], Vector3(0, 1, 0))
 		
-	elif not is_dead:
+	elif not is_dead and sees_player:
 		for body in area.get_overlapping_bodies():
 			if body.TYPE == "PLAYER":
 				if body.health <= 0:
@@ -58,6 +57,8 @@ func _process(delta):
 		movement.y -= 10 * delta
 	
 	if not sees_player:
+		look_at(patrol_points[patrol_index], Vector3(0, 1, 0))
+		rotation.x = 0
 		movement = (patrol_target - get_transform().origin).normalized()
 	elif sees_player:
 		movement = (player_pos - get_transform().origin).normalized()
@@ -107,12 +108,18 @@ func _on_ChargeTimer_timeout():
 	cannon1.add_child(new_cannonball)
 	cannon2.add_child(new_cannonball2)
 	cannon3.add_child(new_cannonball3)
-
+	cannon1.get_node("Particles").emitting = true
+	cannon2.get_node("Particles").emitting = true
+	cannon3.get_node("Particles").emitting = true
+	
 func _on_AttackTimer_timeout():
 	pass # Replace with function body.
 
 func _on_CooldownTimer_timeout():
 	can_shoot = true
+	cannon1.get_node("Particles").emitting = false
+	cannon2.get_node("Particles").emitting = false
+	cannon2.get_node("Particles").emitting = false
 
 func _free():
 	queue_free()
