@@ -30,10 +30,6 @@ __meta__ = {
 }
 
 [node name="IslandTiles" type="Control" parent="PlayerMap"]
-margin_left = 27.1395
-margin_top = -3.87708
-margin_right = 67.1395
-margin_bottom = 36.1229
 __meta__ = {
 "_edit_use_anchors_": false
 }

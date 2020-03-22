@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/largeBlast_far1.ogg-75161ec6a03ffc905c68b99d48d15e86.oggstr"
+
+[deps]
+
+source_file="res://assets/sound/largeBlast_far1.ogg"
+dest_files=[ "res://.import/largeBlast_far1.ogg-75161ec6a03ffc905c68b99d48d15e86.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
