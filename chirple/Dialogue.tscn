@@ -1,0 +1,132 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://chirple/cpt_chirp_model.tscn" type="PackedScene" id=1]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Idle"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("cpt_chirp/Mouth001:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, -101.624 ), Vector3( 0, 0, -91.3 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("cpt_chirp/Wing001:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 110.072 ), Vector3( 0, 0, 128.464 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("cpt_chirp/Telescope001:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, -144.879 ), Vector3( 0, 0, -163.498 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("cpt_chirp/Hat001:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 15.338 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("cpt_chirp/Leg001:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 180 ), Vector3( 0, 0, 210.077 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("cpt_chirp/Eyebrow001:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, -90.6146 ), Vector3( 0, 0, -72.602 ) ]
+}
+
+[node name="Dialogue" type="Spatial"]
+
+[node name="cpt_chirp" parent="." instance=ExtResource( 1 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -4.47, -1.966, -14.587 )
+
+[node name="Leg001" parent="cpt_chirp" index="2"]
+transform = Transform( -0.644826, -9.73661e-08, 0, 9.73661e-08, -0.644826, 0, 0, 0, 0.644826, 3.74094e-05, -0.566194, 0 )
+
+[node name="Wing001" parent="cpt_chirp" index="3"]
+transform = Transform( -0.343203, -0.939261, 0, 0.939261, -0.343203, 0, 0, 0, 1, 0.483146, -0.0101639, 0 )
+
+[node name="Eyebrow001" parent="cpt_chirp" index="4"]
+transform = Transform( -0.00415096, 0.386937, 0, -0.386937, -0.00415096, 0, 0, 0, 0.386959, 1.25339, 1.22951, 0 )
+
+[node name="Mouth001" parent="cpt_chirp" index="5"]
+transform = Transform( -0.11476, 0.557865, 0, -0.557865, -0.11476, 0, 0, 0, 0.569546, 1.56786, 0.764633, 0 )
+
+[node name="Telescope001" parent="cpt_chirp" index="6"]
+transform = Transform( -0.817938, 0.575306, 0, -0.575306, -0.817938, 0, 0, 0, 1, -0.189864, 0.357485, 0 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.202, 2.029, 0 )
+projection = 1
+current = true
+size = 16.89
+
+[node name="Control" type="Control" parent="."]
+margin_top = 8.0
+margin_right = 40.0
+margin_bottom = 48.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+margin_top = 771.0
+margin_right = 1924.0
+margin_bottom = 1072.0
+color = Color( 0, 0, 0, 0.839216 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/ColorRect"]
+margin_left = 376.0
+margin_right = 1925.0
+margin_bottom = 297.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Idle = SubResource( 1 )
+
+[editable path="cpt_chirp"]

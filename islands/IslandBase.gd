@@ -69,13 +69,12 @@ func _process(delta):
 #		open_shop()
 
 func _on_RelicButton_pressed():
-	pass # Replace with function body.
-
+	Global.player_relics_found += 1
+	$Shop/RelicButton.disabled = true
 
 func _on_HealButton_pressed():
 	player.health += 10
 	player.gold -= 1000
-
 
 func _on_UpgradeButton_pressed():
 	print(player.gold)
