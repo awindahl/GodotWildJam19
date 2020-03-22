@@ -1,7 +1,10 @@
 extends Spatial
 
 func _ready():
-	pass
+	var mid_level = 25*15/2.2
+	var origin = Vector3(mid_level, 0, mid_level)
+	$Player.transform.origin = origin
+	$Water.transform.origin = origin
 
 func _process(delta):
 	$Control/VBoxContainer/HBoxContainer/FPS.text = str(Engine.get_frames_per_second())
@@ -17,9 +20,3 @@ func _input(event):
 		pass
 		#$HUD/MapPanel.visible = !$HUD/MapPanel.visible
 
-# TODO 
-func move_player_to(player_start_pos):
-	$Player.global_transform.origin.x = player_start_pos.x
-	$Player.global_transform.origin.z = player_start_pos.y
-	$Water.global_transform.origin.x = player_start_pos.x
-	$Water.global_transform.origin.z = player_start_pos.y

@@ -9,10 +9,10 @@ var icon_list = [IconSea, IconI1, IconI2, IconI3, IconI4]
 
 # Change here
 export var real_map = true
-var level_size = 9
-var tile_size = 10
-var scope = 5
-var number_of_islands = 50 # There can be one less value than this if
+var level_size = 25
+const tile_size = 5
+const scope = 5
+const number_of_islands = 30 # There can be one less value than this if
 # there is an island spawn on origin player position. 0 means random
 var radius
 var biomes = []
@@ -43,7 +43,7 @@ func _ready():
 	if level_size / scope < scope :
 		level_size = scope * 3
 	tile_ratio = player_map_size / (level_size)
-	print(tile_ratio)
+	
 	
 	if real_map:
 		biomes = ["Empty", "Island1", "Island2", "Island3", 'SandIsland']
@@ -67,6 +67,7 @@ func _ready():
 func create_map():
 	# Refresh seed
 	randomize()
+	var player_spawn = better_coordinates()
 	
 	if number_of_islands != 0:
 		# Can only generate at maximum one island per grid tile minus origin one
@@ -95,7 +96,7 @@ func create_map():
 					"visited": false, "x_disp": 0, \
 					"rotation": 0, \
 					"tile_pos": Vector2(x, z), "tile_size": tile_size})
-				if (x!=0) or (z!=0):
+				if (x!=player_spawn[0]) or (z!=player_spawn[1]):
 					# Origin tile will be replaced by empty tile, so only go to 
 					# next tile if current is not origin
 					biome_idx += 1
@@ -106,7 +107,7 @@ func create_map():
 	# Make initial tile empty
 	var mid_map = round(level_size/2)
 	emit_signal("spawn_player", mid_map)
-	map[0][0]['biome'] = biomes[0]
+	map[player_spawn[0]][player_spawn[1]]['biome'] = biomes[0]
 	
 	#get_tree().call_group("player_map", "make", map, biome_list, level_size, tile_size, number_of_islands)
 
@@ -138,8 +139,8 @@ func better_coordinates():
 	else:
 		z = ceil(z)
 	var floor_cord = Vector2(x, z)
-	x = round(fmod(x / tile_size, level_size))
-	z = round(fmod(z / tile_size, level_size))
+	x = floor(fmod(x / tile_size, level_size))
+	z = floor(fmod(z / tile_size, level_size))
 
 	if x<0:
 		x+=level_size

@@ -40,6 +40,6 @@ func show_island(pos, name_type):
 
 func update_player(pos, rot):
 	print('map pos ', pos)
-	$Map/PlayerOrigin/Player.position = Vector2(pos[0], pos[1])*tile_ratio
-	$Map/PlayerOrigin/Player.rotation_degrees = rot.y
+	$Map/PlayerOrigin/Player.position = Vector2(pos[0], pos[1]+.5)*tile_ratio
+	$Map/PlayerOrigin/Player.rotation_degrees = rad2deg(-rot.y)
 	
