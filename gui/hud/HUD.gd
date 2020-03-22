@@ -12,6 +12,9 @@ onready var ribbons_panel = $RibbonsPanel
 onready var ribbons = $RibbonsPanel/VBoxContainer.get_children()
 onready var ribbons_tween = $RibbonsPanel/Tween
 
+func _ready():
+	$MapPanel.visible = false
+
 func set_health(h):
 	health = int(h)
 	health_label.text = str(health)
@@ -28,3 +31,11 @@ func set_ribbons_collected(r):
 		ribbons_collected = r
 		#move ribbon panel with tween
 		#load ribbon icon
+
+func _on_MapHandler_player_map(player_pos, player_rot):
+	print("player_map ", player_pos, player_rot)
+	$MapPanel.update_player(player_pos, player_rot)
+
+
+func _on_MapHandler_toggle_player_map(value):
+	$MapPanel.visible = value

@@ -65,12 +65,11 @@ func _process(delta):
 				info['visited'] = true
 				print('New land discovered, GET RELIC at ', info['tile_pos'], ', player at ', get_tree().get_nodes_in_group("map_handler")[0].better_coordinates())
 				open_chest()
-				get_tree().call_group("map_handler", 'update_tile_visibility', info['tile_pos'])
+				get_tree().call_group("map_handler", 'show_island', info['tile_pos'], info['biome'])
 
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 			get_tree().paused = true
 			player = body
-			print('My pos is ', info['tile_pos'])
 			
 #func _on_AreaDocking_body_entered(body):
 #	print('Body ', body.name, ' enter in Area ', name, ', is player? ', body.is_in_group("Player"), ', visited? ', info['visited'])

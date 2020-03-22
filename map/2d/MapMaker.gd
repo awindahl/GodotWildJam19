@@ -12,7 +12,7 @@ export var real_map = true
 var level_size = 9
 var tile_size = 10
 var scope = 5
-var number_of_islands = 5000 # There can be one less value than this if
+var number_of_islands = 50 # There can be one less value than this if
 # there is an island spawn on origin player position. 0 means random
 var radius
 var biomes = []
@@ -25,6 +25,12 @@ var island_holder = {}
 
 var player_map_size = Vector2()
 var tile_ratio = 1
+var my_saved_coords = []
+var player_map_visible = false
+
+signal player_map
+signal toggle_player_map
+
 
 func _ready():
 	radius = int(floor(scope/2))
@@ -299,23 +305,30 @@ func _physics_process(delta):
 		#var player_pos = coordinates()
 		#print('coord ', player_pos)
 		#var player_pos_vec = Vector2(player_pos[0], player_pos[1])
-		var coord = coordinates()
-		#update_tile_visibility(Vector2(coord[0],coord[1]))
+	var coord = better_coordinates()
+	if coord != my_saved_coords:
+		if map[coord[0]][coord[1]]['biome'] == 'Empty':
+			get_tree().call_group("map_handler", "show_water", Vector2(coord[0], coord[1]))
+			my_saved_coords = coord
+			#update_tile_visibility(Vector2(coord[0],coord[1]))
 	
 	# Show/hide player map
 	if Input.is_action_just_pressed("number_2"):
-		$PlayerMap.visible = !$PlayerMap.visible
-	if $PlayerMap.visible: 
+		player_map_visible = !player_map_visible
+		emit_signal("toggle_player_map", player_map_visible)
+		#$PlayerMap.visible = !$PlayerMap.visible
+	if player_map_visible: #$PlayerMap.visible: 
 		# Update player position on map
 		var player_pos = non_round_better_coordinates()
 		var player_rot = get_parent().get_node("Player/Ship").get_transform().basis.get_euler()
-		$PlayerMap/PlayerIcon.position = Vector2(player_pos[0], player_pos[1])*tile_ratio
-		$PlayerMap/PlayerIcon.rotation = player_rot.y
+		#$PlayerMap/PlayerIcon.position = Vector2(player_pos[0], player_pos[1])*tile_ratio
+		#$PlayerMap/PlayerIcon.rotation = player_rot.y
+		
+		emit_signal("player_map", player_pos, player_rot)
 
 
 func update_tile_visibility(pos):
 	map[pos.x][pos.y]['visited'] = true
-	print('updated')
 	# Show sea tile
 	var player_pos = better_coordinates() #Vector2(pos.x, pos.y)
 	var player_pos_vec = Vector2(player_pos[0], player_pos[1]) #coordinates() #Vector2(pos.x, pos.y)

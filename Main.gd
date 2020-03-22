@@ -13,6 +13,9 @@ func _process(delta):
 func _input(event):
 	if event.is_action_pressed("restart"):
 		get_tree().reload_current_scene()
+	if event.is_action_pressed("number_2"):
+		pass
+		#$HUD/MapPanel.visible = !$HUD/MapPanel.visible
 
 # TODO 
 func move_player_to(player_start_pos):
