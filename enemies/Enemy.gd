@@ -35,6 +35,8 @@ func _ready():
 		patrol_points = get_node(patrol_path).curve.get_baked_points()
 
 func _process(delta):
+	
+	patrol_points = get_node(patrol_path).curve.get_baked_points()
 
 	if !patrol_path:
 		return

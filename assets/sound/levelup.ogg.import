@@ -11,5 +11,5 @@ dest_files=[ "res://.import/levelup.ogg-0e9893d1dff753d76a91ba1d41656712.oggstr"
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

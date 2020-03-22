@@ -82,12 +82,16 @@ func _process(delta):
 #		open_shop()
 
 func _on_RelicButton_pressed():
-	Global.player_relics_found += 1
-	$Shop/RelicButton.disabled = true
-
+	if player.gold > 1000:
+		player.gold -= 1000
+		Global.player_relics_found += 1
+		$Shop/RelicButton.disabled = true
+		$AudioStreamPlayer3D.play()
+	
 func _on_HealButton_pressed():
 	player.health += 10
-	player.gold -= 1000
+	$AudioStreamPlayer3D.play()
+	
 
 func _on_UpgradeButton_pressed():
-	print(player.gold)
+	pass

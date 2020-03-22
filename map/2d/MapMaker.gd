@@ -12,7 +12,7 @@ export var real_map = true
 var level_size = 9
 var tile_size = 10
 var scope = 5
-var number_of_islands = 5000 # There can be one less value than this if
+var number_of_islands = 20 # There can be one less value than this if
 # there is an island spawn on origin player position. 0 means random
 var radius
 var biomes = []

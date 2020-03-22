@@ -157,7 +157,7 @@ func _physics_process(delta):
 	
 	my_rotation = Vector2()
 	
-	if health <= 0:
+	if health <= 0 and not is_dead:
 		collider.disabled = true
 		$"../DeathCamera".current = true
 		is_dead = true
