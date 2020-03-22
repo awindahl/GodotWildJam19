@@ -14,7 +14,7 @@ func _input(event):
 	if event.is_action_pressed("restart"):
 		get_tree().reload_current_scene()
 
-# TODO 
+# TODO
 func move_player_to(player_start_pos):
 	$Player.global_transform.origin.x = player_start_pos.x
 	$Player.global_transform.origin.z = player_start_pos.y
