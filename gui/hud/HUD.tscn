@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://gui/theme.tres" type="Theme" id=1]
 [ext_resource path="res://assets/gui/sprites/Ribbons_long.png" type="Texture" id=2]
 [ext_resource path="res://assets/gui/sprites/HUD_panel.png" type="Texture" id=3]
 [ext_resource path="res://gui/hud/HUD.gd" type="Script" id=4]
 [ext_resource path="res://assets/gui/sprites/RibbonBackground.png" type="Texture" id=5]
+[ext_resource path="res://gui/MapPanel.tscn" type="PackedScene" id=6]
 
 [node name="HUD" type="Control"]
 anchor_right = 1.0
@@ -115,3 +116,13 @@ margin_bottom = 1073.0
 texture = ExtResource( 5 )
 
 [node name="Tween" type="Tween" parent="RibbonsPanel"]
+
+[node name="MapPanel" parent="." instance=ExtResource( 6 )]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -478.0
+margin_top = -419.0
+margin_right = 478.0
+margin_bottom = 419.0
