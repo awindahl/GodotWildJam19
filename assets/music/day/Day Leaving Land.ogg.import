@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Day Leaving Land.ogg-25b4d459427fd7fe1d165f1fae74be6
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

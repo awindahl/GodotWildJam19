@@ -215,28 +215,30 @@ cast_shadow = 0
 mesh = ExtResource( 4 )
 material/0 = ExtResource( 7 )
 
-[node name="Cannon" parent="Ship" instance=ExtResource( 9 )]
+[node name="Cannons" type="Spatial" parent="Ship"]
+
+[node name="Cannon" parent="Ship/Cannons" instance=ExtResource( 9 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.849836, 0.463486, -0.858415 )
 
-[node name="Cannon2" parent="Ship" instance=ExtResource( 9 )]
+[node name="Cannon2" parent="Ship/Cannons" instance=ExtResource( 9 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.849836, 0.463486, -1.24961 )
 
-[node name="Cannon3" parent="Ship" instance=ExtResource( 9 )]
+[node name="Cannon3" parent="Ship/Cannons" instance=ExtResource( 9 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.849836, 0.463486, -0.417483 )
 
-[node name="Cannon4" parent="Ship" instance=ExtResource( 9 )]
+[node name="Cannon4" parent="Ship/Cannons" instance=ExtResource( 9 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.849836, 0.463486, -0.0820637 )
 
-[node name="Cannon5" parent="Ship" instance=ExtResource( 9 )]
+[node name="Cannon5" parent="Ship/Cannons" instance=ExtResource( 9 )]
 transform = Transform( -1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 2.542, 0.463486, -1.25772 )
 
-[node name="Cannon6" parent="Ship" instance=ExtResource( 9 )]
+[node name="Cannon6" parent="Ship/Cannons" instance=ExtResource( 9 )]
 transform = Transform( -1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 2.542, 0.463486, -0.871959 )
 
-[node name="Cannon7" parent="Ship" instance=ExtResource( 9 )]
+[node name="Cannon7" parent="Ship/Cannons" instance=ExtResource( 9 )]
 transform = Transform( -1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 2.542, 0.463486, -0.468662 )
 
-[node name="Cannon8" parent="Ship" instance=ExtResource( 9 )]
+[node name="Cannon8" parent="Ship/Cannons" instance=ExtResource( 9 )]
 transform = Transform( -1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 2.542, 0.463486, -0.0723798 )
 
 [node name="Collider" type="CollisionShape" parent="."]

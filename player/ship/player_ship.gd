@@ -179,6 +179,12 @@ func _input(event):
 func _on_ShootTimer_timeout():
 	can_shoot = true
 
+
+
+func update_islands_in_range(amount):
+	print('!!!')
+	Jukebox.update_near_island(amount)
+	
 func _ChargeTimer_start():
 	$"../ChargeTimer".start()
 

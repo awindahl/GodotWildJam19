@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Day Fill-003.ogg-734a88851a1c0894a27855063a30a8ee.og
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

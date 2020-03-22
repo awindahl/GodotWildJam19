@@ -8,9 +8,17 @@ var safety_distance = 20 # Careful with increasing this, might not find feasible
 var map_margin = safety_distance/2.0
 
 func _ready():
+
 	map_size -= Vector2(map_margin, map_margin)
 	randomize()
-	create_map()
+	#create_map()
+
+func _process(delta):
+	$Control/VBoxContainer/HBoxContainer/FPS.text = str(Engine.get_frames_per_second())
+	if Input.is_action_just_pressed("number_3"):
+		var coord = $MapHandler.coordinates()
+		print('Player pos: ', $Player.transform.origin, ',  Tile pos: ', coord, '  , Tile style: ', $MapHandler.map[coord[0]][coord[1]]['biome'])
+		#print($MapHandler.map)
 
 func create_map():
 	print('Generating new map...')
@@ -43,3 +51,8 @@ func _input(event):
 	elif event.is_action_pressed("exit"):
 		get_tree().quit()
 
+func move_player_to(player_start_pos):
+	$Player.global_transform.origin.x = player_start_pos.x
+	$Player.global_transform.origin.z = player_start_pos.y
+	$Water.global_transform.origin.x = player_start_pos.x
+	$Water.global_transform.origin.z = player_start_pos.y

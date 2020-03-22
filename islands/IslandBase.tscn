@@ -1,0 +1,78 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://environment/objects/chest/Chest.tscn" type="PackedScene" id=1]
+[ext_resource path="res://environment/light/SimpleLight.tscn" type="PackedScene" id=2]
+[ext_resource path="res://islands/IslandBase.gd" type="Script" id=3]
+
+[sub_resource type="CubeMesh" id=1]
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 0.239216, 0.690196, 0.054902, 1 )
+
+[sub_resource type="CylinderShape" id=3]
+radius = 9.5381
+height = 2.05629
+
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 0.841276, 0.356616, 0.850603 )
+
+[sub_resource type="CapsuleShape" id=5]
+radius = 0.643222
+height = 0.591624
+
+[sub_resource type="CubeMesh" id=6]
+
+[node name="IslandBase" type="Spatial" groups=[
+"island",
+]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0778383, 0 )
+script = ExtResource( 3 )
+
+[node name="LandPivot" type="Spatial" parent="."]
+
+[node name="Land" type="StaticBody" parent="LandPivot"]
+
+[node name="LandMesh" type="MeshInstance" parent="LandPivot/Land"]
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="ChestPosition" type="Position3D" parent="LandPivot/Land"]
+
+[node name="Chest" parent="LandPivot/Land/ChestPosition" instance=ExtResource( 1 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.992776, 0 )
+
+[node name="AreaMusic" type="Area" parent="LandPivot/Land/ChestPosition"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape" type="CollisionShape" parent="LandPivot/Land/ChestPosition/AreaMusic"]
+shape = SubResource( 3 )
+
+[node name="SimpleLight" parent="LandPivot/Land/ChestPosition" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.29349, 0 )
+light_bake_mode = 2
+omni_range = 3.14695
+
+[node name="AreaDocking" type="Area" parent="LandPivot/Land"]
+transform = Transform( 0.326942, 0, 0, 0, 1, 0, 0, 0, 0.326942, -1.37835, -0.135368, 1.31242 )
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape" type="CollisionShape" parent="LandPivot/Land/AreaDocking"]
+transform = Transform( 2.03683, 0, 0, 0, 1, 0, 0, 0, 2.03683, 4.0257, 0.359295, 0.543062 )
+shape = SubResource( 4 )
+
+[node name="CollisionPlayer" type="CollisionShape" parent="LandPivot/Land"]
+shape = SubResource( 5 )
+
+[node name="CollisionDock" type="CollisionShape" parent="LandPivot/Land"]
+shape = SubResource( 5 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 2, 0, 0, 0, 0.01, 0, 0, 0, 2, 0, 0, 0 )
+visible = false
+mesh = SubResource( 6 )
+material/0 = null
+[connection signal="body_entered" from="LandPivot/Land/ChestPosition/AreaMusic" to="." method="_on_AreaMusic_body_entered"]
+[connection signal="body_exited" from="LandPivot/Land/ChestPosition/AreaMusic" to="." method="_on_AreaMusic_body_exited"]
+[connection signal="body_entered" from="LandPivot/Land/AreaDocking" to="." method="_on_AreaDocking_body_entered"]

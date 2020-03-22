@@ -1,0 +1,42 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://islands/IslandBase.tscn" type="PackedScene" id=1]
+
+[node name="NoIsland" instance=ExtResource( 1 )]
+visible = false
+script = null
+
+[node name="LandPivot" parent="." index="0"]
+visible = false
+
+[node name="Land" parent="LandPivot" index="0"]
+visible = false
+
+[node name="LandMesh" parent="LandPivot/Land" index="0"]
+visible = false
+
+[node name="ChestPosition" parent="LandPivot/Land" index="1"]
+visible = false
+
+[node name="Chest" parent="LandPivot/Land/ChestPosition" index="0"]
+visible = false
+
+[node name="AreaMusic" parent="LandPivot/Land/ChestPosition" index="1"]
+visible = false
+
+[node name="CollisionShape" parent="LandPivot/Land/ChestPosition/AreaMusic" index="0"]
+visible = false
+shape = null
+disabled = true
+
+[node name="CollisionShape" parent="LandPivot/Land/AreaDocking" index="0"]
+shape = null
+disabled = true
+
+[node name="CollisionPlayer" parent="LandPivot/Land" index="3"]
+shape = null
+disabled = true
+
+[node name="CollisionDock" parent="LandPivot/Land" index="4"]
+shape = null
+disabled = true

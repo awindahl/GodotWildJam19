@@ -1,0 +1,91 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://islands/IslandBase.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/island_base_1.obj" type="ArrayMesh" id=2]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 1.60639, 0.678567, 1.8445 )
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 0.356693, 0.435203, 0.444947 )
+
+[sub_resource type="CapsuleShape" id=3]
+radius = 0.566759
+height = 0.873786
+
+[sub_resource type="CapsuleShape" id=4]
+radius = 0.0944319
+height = 0.304956
+
+[sub_resource type="SpatialMaterial" id=5]
+albedo_color = Color( 0.482353, 0.964706, 0, 1 )
+
+[node name="Island1" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.000132978, 0 )
+
+[node name="LandMesh" parent="LandPivot/Land" index="0"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
+mesh = ExtResource( 2 )
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+material/4 = null
+material/5 = null
+material/6 = null
+material/7 = null
+material/8 = null
+material/9 = null
+material/10 = null
+material/11 = null
+material/12 = null
+material/13 = null
+material/14 = null
+material/15 = null
+material/16 = null
+material/17 = null
+material/18 = null
+material/19 = null
+material/20 = null
+material/21 = null
+material/22 = null
+material/23 = null
+material/24 = null
+material/25 = null
+material/26 = null
+material/27 = null
+material/28 = null
+material/29 = null
+
+[node name="ChestPosition" parent="LandPivot/Land" index="1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.119447, 0.288141, 0.29411 )
+
+[node name="Chest" parent="LandPivot/Land/ChestPosition" index="0"]
+transform = Transform( -0.176794, -0.0164981, 0.0920414, -0.00569412, 0.198397, 0.0246246, -0.0933341, 0.019147, -0.175847, -1.49012e-08, 0, 0 )
+
+[node name="CollisionShape" parent="LandPivot/Land/ChestPosition/AreaMusic" index="0"]
+transform = Transform( 0.773055, 0, 0.634339, 0, 1, 0, -0.634339, 0, 0.773055, 0, -0.669132, -1.49012e-08 )
+visible = false
+shape = SubResource( 1 )
+disabled = true
+
+[node name="SimpleLight" parent="LandPivot/Land/ChestPosition" index="2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.359139, 1.61509, -0.0127457 )
+
+[node name="AreaDocking" parent="LandPivot/Land" index="2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.28443, -0.135368, -0.543487 )
+
+[node name="CollisionShape" parent="LandPivot/Land/AreaDocking" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.645109, 0.119569, 1.38509 )
+shape = SubResource( 2 )
+
+[node name="CollisionPlayer" parent="LandPivot/Land" index="3"]
+transform = Transform( 0.212996, 6.60944e-05, 0.977053, -8.71848e-06, 1, -6.5746e-05, -0.977053, 5.48528e-06, 0.212996, -0.246155, 0.000155091, 0.0854223 )
+shape = SubResource( 3 )
+
+[node name="CollisionDock" parent="LandPivot/Land" index="4"]
+transform = Transform( 0.991386, 0, 0.130976, 0, 1, 0, -0.130976, 0, 0.991386, -0.67852, 0.0790982, 0.626376 )
+shape = SubResource( 4 )
+
+[node name="MeshInstance" parent="." index="1"]
+material/0 = SubResource( 5 )
