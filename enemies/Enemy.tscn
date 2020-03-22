@@ -79,8 +79,8 @@ tracks/1/keys = {
 "Enemy",
 ]]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
-collision_layer = 262145
-collision_mask = 262145
+collision_layer = 262147
+collision_mask = 262147
 script = ExtResource( 2 )
 patrol_path = NodePath("Path")
 

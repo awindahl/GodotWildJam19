@@ -14,7 +14,7 @@ onready var cannon1 = $"Cannon"
 onready var cannon2 = $"Cannon2"
 onready var cannon3 = $"Cannon3"
 
-var movement_speed = 0
+var movement_speed = 0.1
 var direction = Vector3()
 var my_rotation = Vector2()
 var movement = Vector3()
@@ -36,8 +36,6 @@ func _ready():
 
 func _process(delta):
 	
-	patrol_points = get_node(patrol_path).curve.get_baked_points()
-
 	if !patrol_path:
 		return
 	var patrol_target = patrol_points[patrol_index]
