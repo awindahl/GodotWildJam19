@@ -4,13 +4,20 @@ export var map_size = Vector2(100, 100)
 export var number_of_islands = 10 # Careful with increasing this, might not find feasible solution and not start
 
 var island_instance = preload("res://islands//Island.tscn")
+var enemy_instance = preload("res://enemies//Enemy.tscn")
+var daltonga_instance = preload("res://islands/Daltonga.tscn")
 var safety_distance = 20 # Careful with increasing this, might not find feasible solution and not start
 var map_margin = safety_distance/2.0
+
+var daltonga = false
 
 func _ready():
 
 	map_size -= Vector2(map_margin, map_margin)
 	randomize()
+	Global.player_gold = 0
+	Global.player_level = 1
+	Global.player_relics_found = 0
 	#create_map()
 
 func _process(delta):
@@ -19,6 +26,13 @@ func _process(delta):
 		var coord = $MapHandler.coordinates()
 		print('Player pos: ', $Player.transform.origin, ',  Tile pos: ', coord, '  , Tile style: ', $MapHandler.map[coord[0]][coord[1]]['biome'])
 		#print($MapHandler.map)
+	
+	if Global.player_relics_found > 4 and not daltonga:
+		daltonga = true
+		spawn_daltonga()
+
+func spawn_daltonga():
+	add_child(daltonga_instance.instance())
 
 func create_map():
 	print('Generating new map...')
@@ -44,10 +58,6 @@ func add_island(pos):
 	new_island.global_transform.origin = pos
 	new_island.rotate_y(2*PI*randf())
 	$Land.add_child(new_island)
-
-func _input(event):
-	if event.is_action_pressed("restart"):
-		get_tree().reload_current_scene()
 
 func move_player_to(player_start_pos):
 	$Player.global_transform.origin.x = player_start_pos.x

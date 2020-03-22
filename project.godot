@@ -32,7 +32,6 @@ shapes/collision/shape_color=Color( 0, 0.482353, 0.0509804, 1 )
 
 window/size/width=1920
 window/size/height=1080
-window/size/borderless=true
 window/size/test_width=1280
 window/size/test_height=720
 window/stretch/mode="2d"
@@ -123,6 +122,7 @@ number_3={
 
 [rendering]
 
+quality/filters/anisotropic_filter_level=1
 environment/default_environment="res://default_env.tres"
 quality/godrays/sample_number=100
 quality/godrays/use_pcf5=false

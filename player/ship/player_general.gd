@@ -9,3 +9,4 @@ export var level = 1
 
 func _process(delta):
 	pass
+	gold = Global.player_gold

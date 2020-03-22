@@ -164,21 +164,19 @@ func _physics_process(delta):
 		$"../AnimationPlayer".play("Die")
 	
 func _input(event):
-	if event.is_action_pressed("right_click"):
+	if event.is_action_pressed("right_click") and not is_dead:
 		$"../AnimationPlayer".play("Focus")
 	
 	if event.is_action_released("right_click"):
 		$"../AnimationPlayer".play_backwards("Focus")
 	
-	if event.is_action_pressed("left_click") and is_zoomed and can_shoot:
+	if event.is_action_pressed("left_click") and is_zoomed and can_shoot and not is_dead:
 		$"../AnimationPlayer".play("Shoot")
 		$"../ShootTimer".start()
 		can_shoot = false
 
 func _on_ShootTimer_timeout():
 	can_shoot = true
-
-
 
 func update_islands_in_range(amount):
 	print('!!!')
@@ -195,4 +193,4 @@ func _on_ChargeTimer_timeout():
 		cannon.get_node("Particles").emitting = true
 	
 func _die():
-	queue_free()
+	get_tree().change_scene("res://Main.tscn")

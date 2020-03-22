@@ -4,12 +4,21 @@ var string = Global.dialogue_string
 var can_click = true
 var my_str = ""
 var start_dialogue = false
+var end_dialogue = false
+
+func _ready():
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func _process(delta):
-	$"Control/letter/RichTextLabel".percent_visible += 0.01
+	
+	if start_dialogue:
+		$"Control/letter/RichTextLabel".percent_visible += 0.01
+		
 	$"Control/letter/RichTextLabel".text = my_str
 	
 	match string:
+		
+		# intro 
 		1:
 			my_str = "Yarr me hearties! Are ye ready for the adventure of yer poor life?"
 		2:
@@ -28,19 +37,26 @@ func _process(delta):
 			my_str = "Watch out for pirates, they are after yer booty!"
 		9:
 			my_str = "Good luck me hearties!"
-		
-	
-	if string == 9:
+			end_dialogue = true
+
+		## daltonga
+		21:
+			my_str = "Well done!"
+		22:
+			my_str = "It seems ye weren't no landlubber after all. Thank you for helping me find Daltonga."
+		23:
+			my_str = "Avast! Ye be free to roam the sees on yer own now. Hope ye learned something."
+			end_dialogue = true
+			
+	if end_dialogue:
 		$AnimationPlayer.play("Fly out")
 	elif start_dialogue:
 		$AnimationPlayer.play("Idle")
 	
-	
-	
 
 func _input(event):
 
-	if Input.is_action_just_pressed("left_click") and string < 9:
+	if Input.is_action_just_pressed("left_click") and start_dialogue:
 		if can_click and $"Control/letter/RichTextLabel".percent_visible == 1:
 			can_click = false
 			string += 1

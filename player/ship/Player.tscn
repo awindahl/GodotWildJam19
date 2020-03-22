@@ -22,7 +22,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
+"times": PoolRealArray( 2 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -124,9 +124,9 @@ tracks/1/keys = {
 [node name="Player" type="KinematicBody" groups=[
 "Player",
 ]]
-transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0 )
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
 collision_layer = 786435
-collision_mask = 786435
+collision_mask = 819203
 collision/safe_margin = 0.1
 script = ExtResource( 10 )
 

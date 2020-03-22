@@ -1,8 +1,7 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://assets/island_base_1.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://environment/light/SimpleLight.tscn" type="PackedScene" id=2]
-[ext_resource path="res://islands/Dock.gd" type="Script" id=3]
 
 [sub_resource type="CubeMesh" id=1]
 
@@ -87,7 +86,6 @@ points = PoolVector3Array( -15.4593, -1.98881, 0.153629, -15.286, -2.16116, -0.1
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0778383, 0 )
 collision_layer = 262145
 collision_mask = 262145
-script = ExtResource( 3 )
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
 visible = false

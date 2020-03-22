@@ -26,14 +26,14 @@ var patrol_index = 0
 var sees_player = false
 var player_pos
 var can_shoot = true
-var health = 15
+var health = 7
 var is_dead = false
 
 func _ready():
-	home.set_as_toplevel(true)
+	
 	if patrol_path:
 		patrol_points = get_node(patrol_path).curve.get_baked_points()
-	
+		
 func _process(delta):
 	
 	if !patrol_path:
