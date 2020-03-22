@@ -21,6 +21,7 @@ var player_1_max_health = 10
 var player_2_max_health = 15
 var player_3_max_health = 20
 var player_relics_found = 0
+var dialogue_string = 0
 
 func _ready():
 	pass #current_time = start_perc * max_real_time
