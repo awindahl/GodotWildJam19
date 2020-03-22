@@ -57,7 +57,6 @@ func _ready():
 	movement_speed = normal_speed
 	camera_cast.add_exception(get_parent())
 	camera.translation = DEFAULT_CAMERA_POSITION
-	
 	cannons = get_parent().get_node("Ship/Cannons").get_children()
 	
 func _unhandled_input(event):

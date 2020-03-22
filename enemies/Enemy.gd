@@ -123,3 +123,4 @@ func _on_CooldownTimer_timeout():
 
 func _free():
 	queue_free()
+	Global.player_gold += 300
