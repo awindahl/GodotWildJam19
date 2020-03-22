@@ -68,6 +68,7 @@ material/0 = null
 
 [node name="Shop" parent="." instance=ExtResource( 4 )]
 visible = false
+script = null
 [connection signal="body_entered" from="LandPivot/Land/ChestPosition/AreaMusic" to="." method="_on_AreaMusic_body_entered"]
 [connection signal="body_exited" from="LandPivot/Land/ChestPosition/AreaMusic" to="." method="_on_AreaMusic_body_exited"]
 [connection signal="pressed" from="Shop/RelicButton" to="." method="_on_RelicButton_pressed"]

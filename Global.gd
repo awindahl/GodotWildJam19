@@ -3,7 +3,7 @@ extends Node
 signal day_change
 
 # Adjust these  -----------
-var day_running = true # For pauses or stopping day/night cycle
+var day_running = false # For pauses or stopping day/night cycle
 var max_real_time = 180.0 # Real world day cycle time, put 10.0 to see fast day/night transition
 var start_perc = .6  # Where to start in the day, percentage
 var night_time_perc = .9  # Percentage of day to formally start NIGHT
@@ -21,6 +21,7 @@ var player_1_max_health = 10
 var player_2_max_health = 15
 var player_3_max_health = 20
 var player_relics_found = 0
+var dialogue_string = 0
 
 func _ready():
 	pass #current_time = start_perc * max_real_time

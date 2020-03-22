@@ -10,9 +10,9 @@ var icon_list = [IconSea, IconI1, IconI2, IconI3, IconI4]
 # Change here
 export var real_map = true
 var level_size = 9
-var tile_size = 25
+var tile_size = 10
 var scope = 5
-var number_of_islands = 50  # There can be one less value than this if
+var number_of_islands = 5000 # There can be one less value than this if
 # there is an island spawn on origin player position. 0 means random
 var radius
 var biomes = []
@@ -27,11 +27,8 @@ var player_map_size = Vector2()
 var tile_ratio = 1
 
 func _ready():
-	#var player_start_pos = Vector2(round(tile_size+level_size/2), round(tile_size*level_size/2))
-	#get_parent().move_player_to(player_start_pos)
 	radius = int(floor(scope/2))
 	$PlayerMap.visible = false
-	#var screen_size = get_viewport().get_rect().size
 	player_map_size = Vector2(get_viewport().size.x - $PlayerMap.position.x*2 - 64, 
 		get_viewport().size.y - $PlayerMap.position.y*2)
 	
@@ -39,18 +36,10 @@ func _ready():
 	# This will prevent a false scope value from an invalid array call on our map
 	if level_size / scope < scope :
 		level_size = scope * 3
-	tile_ratio = player_map_size / (level_size-1)
+	tile_ratio = player_map_size / (level_size)
 	print(tile_ratio)
-	#var player_start = Vector3(
-	#	floor(tile_size/2.0)*tile_ratio.x, 
-	#	get_parent().get_node("player_ship_1").get_translation().x,
-	#	floor(tile_size/2.0)*tile_ratio.y)
-	#get_parent().get_node("player_ship_1").set_translation(player_start)
-	#print('lvl', level_size)
 	
 	if real_map:
-		#biomes = ["NoIsland", "Island1"]
-		#biomes = ["Empty", "Island1", "Island2"]
 		biomes = ["Empty", "Island1", "Island2", "Island3", 'SandIsland']
 		for biome in biomes:
 			pre_load_biomes[biome] = load("res://islands/tiles/%s.tscn" % biome)
@@ -60,6 +49,7 @@ func _ready():
 			pre_load_biomes[biome] = load("res://tiles/%s.tscn" % biome)
 	
 	create_map()
+	
 	create_player_map()
 	
 	# Move player to middle of map
@@ -81,22 +71,21 @@ func create_map():
 			biome_list += [0]
 		biome_list.shuffle()
 		#biome_list[0] = 0
-	#print('Island spawn: ', biome_list)
-	#for row in range(level_size):
-	#	print(biome_list.slice(level_size*row, level_size*row+level_size-1))
+	
 	# Create a map that holds the level tiles
 	var biome_idx = 0
 	for x in range(level_size):
 		var row = []
-		var row_info = []
 		for z in range(level_size):
-			#row.append(biomes[int(rand_range( 0, biomes.size() ))])
 			if number_of_islands == 0:
-				row.append({'biome': biomes[int(rand_range( 0, biomes.size() ))], \
+				var biome_id = int(rand_range( 0, biomes.size() ))
+				row.append({'biome': biomes[biome_id], \
+					"biome_idx": biome_id, \
 					"visited": false, "x_disp": randf()*tile_size, "rotation": randf()*360, \
 					"tile_pos": Vector2(x, z), "tile_size": tile_size})
-			else: #randf()*.5*tile_size,  randf()*360
-				row.append({'biome': biomes[biome_list[biome_idx]], \
+			else:
+				row.append({'biome': biomes[biome_list[biome_idx]], 
+					'biome_idx': biome_list[biome_idx], \
 					"visited": false, "x_disp": 0, \
 					"rotation": 0, \
 					"tile_pos": Vector2(x, z), "tile_size": tile_size})
@@ -105,7 +94,9 @@ func create_map():
 					# next tile if current is not origin
 					biome_idx += 1
 		map.append(row)
-		#map_info.append(row_info)
+		#for i in row:
+		#	print(i)
+		#print('\n')
 	# Make initial tile empty
 	var mid_map = round(level_size/2)
 	emit_signal("spawn_player", mid_map)
@@ -113,11 +104,83 @@ func create_map():
 	
 	#get_tree().call_group("player_map", "make", map, biome_list, level_size, tile_size, number_of_islands)
 
-func coordinates():
+func original_coordinates():
 	var x = floor(get_parent().get_node("Player").get_translation().x)
 	var z = floor(get_parent().get_node("Player").get_translation().z)
+	#x = int(x / tile_size) % (level_size)
+	x = fposmod(int(x / tile_size), (level_size))
+	#z = int(z / tile_size) % (level_size)
+	z = fposmod(int(z / tile_size), (level_size))
+	return [x, z]
+
+func better_coordinates():
+	var player_cord = get_parent().get_node("Player").get_translation()
+	#print(floor(.4), ' ', floor(.8), ' ', floor(-.4), ' ', floor(-.8), ' ')
+	
+	#var x = floor(get_parent().get_node("Player").get_translation().x)
+	#var z = floor(get_parent().get_node("Player").get_translation().z)
+	
+	var x = get_parent().get_node("Player").get_translation().x
+	var z = get_parent().get_node("Player").get_translation().z
+	
+	if x>0:
+		x = floor(x)
+	else:
+		x = ceil(x)
+	if z>0:
+		z = floor(z)
+	else:
+		z = ceil(z)
+	var floor_cord = Vector2(x, z)
+	x = round(fmod(x / tile_size, level_size))
+	z = round(fmod(z / tile_size, level_size))
+
+	if x<0:
+		x+=level_size
+	if z<0:
+		z+=level_size
+		
+	#print('Player original ', player_cord, ', Floored player ', floor_cord, 
+	#	', ', "tiled player ", Vector2(x, z), 
+	#	', ', 'new tiled player', Vector2(x1, z1))
+	return [x, z]
+
+func non_round_better_coordinates():
+	var player_cord = get_parent().get_node("Player").get_translation()
+	
+	var x = get_parent().get_node("Player").get_translation().x
+	var z = get_parent().get_node("Player").get_translation().z
+	
+	#if x>0: x = floor(x)
+	#else: x = ceil(x)
+	#if z>0: z = floor(z)
+	#else: z = ceil(z)
+	var floor_cord = Vector2(x, z)
+	x = fmod(x / tile_size, level_size)
+	z = fmod(z / tile_size, level_size)
+
+	if x<0: x += level_size
+	if z<0: z += level_size
+	return [x, z]
+
+
+func coordinates():
+	var player_cord = get_parent().get_node("Player").get_translation()
+	#print(floor(.4), ' ', floor(.8), ' ', floor(-.4), ' ', floor(-.8), ' ')
+	var x = floor(get_parent().get_node("Player").get_translation().x)
+	var z = floor(get_parent().get_node("Player").get_translation().z)
+	var floor_cord = Vector2(x, z)
+	#x = int(x / tile_size) % (level_size)
+	#var x1= round(fposmod(x / tile_size, level_size))
 	x = int(x / tile_size) % (level_size)
+	
+	#z = int(z / tile_size) % (level_size)
+	#var z1 = round(fposmod(z / tile_size, level_size))
 	z = int(z / tile_size) % (level_size)
+	
+	#print('Player original ', player_cord, ', Floored player ', floor_cord, 
+	#	', ', "tiled player ", Vector2(x, z), 
+	#	', ', 'new tiled player', Vector2(x1, z1))
 	return [x, z]
 
 func non_round_coordinates():
@@ -227,6 +290,7 @@ func _physics_process(delta):
 	# Create new tiles if
 	# position has changed
 	if coordinates() != saved_coords:
+		print('New coordinates: ', coordinates())
 		for tile in get_parent().get_children():
 			if "tile" in tile.name:
 				tile.queue_free()
@@ -240,37 +304,32 @@ func _physics_process(delta):
 	
 	# Show/hide player map
 	if Input.is_action_just_pressed("number_2"):
-		# Update player position
-		#var x = int(floor(get_parent().get_node("player_ship_1").get_translation().x))
-		#var z = int(floor(get_parent().get_node("player_ship_1").get_translation().z))
-		#$PlayerMap/PlayerIcon.position = Vector2(player_pos[0], player_pos[1])*tile_ratio
 		$PlayerMap.visible = !$PlayerMap.visible
-	if $PlayerMap.visible:
-		var player_pos = non_round_coordinates()
+	if $PlayerMap.visible: 
+		# Update player position on map
+		var player_pos = non_round_better_coordinates()
+		var player_rot = get_parent().get_node("Player/Ship").get_transform().basis.get_euler()
 		$PlayerMap/PlayerIcon.position = Vector2(player_pos[0], player_pos[1])*tile_ratio
-		$PlayerMap/PlayerIcon.rotation = -player_pos[2].y # + PI/2
+		$PlayerMap/PlayerIcon.rotation = player_rot.y
 
 
 func update_tile_visibility(pos):
-	#print(origin, map_info[origin.substr(4,5)], map_info[origin.substr(6,7)])
-	#print('pos ', pos)
 	map[pos.x][pos.y]['visited'] = true
 	print('updated')
 	# Show sea tile
-	#var sea_tiles = $PlayerMap/SeaTiles.get_children()
-	#sea_tiles[pos.x*level_size + pos.y].visible = false
-	var player_pos_vec = Vector2(pos.x, pos.y)
+	var player_pos = better_coordinates() #Vector2(pos.x, pos.y)
+	var player_pos_vec = Vector2(player_pos[0], player_pos[1]) #coordinates() #Vector2(pos.x, pos.y)
 	for tile in $PlayerMap/SeaTiles.get_children():
+		#print(tile.pos, ' ', player_pos_vec, ' ', tile.pos == player_pos_vec)
 		if tile.pos == player_pos_vec:
 			tile.visible = false
 	for tile in $PlayerMap/IslandTiles.get_children():
-		#print(tile.pos)
 		if tile.pos == player_pos_vec:
 			tile.visible = true
 	
 
 
-func create_player_map():	
+func create_player_map_old():	
 	# Add water tiles
 	var this_scale = Vector2(.78, .4)  # TODO get this automatic from level_size
 	var island_scale = .5 # TODO get this automatic from tile_size
@@ -283,7 +342,6 @@ func create_player_map():
 			new_icon.pos = Vector2(x, z)
 			$PlayerMap/SeaTiles.add_child(new_icon)
 			# Add island, if any on this tile
-			#print('x ', x, ', z ', z, ', combo ', x*level_size + z)
 			var map_idx = x*level_size + z
 			var biome_type = biome_list[x*level_size + z]
 			if biome_type > 0:
@@ -297,6 +355,39 @@ func create_player_map():
 				#new_island.position = Vector2(x-.5, z+.2)*tile_ratio + displacement_vec #Vector2(map[x][z]['x_disp'], 0)
 				new_island.scale *= this_scale * island_scale
 				new_island.pos = Vector2(x, z)
+				new_island.visible = false
+				$PlayerMap/IslandTiles.add_child(new_island)
+				island_holder[x*level_size + z] = biome_list[x*level_size + z]
+
+func create_player_map():	
+	# Add water tiles
+	var this_scale = Vector2(.78, .4)  # TODO get this automatic from level_size
+	var island_scale = .5 # TODO get this automatic from tile_size
+	for x in map.size(): #marange(level_size-1, 0, -1):
+		for z in map[x].size(): #range(level_size):
+			# Make sea
+			var new_icon = IconSea.instance()
+			var tile_position = map[x][z]['tile_pos']
+			new_icon.position = map[x][z]['tile_pos']*tile_ratio
+			new_icon.scale *= this_scale
+			new_icon.pos = map[x][z]['tile_pos'] # Vector2(x, z)
+			$PlayerMap/SeaTiles.add_child(new_icon)
+			# Add island, if any on this tile
+			var map_idx = x*level_size + z
+			var biome_type = map[x][z]['biome']  # biome_list[x*level_size + z]
+			if biome_type != 'Empty':
+				var new_island = icon_list[map[x][z]['biome_idx']].instance()
+				#var disp_vec = Vector2(cos(map[x][z]['rotation']*360), sin(map[x][z]['rotation']*360))*map[x][z]['x_disp']
+				#new_island.position = (Vector2(x-.5, z+.2)+disp_vec)
+				#new_island.position = (Vector2(x-.5, z+.2)+disp_vec)*tile_ratio
+				#new_island.position = Vector2(x-.5, z+.2)*tile_ratio
+				#var displacement_vec = Vector2(cos(deg2rad(map[x][z]['rotation'])), sin(deg2rad(map[x][z]['rotation'])))*map[x][z]['x_disp']/tile_size*tile_ratio
+				#print(displacement_vec)
+				new_island.position = tile_position*tile_ratio
+				#new_island.position = Vector2(tile_position.y, tile_position.x)*tile_ratio
+				#new_island.position = Vector2(x-.5, z+.2)*tile_ratio + displacement_vec #Vector2(map[x][z]['x_disp'], 0)
+				new_island.scale *= this_scale * island_scale
+				new_island.pos = map[x][z]['tile_pos']
 				new_island.visible = false
 				$PlayerMap/IslandTiles.add_child(new_island)
 				island_holder[x*level_size + z] = biome_list[x*level_size + z]
