@@ -246,6 +246,7 @@ one_shot = true
 transform = Transform( 0.493653, -0.318279, 0.809324, 0, 0.930622, 0.365982, -0.869659, -0.180668, 0.459405, 5.806, 4.368, 2.059 )
 
 [node name="HUD" parent="." instance=ExtResource( 5 )]
+mouse_filter = 2
 
 [node name="MapPanel" parent="HUD" index="2"]
 visible = false
