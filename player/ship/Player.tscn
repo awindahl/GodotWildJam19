@@ -148,6 +148,7 @@ tracks/1/keys = {
 [node name="Player" type="KinematicBody" groups=[
 "Player",
 ]]
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0 )
 collision_layer = 786435
 collision_mask = 786435
 collision/safe_margin = 0.1
@@ -210,16 +211,18 @@ cast_shadow = 0
 mesh = ExtResource( 4 )
 material/0 = ExtResource( 7 )
 
-[node name="Cannon" parent="Ship" instance=ExtResource( 9 )]
+[node name="Cannons" type="Spatial" parent="Ship"]
+
+[node name="Cannon" parent="Ship/Cannons" instance=ExtResource( 9 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.849836, 0.463486, -0.452101 )
 
-[node name="Cannon2" parent="Ship" instance=ExtResource( 9 )]
+[node name="Cannon2" parent="Ship/Cannons" instance=ExtResource( 9 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.849836, 0.463486, -1.20161 )
 
-[node name="Cannon3" parent="Ship" instance=ExtResource( 9 )]
+[node name="Cannon3" parent="Ship/Cannons" instance=ExtResource( 9 )]
 transform = Transform( -1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 2.17985, 0.463486, -1.20161 )
 
-[node name="Cannon4" parent="Ship" instance=ExtResource( 9 )]
+[node name="Cannon4" parent="Ship/Cannons" instance=ExtResource( 9 )]
 transform = Transform( -1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 2.17985, 0.463486, -0.468407 )
 
 [node name="Collider" type="CollisionShape" parent="."]

@@ -87,7 +87,19 @@ func build_mesh():
 	self.set_surface_material(0, mat)
 
 func _physics_process(delta):
-	if refresh_editor_mesh:
+	
+	if !Engine.is_editor_hint() and follow_camera:
+		var camera = get_parent().get_node("Player")
+		if camera:
+			var camera_pos = camera.translation
+			translation.x = camera_pos.x 
+			translation.z = camera_pos.z
+
+			var target_pos = translation
+			target_pos = target_pos.linear_interpolate(camera_pos, follow_accel * delta)
+			translation.x = target_pos.x 
+			translation.z = target_pos.z
+	elif refresh_editor_mesh:
 		refresh_editor_mesh = false
 		print("Rebuilding ocean mesh!")		
 		build_mesh()
