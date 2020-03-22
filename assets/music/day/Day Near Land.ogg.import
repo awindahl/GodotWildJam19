@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Day Near Land.ogg-ca4ff03a83f274174620705d7b14badb.o
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

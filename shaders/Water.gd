@@ -1,6 +1,8 @@
 tool 
 extends MeshInstance
 
+const TYPE ="WATER"
+
 export(int)			var resolution = 100
 export(float) 		var scaleFactor = 0.10
 export(float)		var quadraticFactor = 0.09
@@ -85,13 +87,14 @@ func build_mesh():
 	self.set_surface_material(0, mat)
 
 func _physics_process(delta):
+	
 	if !Engine.is_editor_hint() and follow_camera:
-		var camera = get_parent().get_node('player_ship_1')
+		var camera = get_parent().get_node("Player")
 		if camera:
 			var camera_pos = camera.translation
 			translation.x = camera_pos.x 
 			translation.z = camera_pos.z
-			
+
 			var target_pos = translation
 			target_pos = target_pos.linear_interpolate(camera_pos, follow_accel * delta)
 			translation.x = target_pos.x 
