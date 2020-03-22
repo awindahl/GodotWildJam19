@@ -5,7 +5,7 @@ onready var settings_panel = $SettingsPanel
 onready var seed_edit = $HBoxContainer/SeedEdit
 
 func _on_StartButton_button_up():
-	get_tree().change_scene("res://Main.tscn")
+	get_tree().change_scene("res://chirple/Dialogue.tscn")
 
 func _on_SettingsButton_button_up():
 	$SettingsPanel.show()
