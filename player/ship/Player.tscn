@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://assets/player_ship_1_no_sail.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://player/ship/player_ship.gd" type="Script" id=2]
 [ext_resource path="res://assets/just_sail.obj" type="ArrayMesh" id=3]
 [ext_resource path="res://assets/arrow.obj" type="ArrayMesh" id=4]
+[ext_resource path="res://gui/hud/HUD.tscn" type="PackedScene" id=5]
 [ext_resource path="res://environment/light/SimpleLight.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/arrow_mat.tres" type="Material" id=7]
 [ext_resource path="res://player/ship/cannon.tscn" type="PackedScene" id=9]
@@ -243,5 +244,12 @@ one_shot = true
 
 [node name="DeathCamera" type="Camera" parent="."]
 transform = Transform( 0.493653, -0.318279, 0.809324, 0, 0.930622, 0.365982, -0.869659, -0.180668, 0.459405, 5.806, 4.368, 2.059 )
+
+[node name="HUD" parent="." instance=ExtResource( 5 )]
+
+[node name="MapPanel" parent="HUD" index="2"]
+visible = false
 [connection signal="timeout" from="ShootTimer" to="Controller" method="_on_ShootTimer_timeout"]
 [connection signal="timeout" from="ChargeTimer" to="Controller" method="_on_ChargeTimer_timeout"]
+
+[editable path="HUD"]
