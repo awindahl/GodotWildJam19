@@ -25,11 +25,6 @@ func set_money(m):
 func set_speed(s):
 	speed = int(s)
 
-func set_ribbons_collected(r):
-	if r > ribbons_collected:
-		ribbons_collected = r
-		#move ribbon panel with tween
-		#load ribbon icon
 
 func _on_MapHandler_player_map(player_pos, player_rot):
 	print("player_map ", player_pos, player_rot)

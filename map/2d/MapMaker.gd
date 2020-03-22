@@ -46,8 +46,9 @@ func _ready():
 
 
 	if real_map:
-		biomes = ["Empty", "Island1", "Island2", "Island3", 'SandIsland']
+		biomes = ["Empty2", "Island1", "Island2", "Island3", 'SandIsland']
 		for biome in biomes:
+			print(biome)
 			pre_load_biomes[biome] = load("res://islands/tiles/%s.tscn" % biome)
 	else:
 		biomes = ["sea", "island1"]
