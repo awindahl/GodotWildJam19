@@ -1,0 +1,128 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://gui/theme.tres" type="Theme" id=1]
+[ext_resource path="res://assets/gui/sprites/Ribbons_long.png" type="Texture" id=2]
+[ext_resource path="res://assets/gui/sprites/HUD_panel.png" type="Texture" id=3]
+[ext_resource path="res://gui/hud/HUD.gd" type="Script" id=4]
+[ext_resource path="res://assets/gui/sprites/RibbonBackground.png" type="Texture" id=5]
+[ext_resource path="res://gui/MapPanel.tscn" type="PackedScene" id=6]
+
+[node name="HUD" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 0.7547
+margin_top = -0.754715
+margin_right = 0.754639
+margin_bottom = -0.7547
+theme = ExtResource( 1 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Mainpanel" type="TextureRect" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -505.0
+margin_top = 24.0
+margin_right = -24.0
+margin_bottom = 162.0
+texture = ExtResource( 3 )
+
+[node name="HealthLabel" type="Label" parent="Mainpanel"]
+margin_left = 125.0
+margin_top = 55.0
+margin_right = 183.0
+margin_bottom = 92.0
+text = "99"
+align = 2
+
+[node name="MoneyLabel" type="Label" parent="Mainpanel"]
+margin_left = 282.0
+margin_top = 55.0
+margin_right = 399.0
+margin_bottom = 92.0
+text = "0"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RibbonsPanel" type="TextureRect" parent="."]
+margin_left = 48.0
+margin_top = -833.0
+margin_right = 127.0
+margin_bottom = 247.0
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="RibbonsPanel"]
+margin_left = -21.0
+margin_top = -109.0
+margin_right = 101.0
+margin_bottom = 964.0
+custom_constants/separation = 15
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="RibbonsPanel/VBoxContainer"]
+margin_right = 122.0
+margin_bottom = 121.0
+texture = ExtResource( 5 )
+
+[node name="TextureRect2" type="TextureRect" parent="RibbonsPanel/VBoxContainer"]
+margin_top = 136.0
+margin_right = 122.0
+margin_bottom = 257.0
+texture = ExtResource( 5 )
+
+[node name="TextureRect3" type="TextureRect" parent="RibbonsPanel/VBoxContainer"]
+margin_top = 272.0
+margin_right = 122.0
+margin_bottom = 393.0
+texture = ExtResource( 5 )
+
+[node name="TextureRect4" type="TextureRect" parent="RibbonsPanel/VBoxContainer"]
+margin_top = 408.0
+margin_right = 122.0
+margin_bottom = 529.0
+texture = ExtResource( 5 )
+
+[node name="TextureRect5" type="TextureRect" parent="RibbonsPanel/VBoxContainer"]
+margin_top = 544.0
+margin_right = 122.0
+margin_bottom = 665.0
+texture = ExtResource( 5 )
+
+[node name="TextureRect6" type="TextureRect" parent="RibbonsPanel/VBoxContainer"]
+margin_top = 680.0
+margin_right = 122.0
+margin_bottom = 801.0
+texture = ExtResource( 5 )
+
+[node name="TextureRect7" type="TextureRect" parent="RibbonsPanel/VBoxContainer"]
+margin_top = 816.0
+margin_right = 122.0
+margin_bottom = 937.0
+texture = ExtResource( 5 )
+
+[node name="TextureRect8" type="TextureRect" parent="RibbonsPanel/VBoxContainer"]
+margin_top = 952.0
+margin_right = 122.0
+margin_bottom = 1073.0
+texture = ExtResource( 5 )
+
+[node name="Tween" type="Tween" parent="RibbonsPanel"]
+
+[node name="MapPanel" parent="." instance=ExtResource( 6 )]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -478.0
+margin_top = -419.0
+margin_right = 478.0
+margin_bottom = 419.0
