@@ -5,6 +5,16 @@ export var distance_to_center = 0.0
 export var rotation_y = 0.0
 var info = []
 var tile_size = 1
+var shop_open = false
+var player
+
+func _input(event):
+	if Input.is_action_pressed("exit"):
+		$Shop.visible = false
+		get_tree().paused = false
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		player = null
+		
 
 func add_info(tile_info):
 	info = tile_info
@@ -23,6 +33,9 @@ func open_chest():
 	$LandPivot/Land/ChestPosition/Chest/treasure_chest_closed.visible = false
 	$LandPivot/Land/ChestPosition/Chest/treasure_chest_open.visible = true
 
+func open_shop():
+	$Shop.visible = true
+
 func _on_AreaMusic_body_entered(body):
 	if body.is_in_group("player"):
 		Jukebox.update_near_island(1)
@@ -30,11 +43,39 @@ func _on_AreaMusic_body_entered(body):
 func _on_AreaMusic_body_exited(body):
 	if body.is_in_group("player"):
 		Jukebox.update_near_island(-1)
+		
+func _process(delta):
+	
+	for body in $LandPivot/Land/AreaDocking.get_overlapping_bodies():
+		if body.is_in_group("Player") and !info['visited'] and body.get_node("Controller").movement.length() < 0.05 and shop_open == false:
+			shop_open = true
+			info['visited'] = true
+			print('New land discovered, GET RELIC')
+			open_chest()
+			get_tree().call_group("map_handler", 'update_tile_visibility', info['tile_pos'])
+			open_shop()
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			get_tree().paused = true
+			player = body
+			
+			
+#func _on_AreaDocking_body_entered(body):
+#	print('Body ', body.name, ' enter in Area ', name, ', is player? ', body.is_in_group("Player"), ', visited? ', info['visited'])
+#	if body.is_in_group("Player") and !info['visited']:
+#		info['visited'] = true
+#		print('New land discovered, GET RELIC')
+#		open_chest()
+#		get_tree().call_group("map_handler", 'update_tile_visibility', info['tile_pos'])
+#		open_shop()
 
-func _on_AreaDocking_body_entered(body):
-	print('Body ', body.name, ' enter in Area ', name, ', is player? ', body.is_in_group("Player"), ', visited? ', info['visited'])
-	if body.is_in_group("Player") and !info['visited']:
-		info['visited'] = true
-		print('New land discovered, GET RELIC')
-		open_chest()
-		get_tree().call_group("map_handler", 'update_tile_visibility', info['tile_pos'])
+func _on_RelicButton_pressed():
+	pass # Replace with function body.
+
+
+func _on_HealButton_pressed():
+	player.health += 10
+	player.gold -= 1000
+
+
+func _on_UpgradeButton_pressed():
+	print(player.gold)

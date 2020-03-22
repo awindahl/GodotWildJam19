@@ -1,0 +1,59 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://shop/Shop.gd" type="Script" id=1]
+[ext_resource path="res://assets/player_ship_2.png" type="Texture" id=2]
+
+[node name="Shop" type="Control"]
+pause_mode = 2
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 1920.0
+margin_bottom = 1080.0
+color = Color( 0, 0, 0, 0.443137 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="RelicButton" type="Button" parent="."]
+margin_left = 848.0
+margin_top = 888.0
+margin_right = 1072.0
+margin_bottom = 955.0
+text = "Get Relic"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HealButton" type="Button" parent="."]
+margin_left = 336.0
+margin_top = 752.0
+margin_right = 560.0
+margin_bottom = 819.0
+text = "Heal"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UpgradeButton" type="Button" parent="."]
+margin_left = 1360.0
+margin_top = 744.0
+margin_right = 1584.0
+margin_bottom = 811.0
+text = "Upgrade Ship"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="UpgradeButton"]
+position = Vector2( 112, -208 )
+scale = Vector2( 0.640625, 0.640625 )
+texture = ExtResource( 2 )
+[connection signal="pressed" from="RelicButton" to="." method="_on_RelicButton_pressed"]
+[connection signal="pressed" from="HealButton" to="." method="_on_HealButton_pressed"]
+[connection signal="pressed" from="UpgradeButton" to="." method="_on_UpgradeButton_pressed"]

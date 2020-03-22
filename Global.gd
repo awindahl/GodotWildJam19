@@ -17,6 +17,9 @@ var day_time = ((current_time > day_time_perc) and (current_time < night_time_pe
 # player stuff
 var player_gold = 0
 var player_level = 1
+var player_1_max_health = 10
+var player_2_max_health = 15
+var player_3_max_health = 20
 
 func _ready():
 	pass #current_time = start_perc * max_real_time

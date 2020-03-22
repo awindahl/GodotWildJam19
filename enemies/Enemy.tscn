@@ -4,20 +4,20 @@
 [ext_resource path="res://enemies/Enemy.gd" type="Script" id=2]
 [ext_resource path="res://player/ship/cannon.tscn" type="PackedScene" id=3]
 
-[sub_resource type="CylinderShape" id=9]
+[sub_resource type="CylinderShape" id=1]
 radius = 6.44
 height = 1.69092
 
-[sub_resource type="BoxShape" id=5]
+[sub_resource type="BoxShape" id=2]
 extents = Vector3( 0.275071, 0.375454, 0.576801 )
 
-[sub_resource type="Curve3D" id=6]
+[sub_resource type="Curve3D" id=3]
 _data = {
 "points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -0.0325416, 0, -3.42017, 0, 0, 0, 0, 0, 0, 3.68057, 0, -3.50089, 0, 0, 0, 0, 0, 0, 5.53713, 0, -0.401247, 0, 0, 0, 0, 0, 0, 3.729, 0, 3.19886, 0, 0, 0, 0, 0, 0, -3.27748, 0, 3.7639, 0, 0, 0, 0, 0, 0, -5.34391, 0, 0.825694, 0, 0, 0, 0, 0, 0, -4.06853, 0, -2.67755, 0, 0, 0, 0, 0, 0, -0.0325416, 0, -3.42017 ),
 "tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0 )
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=4]
 resource_name = "Die"
 length = 2.0
 tracks/0/type = "method"
@@ -47,7 +47,7 @@ tracks/1/keys = {
 "values": [ Vector3( 0, -180, 0 ), Vector3( -19.877, -180, 0 ), Vector3( -19.877, -180, -80 ) ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=5]
 tracks/0/type = "value"
 tracks/0/path = NodePath("MeshInstance:scale")
 tracks/0/interp = 1
@@ -101,15 +101,15 @@ collision_mask = 2
 
 [node name="CollisionShape" type="CollisionShape" parent="MeshInstance/Area"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.428293, -2.34987 )
-shape = SubResource( 9 )
+shape = SubResource( 1 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.307861, 0.072754 )
-shape = SubResource( 5 )
+shape = SubResource( 2 )
 
 [node name="Path" type="Path" parent="."]
 transform = Transform( 0.124589, 0, 0.992208, 0, 1, 0, -0.992208, 0, 0.124589, 0, 0, -4.95422 )
-curve = SubResource( 6 )
+curve = SubResource( 3 )
 
 [node name="Position3D" type="Position3D" parent="."]
 
@@ -141,8 +141,8 @@ wait_time = 1.9
 one_shot = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Die = SubResource( 7 )
-anims/Shoot = SubResource( 8 )
+anims/Die = SubResource( 4 )
+anims/Shoot = SubResource( 5 )
 [connection signal="body_entered" from="MeshInstance/Area" to="." method="_on_Area_body_entered"]
 [connection signal="body_exited" from="MeshInstance/Area" to="." method="_on_Area_body_exited"]
 [connection signal="timeout" from="ChargeTimer" to="." method="_on_ChargeTimer_timeout"]
