@@ -15,10 +15,10 @@ var day_time = true
 
 func _ready():
 	randomize()
-	$SwitchTimer.wait_time = switch_time
+	$SwitchTimer.wait_time = .5
 	$SwitchTimer.start()
 	print('Playing intro ', current.get_path())
-	current.play()
+	queue_track.append(current)
 
 func _on_track_finished():
 	pass
