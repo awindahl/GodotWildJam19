@@ -14,7 +14,9 @@ var timestep = 1.0/max_real_time  # Update each second
 var current_time = start_perc * max_real_time
 var day_time = ((current_time > day_time_perc) and (current_time < night_time_perc))
 
-
+# player stuff
+var player_gold = 0
+var player_level = 1
 
 func _ready():
 	pass #current_time = start_perc * max_real_time
