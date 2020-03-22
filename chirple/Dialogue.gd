@@ -36,7 +36,7 @@ func _process(delta):
 		8:
 			my_str = "Watch out for pirates, they are after yer booty!"
 		9:
-			my_str = "Aim with the right mouse button, and fire with the left!"
+			my_str = "Aim with the right mouse button, and fire with the left! And look at yer MAP with the 'm'-key."
 		10:
 			my_str = "Good luck me hearties!"
 			end_dialogue = true
