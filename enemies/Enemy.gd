@@ -33,9 +33,9 @@ func _ready():
 	home.set_as_toplevel(true)
 	if patrol_path:
 		patrol_points = get_node(patrol_path).curve.get_baked_points()
-	
+
 func _process(delta):
-	
+
 	if !patrol_path:
 		return
 	var patrol_target = patrol_points[patrol_index]
@@ -43,7 +43,7 @@ func _process(delta):
 		patrol_index = wrapi(patrol_index + 1, 0 , patrol_points.size())
 		patrol_target = patrol_points[patrol_index]
 		look_at(patrol_points[patrol_index], Vector3(0, 1, 0))
-		
+
 	elif not is_dead and sees_player:
 		for body in area.get_overlapping_bodies():
 			if body.TYPE == "PLAYER":
@@ -51,18 +51,18 @@ func _process(delta):
 					sees_player = false
 				player_pos = body.get_transform().origin
 				look_at(player_pos, Vector3(0, 1, 0))
-	
+
 	if not is_dead:
 		rotation.x = 0
 		movement.y -= 10 * delta
-	
+
 	if not sees_player:
 		look_at(patrol_points[patrol_index], Vector3(0, 1, 0))
 		rotation.x = 0
 		movement = (patrol_target - get_transform().origin).normalized()
 	elif sees_player:
 		movement = (player_pos - get_transform().origin).normalized()
-	
+
 	# Acceleration
 	var hVel = movement
 	hVel.y = 0
@@ -72,21 +72,21 @@ func _process(delta):
 		acceleration = ACCELERATION
 	else:
 		acceleration = DECELERATION
-	
+
 	hVel = hVel.linear_interpolate(target, acceleration * movement_speed * delta)
 	movement.x = hVel.x
 	movement.z = hVel.z
-	
+
 	if not is_dead:
 		movement = move_and_slide(movement)
-	
+
 	if ray.is_colliding() and can_shoot and not is_dead:
 		$AnimationPlayer.play("Shoot")
-	
+
 	if health == 0:
 		is_dead = true
 		$AnimationPlayer.play("Die")
-	
+
 func _on_Area_body_entered(body):
 	if body.TYPE == "PLAYER":
 		if body.health > 0:
@@ -104,14 +104,14 @@ func _on_ChargeTimer_timeout():
 	var new_cannonball = CANNONBALL.instance()
 	var new_cannonball2 = CANNONBALL.instance()
 	var new_cannonball3 = CANNONBALL.instance()
-	
+
 	cannon1.add_child(new_cannonball)
 	cannon2.add_child(new_cannonball2)
 	cannon3.add_child(new_cannonball3)
 	cannon1.get_node("Particles").emitting = true
 	cannon2.get_node("Particles").emitting = true
 	cannon3.get_node("Particles").emitting = true
-	
+
 func _on_AttackTimer_timeout():
 	pass # Replace with function body.
 
