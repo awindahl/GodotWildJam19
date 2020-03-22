@@ -114,16 +114,16 @@ func create_map():
 	#get_tree().call_group("player_map", "make", map, biome_list, level_size, tile_size, number_of_islands)
 
 func coordinates():
-	var x = floor(get_parent().get_node("player_ship_1").get_translation().x)
-	var z = floor(get_parent().get_node("player_ship_1").get_translation().z)
+	var x = floor(get_parent().get_node("Player").get_translation().x)
+	var z = floor(get_parent().get_node("Player").get_translation().z)
 	x = int(x / tile_size) % (level_size)
 	z = int(z / tile_size) % (level_size)
 	return [x, z]
 
 func non_round_coordinates():
-	var x = get_parent().get_node("player_ship_1").get_translation().x# - tile_size/2
-	var z = get_parent().get_node("player_ship_1").get_translation().z# + tile_size/2
-	var rot = get_parent().get_node("player_ship_1/Ship").get_transform().basis.get_euler()
+	var x = get_parent().get_node("Player").get_translation().x# - tile_size/2
+	var z = get_parent().get_node("Player").get_translation().z# + tile_size/2
+	var rot = get_parent().get_node("Player/Ship").get_transform().basis.get_euler()
 	x = fposmod(x / (tile_size), level_size)
 	z = fposmod(z / (tile_size), level_size)
 	return [x, z, rot]
@@ -151,8 +151,8 @@ func pattern():
 	return pattern
 
 func spawn_tiles():
-	var x = int(floor(get_parent().get_node("player_ship_1").get_translation().x))
-	var z = int(floor(get_parent().get_node("player_ship_1").get_translation().z))
+	var x = int(floor(get_parent().get_node("Player").get_translation().x))
+	var z = int(floor(get_parent().get_node("Player").get_translation().z))
 
 	var pattern = pattern()
 	var tile = 0
@@ -236,7 +236,7 @@ func _physics_process(delta):
 		#print('coord ', player_pos)
 		#var player_pos_vec = Vector2(player_pos[0], player_pos[1])
 		var coord = coordinates()
-		update_tile_visibility(Vector2(coord[0],coord[1]))
+		#update_tile_visibility(Vector2(coord[0],coord[1]))
 	
 	# Show/hide player map
 	if Input.is_action_just_pressed("number_2"):
@@ -255,6 +255,7 @@ func update_tile_visibility(pos):
 	#print(origin, map_info[origin.substr(4,5)], map_info[origin.substr(6,7)])
 	#print('pos ', pos)
 	map[pos.x][pos.y]['visited'] = true
+	print('updated')
 	# Show sea tile
 	#var sea_tiles = $PlayerMap/SeaTiles.get_children()
 	#sea_tiles[pos.x*level_size + pos.y].visible = false

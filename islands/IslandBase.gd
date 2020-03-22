@@ -32,8 +32,8 @@ func _on_AreaMusic_body_exited(body):
 		Jukebox.update_near_island(-1)
 
 func _on_AreaDocking_body_entered(body):
-	#print('Body ', body.name, ' enter in Area ', name, ', is player? ', body.is_in_group("player"), ', visiter? ', info['visited'])
-	if body.is_in_group("player") and !info['visited']:
+	print('Body ', body.name, ' enter in Area ', name, ', is player? ', body.is_in_group("Player"), ', visited? ', info['visited'])
+	if body.is_in_group("Player") and !info['visited']:
 		info['visited'] = true
 		print('New land discovered, GET RELIC')
 		open_chest()
