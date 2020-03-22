@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://assets/scorch_01.png" type="Texture" id=1]
 [ext_resource path="res://player/ship/cannonball.gd" type="Script" id=2]
+[ext_resource path="res://assets/sound/explode2.ogg" type="AudioStream" id=3]
 
 [sub_resource type="SpatialMaterial" id=1]
 flags_unshaded = true
@@ -69,8 +70,8 @@ shape = SubResource( 3 )
 disabled = true
 
 [node name="Area" type="Area" parent="."]
-collision_layer = 262146
-collision_mask = 262146
+collision_layer = 294914
+collision_mask = 294914
 
 [node name="CollisionShape2" type="CollisionShape" parent="Area"]
 shape = SubResource( 4 )
@@ -95,6 +96,9 @@ one_shot = true
 autostart = true
 
 [node name="TimeToActivate" type="Timer" parent="."]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 3 )
 [connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]
 [connection signal="timeout" from="KillTime" to="." method="_on_KillTime_timeout"]
 [connection signal="timeout" from="TimeToLive" to="." method="_on_TimeToLive_timeout"]

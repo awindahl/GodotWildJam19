@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/sink.ogg-93d1c9073f9bc99f8844a4666f37f6b3.oggstr"
+
+[deps]
+
+source_file="res://assets/sound/ship/sink.ogg"
+dest_files=[ "res://.import/sink.ogg-93d1c9073f9bc99f8844a4666f37f6b3.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

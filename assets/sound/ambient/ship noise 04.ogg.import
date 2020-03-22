@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/ship noise 04.ogg-30b763089a5f73780d8ab901f5c80dbd.oggstr"
+
+[deps]
+
+source_file="res://assets/sound/ambient/ship noise 04.ogg"
+dest_files=[ "res://.import/ship noise 04.ogg-30b763089a5f73780d8ab901f5c80dbd.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

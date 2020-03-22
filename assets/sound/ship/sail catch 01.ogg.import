@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/sail catch 01.ogg-3ccb4ae75c717d84e34182d9d6c8c57b.oggstr"
+
+[deps]
+
+source_file="res://assets/sound/ship/sail catch 01.ogg"
+dest_files=[ "res://.import/sail catch 01.ogg-3ccb4ae75c717d84e34182d9d6c8c57b.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

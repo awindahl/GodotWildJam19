@@ -3,14 +3,13 @@ extends Control
 var health = 100 setget set_health
 var money = 0 setget set_money
 var speed = 0 setget set_speed
-var ribbons_collected = 0 setget set_ribbons_collected
+
+var relics_collected = 0 setget set_relics_collected
 
 onready var health_label = $Mainpanel/HealthLabel
 onready var money_label = $Mainpanel/MoneyLabel
 
-onready var ribbons_panel = $RibbonsPanel
-onready var ribbons = $RibbonsPanel/VBoxContainer.get_children()
-onready var ribbons_tween = $RibbonsPanel/Tween
+onready var relics_label = $RibbonsPanel/Relic/RelicCounterLabel
 
 func _ready():
 	$MapPanel.visible = false
@@ -39,3 +38,7 @@ func _on_MapHandler_player_map(player_pos, player_rot):
 
 func _on_MapHandler_toggle_player_map(value):
 	$MapPanel.visible = value
+
+func set_relics_collected(r):
+	relics_collected = int(r)
+	relics_label.text = str(relics_collected)
