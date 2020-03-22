@@ -12,7 +12,10 @@ var map_margin = safety_distance/2.0
 var daltonga = false
 
 func _ready():
-
+	var mid_level = 25*15/2.2
+	var origin = Vector3(mid_level, 0, mid_level)
+	$Player.transform.origin = origin
+	$Water.transform.origin = origin
 	map_size -= Vector2(map_margin, map_margin)
 	randomize()
 	Global.player_gold = 0
