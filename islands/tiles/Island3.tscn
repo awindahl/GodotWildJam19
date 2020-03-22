@@ -117,3 +117,5 @@ shape = SubResource( 3 )
 
 [node name="MeshInstance" parent="." index="1"]
 material/0 = SubResource( 4 )
+
+[editable path="Shop"]
