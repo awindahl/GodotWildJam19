@@ -15,9 +15,9 @@ _global_script_class_icons={
 
 [application]
 
-config/name="GodotWildJam19"
+config/name="Hunt for Daltonga"
 run/main_scene="res://gui/TitleMenu.tscn"
-config/icon="res://icon.png"
+config/icon="res://assets/player_ship_2.png"
 
 [autoload]
 

@@ -24,11 +24,6 @@ func _ready():
 	#create_map()
 
 func _process(delta):
-	$Control/VBoxContainer/HBoxContainer/FPS.text = str(Engine.get_frames_per_second())
-	if Input.is_action_just_pressed("number_3"):
-		var coord = $MapHandler.coordinates()
-		print('Player pos: ', $Player.transform.origin, ',  Tile pos: ', coord, '  , Tile style: ', $MapHandler.map[coord[0]][coord[1]]['biome'])
-		#print($MapHandler.map)
 
 	if Global.player_relics_found > 4 and not daltonga:
 		daltonga = true
