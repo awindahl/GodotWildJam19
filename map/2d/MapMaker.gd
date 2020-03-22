@@ -309,7 +309,7 @@ func _physics_process(delta):
 		#var player_pos_vec = Vector2(player_pos[0], player_pos[1])
 	var coord = better_coordinates()
 	if coord != my_saved_coords:
-		if map[coord[0]][coord[1]]['biome'] == 'Empty':
+		if map[coord[0]][coord[1]]['biome'] == 'Empty2':
 			get_tree().call_group("map_handler", "show_water", Vector2(coord[0], coord[1]))
 			my_saved_coords = coord
 			#update_tile_visibility(Vector2(coord[0],coord[1]))

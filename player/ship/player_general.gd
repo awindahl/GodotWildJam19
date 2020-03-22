@@ -27,3 +27,11 @@ func _process(delta):
 	
 	$HUD.set_relics_collected(relics)
 	$HUD.set_health(health)
+
+
+func _on_MapHandler_player_map(player_pos, player_rot):
+	$HUD/MapPanel.update_player(player_pos, player_rot)
+
+
+func _on_MapHandler_toggle_player_map(value):
+	$HUD/MapPanel.visible = value

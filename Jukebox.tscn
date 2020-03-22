@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Jukebox.gd" type="Script" id=1]
 [ext_resource path="res://assets/music/day/Day Fill-002.ogg" type="AudioStream" id=2]
@@ -16,8 +16,12 @@
 [ext_resource path="res://assets/music/day/Day Near Land.ogg" type="AudioStream" id=14]
 [ext_resource path="res://assets/music/night/Night Intro.ogg" type="AudioStream" id=15]
 [ext_resource path="res://assets/music/night/Night Loop.ogg" type="AudioStream" id=16]
+[ext_resource path="res://assets/music/night/Night Near Land Loop.ogg" type="AudioStream" id=17]
+[ext_resource path="res://assets/music/night/Night Near Land Intro.ogg" type="AudioStream" id=18]
 
-[node name="Jukebox" type="Node"]
+[node name="Jukebox" type="Node" groups=[
+"day_cycle_update",
+]]
 pause_mode = 2
 script = ExtResource( 1 )
 
@@ -76,6 +80,12 @@ stream = ExtResource( 15 )
 
 [node name="Loop" type="AudioStreamPlayer" parent="Night"]
 stream = ExtResource( 16 )
+
+[node name="NearLandIntro" type="AudioStreamPlayer" parent="Night"]
+stream = ExtResource( 18 )
+
+[node name="NearLandLoop" type="AudioStreamPlayer" parent="Night"]
+stream = ExtResource( 17 )
 [connection signal="timeout" from="SwitchTimer" to="." method="_on_SwitchTimer_timeout"]
 [connection signal="finished" from="Day/Intro" to="." method="_on_track_finished"]
 [connection signal="finished" from="Day/Blank/1" to="." method="_on_track_finished"]
@@ -92,3 +102,5 @@ stream = ExtResource( 16 )
 [connection signal="finished" from="NearLand" to="." method="_on_track_finished"]
 [connection signal="finished" from="Night/Intro" to="." method="_on_track_finished"]
 [connection signal="finished" from="Night/Loop" to="." method="_on_track_finished"]
+[connection signal="finished" from="Night/NearLandIntro" to="." method="_on_track_finished"]
+[connection signal="finished" from="Night/NearLandLoop" to="." method="_on_track_finished"]
