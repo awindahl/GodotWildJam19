@@ -1,11 +1,9 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://shop/Shop.gd" type="Script" id=1]
 [ext_resource path="res://assets/player_ship_2.png" type="Texture" id=2]
 
 [node name="Shop" type="Control"]
 pause_mode = 2
-script = ExtResource( 1 )
 __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
@@ -54,6 +52,3 @@ __meta__ = {
 position = Vector2( 112, -208 )
 scale = Vector2( 0.640625, 0.640625 )
 texture = ExtResource( 2 )
-[connection signal="pressed" from="RelicButton" to="." method="_on_RelicButton_pressed"]
-[connection signal="pressed" from="HealButton" to="." method="_on_HealButton_pressed"]
-[connection signal="pressed" from="UpgradeButton" to="." method="_on_UpgradeButton_pressed"]

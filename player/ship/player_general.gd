@@ -8,6 +8,4 @@ export var level = 1
 
 
 func _process(delta):
-	
-	#print(level)
 	pass
