@@ -32,10 +32,12 @@ func _process(delta):
 		6:
 			my_str = "Stop yer ship near an island to claim the islands relic, while yer here ye can repair yer ship!"
 		7:
-			my_str = "And even purchase new ones!"
+			my_str = "Ye need at least 4 relics to find Daltonga"
 		8:
 			my_str = "Watch out for pirates, they are after yer booty!"
 		9:
+			my_str = "Aim with the right mouse button, and fire with the left!"
+		10:
 			my_str = "Good luck me hearties!"
 			end_dialogue = true
 
