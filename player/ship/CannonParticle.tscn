@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://player/ship/cannon_smoke_particle.tres" type="Material" id=1]
+[ext_resource path="res://player/ship/smoke.tres" type="QuadMesh" id=2]
+
+[node name="ParticlesRight" type="Particles"]
+transform = Transform( -0.999893, 0, -0.01466, 0, 1, 0, 0.01466, 0, -0.999893, -0.657935, 0.635277, -0.753182 )
+emitting = false
+amount = 128
+lifetime = 4.0
+speed_scale = 4.17
+explosiveness = 1.0
+randomness = 1.0
+visibility_aabb = AABB( -0.56831, -0.910156, -1.33268, 0.293846, 0.413085, 0.456381 )
+local_coords = false
+draw_order = 2
+process_material = ExtResource( 1 )
+draw_pass_1 = ExtResource( 2 )

@@ -26,6 +26,8 @@ var speed = Vector3()
 var movement = Vector3()
 var rotation_speed = 2
 var can_shoot = true
+var is_dead = false
+var cannons 
 
 # camera stuff
 var yaw = 0
@@ -34,7 +36,6 @@ var base_camera_flag = true
 var no_buttons = true
 var zoom_factor = 1
 var actual_zoom = 1
-
 var camera_min_fov = 70
 var camera_max_fov = 90
 
@@ -45,14 +46,10 @@ onready var gimbal = $InnerGimbal
 onready var camera = $InnerGimbal/Camera
 onready var camera_cast = $InnerGimbal/Camera/RayCast
 onready var my_model = $"../Ship"
-onready var collider = $"../CollisionShape"
+onready var collider = $"../Collider"
 onready var aim_assist_r = $"../Ship/AimArrowRight"
 onready var aim_assist_l = $"../Ship/AimArrowLeft"
-onready var cannon1 = $"../Ship/Cannon"
-onready var cannon2 = $"../Ship/Cannon2"
-onready var cannon3 = $"../Ship/Cannon3"
-onready var cannon4 = $"../Ship/Cannon4"
-
+onready var health = get_parent().health
 
 func _ready():
 	
@@ -60,7 +57,9 @@ func _ready():
 	movement_speed = normal_speed
 	camera_cast.add_exception(get_parent())
 	camera.translation = DEFAULT_CAMERA_POSITION
-
+	
+	cannons = get_parent().get_node("Ship/Cannons").get_children()
+	
 func _unhandled_input(event):
 
 	if event is InputEventMouseMotion:
@@ -75,6 +74,8 @@ func _unhandled_input(event):
 
 func _physics_process(delta):
 	
+	health = get_parent().health
+
 	# Ship movement
 	var up = Input.is_action_pressed("ui_up")
 	var down = Input.is_action_pressed("ui_down")
@@ -138,22 +139,30 @@ func _physics_process(delta):
 	movement.x = hVel.x
 	movement.z = hVel.z
 	
-	movement = get_parent().move_and_slide(movement)
+	if not is_dead:
+		movement = get_parent().move_and_slide(movement)
 	
 	#Player Rotation
-	if is_moving:
+	if is_moving and not is_dead:
 		var angle = atan2(movement.x, movement.z)
 		var player_rotation = get_rotation()
 		
 		#player_rotation.y = angle
-		my_model.rotation = lerp(my_model.rotation, player_rotation, delta)
-		collider.rotation = lerp(my_model.rotation, player_rotation, delta)
+		
+		my_model.rotation.y = lerp_angle(my_model.rotation.y, player_rotation.y, delta)
+		collider.rotation.y = lerp_angle(my_model.rotation.y, player_rotation.y, delta)
 	
 	#Camera Rotation
 	gimbal.rotate_x(deg2rad(my_rotation.y) * delta * mouse_sensitivity)
 	gimbal.rotation_degrees.x = clamp(gimbal.rotation_degrees.x, -rotation_limit, rotation_limit)
 	
 	my_rotation = Vector2()
+	
+	if health <= 0:
+		collider.disabled = true
+		$"../DeathCamera".current = true
+		is_dead = true
+		$"../AnimationPlayer".play("Die")
 	
 func _input(event):
 	if event.is_action_pressed("right_click"):
@@ -166,15 +175,6 @@ func _input(event):
 		$"../AnimationPlayer".play("Shoot")
 		$"../ShootTimer".start()
 		can_shoot = false
-		var new_cannonball = CANNONBALL.instance()
-		var new_cannonball2 = CANNONBALL.instance()
-		var new_cannonball3 = CANNONBALL.instance()
-		var new_cannonball4 = CANNONBALL.instance()
-		
-		cannon1.add_child(new_cannonball)
-		cannon2.add_child(new_cannonball2)
-		cannon3.add_child(new_cannonball3)
-		cannon4.add_child(new_cannonball4)
 
 func _on_ShootTimer_timeout():
 	can_shoot = true
@@ -184,3 +184,16 @@ func _on_ShootTimer_timeout():
 func update_islands_in_range(amount):
 	print('!!!')
 	Jukebox.update_near_island(amount)
+	
+func _ChargeTimer_start():
+	$"../ChargeTimer".start()
+
+func _on_ChargeTimer_timeout():
+	
+	for cannon in cannons:
+		var new_cannonball = CANNONBALL.instance()
+		cannon.add_child(new_cannonball)
+		cannon.get_node("Particles").emitting = true
+	
+func _die():
+	queue_free()

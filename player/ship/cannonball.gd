@@ -17,10 +17,16 @@ func _process(delta):
 	global_translate(forward_dir * delta * speed)
 
 func _on_Area_body_entered(body):
-	$MeshInstance.visible = false
-	$Particles.emitting = true
-	$KillTime.start()
-	speed = 0
+	if not body.name == get_parent().get_parent().name and not body.name == get_parent().get_parent().get_parent().get_parent().name:
+		$MeshInstance.visible = false
+		$Particles.emitting = true
+		$KillTime.start()
+		speed = 0
+		print(body.name)
+		if body.name == "Player" or body.name == "Player2" or body.name == "Player3" or body.name == "Enemy":
+			body.health -= 1
+		else:
+			pass
 
 func _on_KillTime_timeout():
 	queue_free()

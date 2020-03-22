@@ -1,35 +1,60 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://assets/player_ship_1_no_sail.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://assets/player_ship_2_no_sail.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://player/ship/player_ship.gd" type="Script" id=2]
 [ext_resource path="res://assets/just_sail.obj" type="ArrayMesh" id=3]
 [ext_resource path="res://assets/arrow.obj" type="ArrayMesh" id=4]
-[ext_resource path="res://assets/smoke_08.png" type="Texture" id=5]
 [ext_resource path="res://environment/light/SimpleLight.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/arrow_mat.tres" type="Material" id=7]
-[ext_resource path="res://player/ship/cannon_smoke_particle.tres" type="Material" id=8]
 [ext_resource path="res://player/ship/cannon.tscn" type="PackedScene" id=9]
+[ext_resource path="res://player/ship/player_general.gd" type="Script" id=10]
 
-[sub_resource type="SpatialMaterial" id=1]
-render_priority = 2
-flags_transparent = true
-flags_unshaded = true
-vertex_color_use_as_albedo = true
-params_diffuse_mode = 4
-params_blend_mode = 1
-params_billboard_mode = 3
-particles_anim_h_frames = 1
-particles_anim_v_frames = 1
-particles_anim_loop = false
-albedo_texture = ExtResource( 5 )
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 1.40618, 1.2261, 1.33213 )
 
-[sub_resource type="QuadMesh" id=2]
-material = SubResource( 1 )
+[sub_resource type="Animation" id=2]
+resource_name = "Die"
+length = 2.0
+tracks/0/type = "method"
+tracks/0/path = NodePath("Controller")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_die"
+} ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Ship:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, -1.858, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Ship:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( -10, 0, 90 ) ]
+}
 
-[sub_resource type="BoxShape" id=3]
-extents = Vector3( 0.912987, 1, 1 )
-
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("CinematicBoxes/ColorRect:rect_position")
@@ -80,78 +105,56 @@ tracks/3/keys = {
 "values": [ false, true ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("Ship/ParticlesRight:emitting")
+tracks/4/path = NodePath("Controller:is_zoomed")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/5/type = "value"
-tracks/5/path = NodePath("Ship/ParticlesLeft:emitting")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/6/type = "value"
-tracks/6/path = NodePath("Controller:is_zoomed")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/keys = {
 "times": PoolRealArray( 0, 0.1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
 }
 
-[sub_resource type="Animation" id=5]
-resource_name = "Shoot"
+[sub_resource type="Animation" id=4]
 tracks/0/type = "value"
-tracks/0/path = NodePath("Ship/ParticlesRight:emitting")
+tracks/0/path = NodePath("Ship:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.1, 0.6 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
+"times": PoolRealArray( 0, 0.1, 0.2, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 1, 1, 1 ), Vector3( 1, 1.1, 1 ), Vector3( 1.2, 1, 1 ), Vector3( 1, 1, 1 ) ]
 }
-tracks/1/type = "value"
-tracks/1/path = NodePath("Ship/ParticlesLeft:emitting")
+tracks/1/type = "method"
+tracks/1/path = NodePath("Controller")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.1, 0.6 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_ChargeTimer_start"
+} ]
 }
 
-[node name="player_ship_1" type="KinematicBody" groups=[
-"player",
+[node name="Player" type="KinematicBody" groups=[
+"Player",
 ]]
-collision_layer = 524291
-collision_mask = 524289
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0 )
+collision_layer = 786435
+collision_mask = 786435
 collision/safe_margin = 0.1
+script = ExtResource( 10 )
 
 [node name="Ship" type="MeshInstance" parent="."]
-cast_shadow = 0
 mesh = ExtResource( 1 )
 material/0 = null
 material/1 = null
@@ -163,17 +166,22 @@ material/6 = null
 material/7 = null
 
 [node name="SailFront" type="MeshInstance" parent="Ship"]
-transform = Transform( 1.62149, 0, 0, 0, 1.95723, 0, 0, 0, 1, 0.75, 0.73263, 0.606 )
+transform = Transform( 1.254, 0, 0, 0, 1.95723, 0, 0, 0, 1, 0.323629, 0.73263, 1.2895 )
+mesh = ExtResource( 3 )
+material/0 = null
+
+[node name="SailFront2" type="MeshInstance" parent="Ship/SailFront"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.07318, 0, 0 )
 mesh = ExtResource( 3 )
 material/0 = null
 
 [node name="SailMid" type="MeshInstance" parent="Ship"]
-transform = Transform( 2.3579, 0, 0, 0, 3.26622, 0, 0, 0, 1, 0.803123, 0.946893, -0.331544 )
+transform = Transform( 2.3579, 0, 0, 0, 3.26622, 0, 0, 0, 1, 0.803123, 0.946893, 0.230507 )
 mesh = ExtResource( 3 )
 material/0 = null
 
 [node name="SailRear" type="MeshInstance" parent="Ship"]
-transform = Transform( 1.5717, 0, 0, 0, 1.95723, 0, 0, 0, 1, 0.786796, 1.55102, -1.86808 )
+transform = Transform( 1.5717, 0, 0, 0, 1.95723, 0, 0, 0, 1, 0.786796, 1.55102, -1.54515 )
 mesh = ExtResource( 3 )
 material/0 = null
 
@@ -207,48 +215,33 @@ cast_shadow = 0
 mesh = ExtResource( 4 )
 material/0 = ExtResource( 7 )
 
-[node name="ParticlesRight" type="Particles" parent="Ship"]
-transform = Transform( -0.999893, 0, -0.01466, 0, 1, 0, 0.01466, 0, -0.999893, -0.657935, 0.635277, -0.753182 )
-emitting = false
-amount = 128
-lifetime = 4.0
-speed_scale = 4.17
-explosiveness = 1.0
-randomness = 1.0
-visibility_aabb = AABB( -0.56831, -0.910156, -1.33268, 0.293846, 0.413085, 0.456381 )
-local_coords = false
-draw_order = 2
-process_material = ExtResource( 8 )
-draw_pass_1 = SubResource( 2 )
-
-[node name="ParticlesLeft" type="Particles" parent="Ship"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.00084, 0.635277, -0.753182 )
-emitting = false
-amount = 128
-lifetime = 4.0
-speed_scale = 4.17
-explosiveness = 1.0
-randomness = 1.0
-visibility_aabb = AABB( -0.56831, -0.910156, -1.33268, 0.293846, 0.413085, 0.456381 )
-local_coords = false
-draw_order = 2
-process_material = ExtResource( 8 )
-draw_pass_1 = SubResource( 2 )
-
 [node name="Cannon" parent="Ship" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.849836, 0.463486, -0.858415 )
 
 [node name="Cannon2" parent="Ship" instance=ExtResource( 9 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.531846, 0.463486, -1.20161 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.849836, 0.463486, -1.24961 )
 
 [node name="Cannon3" parent="Ship" instance=ExtResource( 9 )]
-transform = Transform( -1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 2.17985, 0.463486, -1.20161 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.849836, 0.463486, -0.417483 )
 
 [node name="Cannon4" parent="Ship" instance=ExtResource( 9 )]
-transform = Transform( -1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 2.17985, 0.463486, -0.468407 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.849836, 0.463486, -0.0820637 )
 
-[node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 2.07011, 0.796575, 1.30199, -1.14069 )
-shape = SubResource( 3 )
+[node name="Cannon5" parent="Ship" instance=ExtResource( 9 )]
+transform = Transform( -1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 2.542, 0.463486, -1.25772 )
+
+[node name="Cannon6" parent="Ship" instance=ExtResource( 9 )]
+transform = Transform( -1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 2.542, 0.463486, -0.871959 )
+
+[node name="Cannon7" parent="Ship" instance=ExtResource( 9 )]
+transform = Transform( -1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 2.542, 0.463486, -0.468662 )
+
+[node name="Cannon8" parent="Ship" instance=ExtResource( 9 )]
+transform = Transform( -1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 2.542, 0.463486, -0.0723798 )
+
+[node name="Collider" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 2.07011, 0.988808, 1.00903, -0.407803 )
+shape = SubResource( 1 )
 
 [node name="Controller" type="Spatial" parent="."]
 script = ExtResource( 2 )
@@ -263,7 +256,6 @@ near = 0.01
 far = 255.0
 
 [node name="RayCast" type="RayCast" parent="Controller/InnerGimbal/Camera"]
-visible = false
 cast_to = Vector3( 0, -0.545, -3.364 )
 collision_mask = 262144
 
@@ -277,7 +269,7 @@ __meta__ = {
 [node name="ColorRect" type="ColorRect" parent="CinematicBoxes"]
 margin_top = -93.0782
 margin_right = 1024.0
-margin_bottom = -5.07823
+margin_bottom = -5.07827
 color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -293,18 +285,24 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Focus = SubResource( 4 )
-anims/Shoot = SubResource( 5 )
+anims/Die = SubResource( 2 )
+anims/Focus = SubResource( 3 )
+anims/Shoot = SubResource( 4 )
 
 [node name="SimpleLight" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.655018, 5.47696, 2.27849 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.655018, 0.942245, -0.286305 )
 omni_range = 10.0
 omni_attenuation = 11.7126
-max_light = 0.5
 
 [node name="ShootTimer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
-[connection signal="timeout" from="ShootTimer" to="Controller" method="_on_ShootTimer_timeout"]
 
-[editable path="Ship/Cannon"]
+[node name="ChargeTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="DeathCamera" type="Camera" parent="."]
+transform = Transform( 0.493653, -0.318279, 0.809324, 0, 0.930622, 0.365982, -0.869659, -0.180668, 0.459405, 5.806, 4.368, 2.059 )
+[connection signal="timeout" from="ShootTimer" to="Controller" method="_on_ShootTimer_timeout"]
+[connection signal="timeout" from="ChargeTimer" to="Controller" method="_on_ChargeTimer_timeout"]
