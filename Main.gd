@@ -57,8 +57,4 @@ func add_island(pos):
 	new_island.rotate_y(2*PI*randf())
 	$Land.add_child(new_island)
 
-func move_player_to(player_start_pos):
-	$Player.global_transform.origin.x = player_start_pos.x
-	$Player.global_transform.origin.z = player_start_pos.y
-	$Water.global_transform.origin.x = player_start_pos.x
-	$Water.global_transform.origin.z = player_start_pos.y
+

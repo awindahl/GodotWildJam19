@@ -38,9 +38,7 @@ func _process(delta):
 		elif !day_time and ((time_percentage() > day_time_perc) and (time_percentage() < night_time_perc)):
 			day_time = true
 			day_update()
-	
-	if Input.is_action_just_pressed("number_1"):
-		OS.window_fullscreen = !OS.window_fullscreen
+
 
 func day_update():
 	get_tree().call_group("day_cycle_update","day_cycle_update", day_time, max(max_real_time*.05, 3))
