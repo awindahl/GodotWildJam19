@@ -16,8 +16,8 @@ _global_script_class_icons={
 [application]
 
 config/name="GodotWildJam19"
-run/main_scene="res://Main.tscn"
-config/icon="res://assets/player_ship_2.png"
+run/main_scene="res://gui/TitleMenu.tscn"
+config/icon="res://icon.png"
 
 [autoload]
 
