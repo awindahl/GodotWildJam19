@@ -12,7 +12,7 @@ func add_info(tile_info):
 		open_chest()
 	else:
 		close_chest()
-	$LandPivot/Land.transform.origin.x += info['x_disp']
+	#$LandPivot/Land.transform.origin.x += info['x_disp']
 	$LandPivot.rotation_degrees = Vector3(0, tile_info['rotation'], 0)
 
 func close_chest():

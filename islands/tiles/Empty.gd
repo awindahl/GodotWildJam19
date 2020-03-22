@@ -12,3 +12,4 @@ func _on_Empty_body_entered(body):
 		info['visited'] = true
 		print('Empty tile discovered')
 		get_tree().call_group("map_handler", 'update_tile_visibility', info['tile_pos'])
+

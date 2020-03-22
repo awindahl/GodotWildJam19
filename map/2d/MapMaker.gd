@@ -9,10 +9,10 @@ var icon_list = [IconSea, IconI1, IconI2, IconI3, IconI4]
 
 # Change here
 export var real_map = true
-var level_size = 15
-var tile_size = 10
-var scope = 3
-var number_of_islands = 2000  # There can be one less value than this if
+var level_size = 9
+var tile_size = 25
+var scope = 5
+var number_of_islands = 50  # There can be one less value than this if
 # there is an island spawn on origin player position. 0 means random
 var radius
 var biomes = []
@@ -40,6 +40,12 @@ func _ready():
 	if level_size / scope < scope :
 		level_size = scope * 3
 	tile_ratio = player_map_size / (level_size-1)
+	print(tile_ratio)
+	#var player_start = Vector3(
+	#	floor(tile_size/2.0)*tile_ratio.x, 
+	#	get_parent().get_node("player_ship_1").get_translation().x,
+	#	floor(tile_size/2.0)*tile_ratio.y)
+	#get_parent().get_node("player_ship_1").set_translation(player_start)
 	#print('lvl', level_size)
 	
 	if real_map:
@@ -226,10 +232,11 @@ func _physics_process(delta):
 				tile.queue_free()
 		spawn_tiles()
 		# Make current tile visible in map
-		var player_pos = coordinates()
+		#var player_pos = coordinates()
 		#print('coord ', player_pos)
-		var player_pos_vec = Vector2(player_pos[0], player_pos[1])
-
+		#var player_pos_vec = Vector2(player_pos[0], player_pos[1])
+		var coord = coordinates()
+		update_tile_visibility(Vector2(coord[0],coord[1]))
 	
 	# Show/hide player map
 	if Input.is_action_just_pressed("number_2"):
@@ -264,9 +271,9 @@ func update_tile_visibility(pos):
 
 func create_player_map():	
 	# Add water tiles
-	var this_scale = Vector2(.8, .3)  # TODO get this automatic from level_size
+	var this_scale = Vector2(.78, .4)  # TODO get this automatic from level_size
 	var island_scale = .5 # TODO get this automatic from tile_size
-	for x in range(level_size):
+	for x in range(level_size-1, 0, -1):
 		for z in range(level_size):
 			# Make sea
 			var new_icon = IconSea.instance()
@@ -283,10 +290,10 @@ func create_player_map():
 				#var disp_vec = Vector2(cos(map[x][z]['rotation']*360), sin(map[x][z]['rotation']*360))*map[x][z]['x_disp']
 				#new_island.position = (Vector2(x-.5, z+.2)+disp_vec)
 				#new_island.position = (Vector2(x-.5, z+.2)+disp_vec)*tile_ratio
-				#new_island.position = Vector2(x-.5, z+.2)*tile_ratio
-				var displacement_vec = Vector2(cos(deg2rad(map[x][z]['rotation'])), sin(deg2rad(map[x][z]['rotation'])))*map[x][z]['x_disp']/tile_size*tile_ratio
+				new_island.position = Vector2(x-.5, z+.2)*tile_ratio
+				#var displacement_vec = Vector2(cos(deg2rad(map[x][z]['rotation'])), sin(deg2rad(map[x][z]['rotation'])))*map[x][z]['x_disp']/tile_size*tile_ratio
 				#print(displacement_vec)
-				new_island.position = Vector2(x-.5, z+.2)*tile_ratio + displacement_vec #Vector2(map[x][z]['x_disp'], 0)
+				#new_island.position = Vector2(x-.5, z+.2)*tile_ratio + displacement_vec #Vector2(map[x][z]['x_disp'], 0)
 				new_island.scale *= this_scale * island_scale
 				new_island.pos = Vector2(x, z)
 				new_island.visible = false
