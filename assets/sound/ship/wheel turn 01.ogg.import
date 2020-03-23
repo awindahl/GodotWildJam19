@@ -11,5 +11,5 @@ dest_files=[ "res://.import/wheel turn 01.ogg-64e9e141db42cf4b7a410a3239f1a60a.o
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

@@ -20,7 +20,7 @@ func set_health(h):
 
 func set_money(m):
 	money = int(m)
-	money_label = str(money)
+	money_label.text = str(money)
 
 func set_speed(s):
 	speed = int(s)

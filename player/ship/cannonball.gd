@@ -41,8 +41,8 @@ func _on_Area_body_entered(body):
 		
 		$AudioStreamPlayer3D.play()
 		
-		print(body.name)
-		if body.name == "Player" or body.name == "Player2" or body.name == "Player3" or body.name == "Enemy":
+		print(' Hit ', body.name, ' test ',body.name.substr(0, 5) )
+		if body.name == "Player" or body.name == "Player2" or body.name == "Player3" or body.name.substr(0,5) == "Enemy":
 			body.health -= 1
 		else:
 			pass

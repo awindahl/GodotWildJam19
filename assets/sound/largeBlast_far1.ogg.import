@@ -11,5 +11,5 @@ dest_files=[ "res://.import/largeBlast_far1.ogg-75161ec6a03ffc905c68b99d48d15e86
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

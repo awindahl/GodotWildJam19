@@ -46,3 +46,8 @@ func day_update():
 func time_percentage():
 	#print('% ', current_time/max_real_time)
 	return current_time/max_real_time
+
+func change_money(amount):
+	print('got money on global')
+	player_gold += amount
+	get_tree().call_group("HUD", "set_money", amount)

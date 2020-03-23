@@ -7,7 +7,9 @@
 [ext_resource path="res://assets/gui/sprites/RibbonBackground.png" type="Texture" id=5]
 [ext_resource path="res://gui/MapPanel.tscn" type="PackedScene" id=6]
 
-[node name="HUD" type="Control"]
+[node name="HUD" type="Control" groups=[
+"HUD",
+]]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 0.7547

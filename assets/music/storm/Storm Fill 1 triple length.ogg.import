@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Storm Fill 1 triple length.ogg-69393133d9c0b5a3b551e
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

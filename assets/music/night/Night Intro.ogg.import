@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Night Intro.ogg-72c64361c408917d6a79a2d3e284a195.ogg
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

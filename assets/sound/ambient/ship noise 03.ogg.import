@@ -11,5 +11,5 @@ dest_files=[ "res://.import/ship noise 03.ogg-bff6f1a7ab3165df8511d1b398763579.o
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

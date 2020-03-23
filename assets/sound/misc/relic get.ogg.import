@@ -11,5 +11,5 @@ dest_files=[ "res://.import/relic get.ogg-ede85f6e2f7372acfd35c2806859f167.oggst
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

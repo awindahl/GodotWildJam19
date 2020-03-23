@@ -11,5 +11,5 @@ dest_files=[ "res://.import/sail catch 02.ogg-35adefdf3529dcf2dff4e67ba68746a2.o
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

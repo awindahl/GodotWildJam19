@@ -9,8 +9,8 @@ var icon_list = [IconSea, IconI1, IconI2, IconI3, IconI4]
 
 # Change here
 export var real_map = true
-var level_size = 9
-var tile_size = 10
+var level_size = 15
+var tile_size = 25
 var scope = 5
 var number_of_islands = 20 # There can be one less value than this if
 # there is an island spawn on origin player position. 0 means random
@@ -48,7 +48,7 @@ func _ready():
 	if real_map:
 		biomes = ["Empty2", "Island1", "Island2", "Island3", 'SandIsland']
 		for biome in biomes:
-			print(biome)
+			#print(biome)
 			pre_load_biomes[biome] = load("res://islands/tiles/%s.tscn" % biome)
 	else:
 		biomes = ["sea", "island1"]
@@ -68,7 +68,7 @@ func _ready():
 func create_map():
 	# Refresh seed
 	randomize()
-	var player_spawn = better_coordinates()
+	var player_spawn = [2,2] # better_coordinates()
 
 	if number_of_islands != 0:
 		# Can only generate at maximum one island per grid tile minus origin one
@@ -298,7 +298,7 @@ func _physics_process(delta):
 	# Create new tiles if
 	# position has changed
 	if coordinates() != saved_coords:
-		print('New coordinates: ', coordinates())
+		#print('New coordinates: ', coordinates())
 		for tile in get_parent().get_children():
 			if "tile" in tile.name:
 				tile.queue_free()

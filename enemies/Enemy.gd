@@ -26,7 +26,7 @@ var patrol_index = 0
 var sees_player = false
 var player_pos
 var can_shoot = true
-var health = 7
+var health = 5
 var is_dead = false
 
 func _ready():
@@ -83,7 +83,7 @@ func _process(delta):
 	if ray.is_colliding() and can_shoot and not is_dead:
 		$AnimationPlayer.play("Shoot")
 
-	if health == 0:
+	if health <= 0:
 		is_dead = true
 		$AnimationPlayer.play("Die")
 
@@ -123,4 +123,5 @@ func _on_CooldownTimer_timeout():
 
 func _free():
 	queue_free()
-	Global.player_gold += 1500
+	Global.change_money(1500)
+	#Global.player_gold += 1500

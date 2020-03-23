@@ -11,5 +11,5 @@ dest_files=[ "res://.import/fight End.ogg-19562d1f38944462612c1588f363478b.oggst
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

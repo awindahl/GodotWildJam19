@@ -11,5 +11,5 @@ dest_files=[ "res://.import/fight Fill 5.ogg-e8d039e0c50f619bd1eb60b16ac911e8.og
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

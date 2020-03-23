@@ -28,7 +28,7 @@ func _process(delta):
 		4:
 			my_str = "You will aid me on this here journey..."
 		5:
-			my_str = "Steer yer ship with yer mouse, hit W to go forward and S to hit the sea-brakes!"
+			my_str = "Steer yer ship with yer mouse, hit W to go forward and S to hit the sea-brakes. Press Shift for extra speed!"
 		6:
 			my_str = "Stop yer ship near an island to claim the islands relic, while yer here ye can repair yer ship!"
 		7:

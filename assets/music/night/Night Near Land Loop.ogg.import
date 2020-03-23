@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Night Near Land Loop.ogg-4929ace2da92c8088a5b809808c
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0
