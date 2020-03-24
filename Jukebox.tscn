@@ -86,6 +86,10 @@ stream = ExtResource( 18 )
 
 [node name="NearLandLoop" type="AudioStreamPlayer" parent="Night"]
 stream = ExtResource( 17 )
+
+[node name="Player0" type="AudioStreamPlayer" parent="."]
+
+[node name="Player1" type="AudioStreamPlayer" parent="."]
 [connection signal="timeout" from="SwitchTimer" to="." method="_on_SwitchTimer_timeout"]
 [connection signal="finished" from="Day/Intro" to="." method="_on_track_finished"]
 [connection signal="finished" from="Day/Blank/1" to="." method="_on_track_finished"]

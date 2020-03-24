@@ -2,8 +2,12 @@ extends Node
 
 onready var current = $Day/Intro
 
-var change_of_random_fill = .5
+var change_of_random_fill = .25
 var change_of_random_blank = .9
+const consecutive_chance = 0.7
+
+var next_fill = 0
+var last_fill = 0
 
 var track_type = "one_off"
 var near_island = 0
@@ -13,12 +17,16 @@ var queue_track = []
 var switch_time = 9.29
 var day_time = true
 
+var player
+
 func _ready():
 	randomize()
 	$SwitchTimer.wait_time = .5
 	$SwitchTimer.start()
 	print('Playing intro ', current.get_path())
 	queue_track.append(current)
+	
+
 
 func _on_track_finished():
 	pass
@@ -35,19 +43,37 @@ func next_song():
 			if (randf() < change_of_random_fill): # and (near_island>0)
 				track_type = 'fill'
 				up_next = $Day/Fill.get_children()
+				while next_fill == last_fill:
+					next_fill = randi() % up_next.size()
+				current = up_next[next_fill]
+				last_fill = next_fill
 			elif (track_type == "one_off") or (randf() < change_of_random_blank):
-				track_type = 'blank'
 				up_next = $Day/Blank.get_children()
+				if (track_type == 'blank') and randf() > consecutive_chance:
+					current = up_next[randi() % up_next.size()]
+				else:
+					current = up_next[randi() % up_next.size()]
+				track_type = 'blank'
 			else:
 				up_next = [current]
-			current = up_next[randi() % up_next.size()]
+				current = up_next[randi() % up_next.size()]
 	
 	print('Now playing track ' + current.get_path(), '; Queue: ', queue_track)
-	current.play()
+	
+	if player == $Player1:
+		player = $Player0
+	else:
+		player = $Player1
+	player.stream = current.get_stream()
+	player.play()
+	
+	
+	
+	#current.play()
 	
 	# Update timer
 	#print(current.stream.get_length())
-	$SwitchTimer.wait_time = current.stream.get_length() - (.71 + .838708)
+	$SwitchTimer.wait_time = player.stream.get_length() - (.71 + .838708)
 	$SwitchTimer.start()
 
 func update_near_island(amount):
