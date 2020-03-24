@@ -43,7 +43,7 @@ func _on_Area_body_entered(body):
 		
 		print(get_parent().get_parent().get_parent().get_parent().name, ' hit ', body.name)
 		#if body.name == "Player" or body.name == "Player2" or body.name == "Player3" or body.name.substr(0,5) == "Enemy":
-		if body.name.substr(0,5) == "Player" or body.name.substr(0,5) == "Enemy":
+		if body.name.substr(0,6) == "Player" or body.name.substr(0,5) == "Enemy":
 			body.health -= 1
 			body.last_shot_by = get_parent().get_parent().get_parent().get_parent().name
 		else:

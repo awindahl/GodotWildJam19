@@ -31,7 +31,7 @@ export var clouds_coverage: float = 0.5 setget set_clouds_coverage#from 0 to 1
 var clouds_height: float =0.35 setget set_clouds_height#from 0 to 1
 var quality: float = 0.75 setget set_quality#from 0 to 1
 
-var god_rays = true
+var god_rays = false
 var use_day_cycle
 
 var fog_level = 0

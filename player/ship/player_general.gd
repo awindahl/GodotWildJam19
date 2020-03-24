@@ -17,7 +17,7 @@ func _process(delta):
 	if health > 10:
 		health = 10
 	
-	if Input.is_action_pressed("number_2"):
+	if Input.is_action_just_pressed("number_2"):
 		health = 10
 
 	gold = Global.player_gold
