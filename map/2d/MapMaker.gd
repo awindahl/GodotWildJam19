@@ -50,6 +50,7 @@ func _ready():
 		for biome in biomes:
 			#print(biome)
 			pre_load_biomes[biome] = load("res://islands/tiles/%s.tscn" % biome)
+			pre_load_biomes['Daltonga'] = load("res://islands/Daltonga.tscn")
 	else:
 		biomes = ["sea", "island1"]
 		for biome in biomes:
@@ -68,7 +69,7 @@ func _ready():
 func create_map():
 	# Refresh seed
 	randomize()
-	var player_spawn = [2,2] # better_coordinates()
+	var player_spawn = [6,6] # better_coordinates()
 
 	if number_of_islands != 0:
 		# Can only generate at maximum one island per grid tile minus origin one
@@ -279,6 +280,8 @@ func spawn_tiles():
 					if real_map: # and (type != 'Empty'):
 						#new_tile.tile_size = tile_size
 						new_tile.add_info(map[pos_x][pos_z])
+						if type == 'Daltonga':
+							new_tile.scale *= .2
 
 					self.get_parent().call_deferred("add_child", new_tile)
 			tile += 1
@@ -406,3 +409,32 @@ func create_player_map():
 				new_island.visible = false
 				$PlayerMap/IslandTiles.add_child(new_island)
 				island_holder[x*level_size + z] = biome_list[x*level_size + z]
+
+func add_daltonga():
+	# Get position of Empty away from player
+	var player_pos = better_coordinates()
+	print(player_pos[0] + round(level_size/2), ' ', player_pos[1] + round(level_size/2))
+	var target_pos = Vector2( \
+		int(player_pos[0] + round(level_size/2)) % level_size, \
+		int(player_pos[1] + round(level_size/2)) % level_size)
+	target_pos = get_empty(player_pos, target_pos) 
+	
+	# Change it to Daltonga type
+	map[target_pos.x][target_pos.y]['biome'] = "Daltonga"
+	
+	# Update map visibility
+	get_tree().call_group("map_handler", "show_daltonga", target_pos)
+
+func get_empty(player_pos, target_pos):
+	var x_temp = target_pos.x
+	var z_temp = target_pos.y
+	for x in range(6):
+		for z in range(6):
+			x_temp = int(target_pos.x + x) % level_size
+			z_temp = int(target_pos.y + z) % level_size
+			if map[x_temp][z_temp]['biome'] == 'Empty2':
+				return Vector2(x_temp, z_temp)
+			else:
+				print('Biome is ', map[x_temp][z_temp]['biome'])
+	print('No good place for Daltoga, on top of another island')
+	return target_pos

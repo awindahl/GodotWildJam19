@@ -42,3 +42,6 @@ func update_player(pos, rot):
 	$Map/PlayerOrigin/Player.position = Vector2(pos[0], pos[1]+.5)*tile_ratio
 	$Map/PlayerOrigin/Player.rotation_degrees = rad2deg(-rot.y)
 	
+func show_daltonga(pos):
+	$Map/IslandMap.set_cell(pos.x, pos.y, TILE_DALTONGA)
+	show_water(pos)

@@ -38,6 +38,9 @@ func _process(delta):
 		elif !day_time and ((time_percentage() > day_time_perc) and (time_percentage() < night_time_perc)):
 			day_time = true
 			day_update()
+	
+	if Input.is_action_just_pressed("number_1"):
+		change_money(1000)
 
 
 func day_update():
@@ -50,4 +53,4 @@ func time_percentage():
 func change_money(amount):
 	print('got money on global')
 	player_gold += amount
-	get_tree().call_group("HUD", "set_money", amount)
+	get_tree().call_group("HUD", "set_money", player_gold)

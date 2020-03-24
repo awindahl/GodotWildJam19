@@ -25,9 +25,10 @@ func _ready():
 
 func _process(delta):
 
-	if Global.player_relics_found > 4 and not daltonga:
+	if Global.player_relics_found >= 4 and not daltonga:
 		daltonga = true
-		spawn_daltonga()
+		#spawn_daltonga()
+		get_tree().call_group("map_handler", "add_daltonga")
 
 func spawn_daltonga():
 	add_child(daltonga_instance.instance())

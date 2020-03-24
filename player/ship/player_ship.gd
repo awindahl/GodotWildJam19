@@ -59,8 +59,7 @@ func _ready():
 	camera.translation = DEFAULT_CAMERA_POSITION
 	cannons = get_parent().get_node("Ship/Cannons").get_children()
 	
-func _unhandled_input(event):
-
+func _unhandled_input(event):		
 	if event is InputEventMouseMotion:
 		yaw = fmod(yaw - event.relative.x * mouse_sensitivity/100, 360)
 		rotation = Vector3(0, deg2rad(yaw), 0)
@@ -179,7 +178,6 @@ func _on_ShootTimer_timeout():
 	can_shoot = true
 
 func update_islands_in_range(amount):
-	print('!!!')
 	Jukebox.update_near_island(amount)
 	
 func _ChargeTimer_start():

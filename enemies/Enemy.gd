@@ -26,8 +26,9 @@ var patrol_index = 0
 var sees_player = false
 var player_pos
 var can_shoot = true
-var health = 5
+var health = 7
 var is_dead = false
+var last_shot_by = ""
 
 func _ready():
 
@@ -123,5 +124,6 @@ func _on_CooldownTimer_timeout():
 
 func _free():
 	queue_free()
-	Global.change_money(1500)
+	if last_shot_by == "Player":
+		Global.change_money(1500)
 	#Global.player_gold += 1500

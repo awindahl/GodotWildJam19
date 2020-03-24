@@ -6,6 +6,7 @@ var health = 10
 var gold = Global.player_gold
 export var level = 1
 var temp = false
+var last_shot_by = ""
 
 var relics = Global.player_relics_found
 
@@ -14,6 +15,9 @@ func _process(delta):
 	relics = Global.player_relics_found
 	
 	if health > 10:
+		health = 10
+	
+	if Input.is_action_pressed("number_2"):
 		health = 10
 
 	gold = Global.player_gold

@@ -81,8 +81,10 @@ func _process(delta):
 #		open_shop()
 
 func _on_RelicButton_pressed():
-	if player.gold > 1000:
-		player.gold -= 1000
+	#if player.gold > 1000:
+	if Global.player_gold >= 1000:
+		Global.change_money(-1000)
+		#player.gold -= 1000
 		Global.player_relics_found += 1
 		$Shop/RelicButton.disabled = true
 		$AudioStreamPlayer3D.play()
